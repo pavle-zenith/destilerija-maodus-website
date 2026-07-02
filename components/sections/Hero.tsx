@@ -55,9 +55,15 @@ export function Hero() {
 
           <div className={styles.trust}>
             <div className={styles.avatars} aria-hidden="true">
-              <span className={styles.avatar} />
-              <span className={styles.avatar} />
-              <span className={styles.avatar} />
+              {[
+                { src: "/images/partner-strand.png", name: "Strand" },
+                { src: "/images/partner-tiska.jpg", name: "Tiska" },
+                { src: "/images/partner-basch.png", name: "Basch" },
+              ].map((p) => (
+                <span key={p.name} className={styles.avatar}>
+                  <Image src={p.src} alt={p.name} width={46} height={46} className={styles.avatarImg} />
+                </span>
+              ))}
             </div>
             <div className={styles.trustLabel}>
               Biraju nas kupci,

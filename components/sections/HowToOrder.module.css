@@ -107,6 +107,16 @@
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 600px) {
+  .ctas {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .ctas > a {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
 @media (max-width: 640px) {
   .steps {

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { ProductCard } from "@/components/ui/ProductCard";
+import { Reveal } from "@/components/ui/Reveal";
 import type { Rakija } from "@/lib/content";
 import styles from "./RakijeCarousel.module.css";
 
@@ -43,35 +44,29 @@ export function RakijeCarousel({ items }: { items: Rakija[] }) {
     }
   };
 
+  const arrowButtons = (
+    <>
+      <button type="button" aria-label="Prethodna rakija" className={styles.arrow} onClick={prev}>
+        ←
+      </button>
+      <button type="button" aria-label="Sledeća rakija" className={styles.arrow} onClick={next}>
+        →
+      </button>
+    </>
+  );
+
   return (
     <section id="rakije" className={styles.section} aria-label="Naše rakije">
       <div className={styles.header}>
-        <div className={styles.headText}>
+        <Reveal className={styles.headText}>
           <Eyebrow className={styles.eyebrow}>Asortiman</Eyebrow>
           <h2 className={styles.h2}>Naše rakije</h2>
           <p className={styles.intro}>
             Od mirisnih voćnih rakija do odležanih barrique izdanja. Izaberite bocu
             za poklon, proslavu, meni ili kućnu kolekciju.
           </p>
-        </div>
-        <div className={styles.arrows}>
-          <button
-            type="button"
-            aria-label="Prethodna rakija"
-            className={styles.arrow}
-            onClick={prev}
-          >
-            ←
-          </button>
-          <button
-            type="button"
-            aria-label="Sledeća rakija"
-            className={styles.arrow}
-            onClick={next}
-          >
-            →
-          </button>
-        </div>
+        </Reveal>
+        <div className={`${styles.arrows} ${styles.arrowsDesktop}`}>{arrowButtons}</div>
       </div>
 
       <div ref={trackRef} className={styles.track}>
@@ -88,6 +83,8 @@ export function RakijeCarousel({ items }: { items: Rakija[] }) {
           />
         ))}
       </div>
+
+      <div className={`${styles.arrows} ${styles.arrowsMobile}`}>{arrowButtons}</div>
 
       <div className={styles.cta}>
         <Button href="/rakije" variant="red" size="lg" glow track="Pogledajte sve rakije">

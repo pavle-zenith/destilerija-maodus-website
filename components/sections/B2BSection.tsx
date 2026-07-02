@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
+import { Reveal, RevealItem } from "@/components/ui/Reveal";
 import styles from "./B2BSection.module.css";
 
 const usps: { icon: IconName; title: string; text: string }[] = [
@@ -26,7 +27,7 @@ export function B2BSection() {
   return (
     <section id="veleprodaja" className={styles.section} aria-label="Za ugostitelje">
       <div className={styles.inner}>
-        <div className={styles.header}>
+        <Reveal className={styles.header}>
           <div className={styles.headLeft}>
             <Eyebrow variant="dash" color="gold" className={styles.eyebrow}>
               Za ugostitelje
@@ -38,10 +39,10 @@ export function B2BSection() {
             rakiju sa stabilnim kvalitetom, jasnim izborom i pričom koju osoblje
             može da prenese gostu.
           </p>
-        </div>
+        </Reveal>
 
         {/* wide hero USP */}
-        <div className={styles.heroCard}>
+        <Reveal className={styles.heroCard}>
           <Image
             src="/images/b2b-sank.png"
             alt="Rakija na šanku"
@@ -61,12 +62,12 @@ export function B2BSection() {
               izbor rakija prema vašem lokalu, meniju ili sezoni proslava.
             </p>
           </div>
-        </div>
+        </Reveal>
 
         {/* 3 USP cards */}
         <div className={styles.grid}>
-          {usps.map((u) => (
-            <div key={u.title} className={styles.card}>
+          {usps.map((u, i) => (
+            <RevealItem key={u.title} className={styles.card} index={i}>
               <div className={styles.cardGlow} aria-hidden="true" />
               <div className={styles.goldChip}>
                 <Icon name={u.icon} size={24} />
@@ -75,7 +76,7 @@ export function B2BSection() {
                 <h3 className={styles.cardTitle}>{u.title}</h3>
                 <p className={styles.cardText}>{u.text}</p>
               </div>
-            </div>
+            </RevealItem>
           ))}
         </div>
 

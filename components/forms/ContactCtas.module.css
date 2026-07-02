@@ -5,3 +5,13 @@
   justify-content: center;
   margin-bottom: 36px;
 }
+@media (max-width: 600px) {
+  .ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ctas > button {
+    width: 100%;
+    justify-content: center;
+  }
+}

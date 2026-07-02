@@ -1,6 +1,7 @@
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { ImageSlot } from "@/components/ui/ImageSlot";
+import { Reveal, RevealItem } from "@/components/ui/Reveal";
 import { stats } from "@/lib/content";
 import styles from "./About.module.css";
 
@@ -8,7 +9,7 @@ export function About() {
   return (
     <section id="o-nama" className={styles.section} aria-label="O nama">
       <div className={styles.inner}>
-        <div>
+        <Reveal>
           <Eyebrow color="gold" className={styles.eyebrow}>O nama</Eyebrow>
           <h2 className={styles.h2}>Tri generacije posvećene rakiji</h2>
           <p className={styles.para}>
@@ -24,24 +25,24 @@ export function About() {
           </div>
 
           <div className={styles.stats}>
-            {stats.map((s) => (
-              <div key={s.label} className={styles.stat}>
+            {stats.map((s, i) => (
+              <RevealItem key={s.label} className={styles.stat} index={i}>
                 <div className={`${styles.statValue} ${s.small ? styles.statValueSmall : ""}`}>
                   {s.value}
                 </div>
                 <div className={styles.statLabel}>{s.label}</div>
-              </div>
+              </RevealItem>
             ))}
           </div>
-        </div>
+        </Reveal>
 
-        <div className={styles.photoWrap}>
+        <Reveal className={styles.photoWrap} delay={0.1}>
           <ImageSlot
             className={styles.photo}
             label="Porodica / voćnjak / destilerija"
             ratio="4 / 5"
           />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

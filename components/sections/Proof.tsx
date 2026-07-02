@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { Reveal } from "@/components/ui/Reveal";
 import { partners } from "@/lib/content";
 import styles from "./Proof.module.css";
 
@@ -15,14 +16,14 @@ export function Proof() {
   return (
     <section id="partneri" className={styles.section} aria-label="Poverenje">
       <div className={styles.inner}>
-        <div className={styles.header}>
+        <Reveal className={styles.header}>
           <Eyebrow className={styles.eyebrow}>Poverenje</Eyebrow>
           <h2 className={styles.h2}>Dokaz umesto obećanja</h2>
           <p className={styles.intro}>
             Dobra rakija ne traži mnogo objašnjenja, ali traži poverenje. Zato
             pokazujemo poreklo, proces, analize i ljude koji stoje iza svake boce.
           </p>
-        </div>
+        </Reveal>
 
         <div className={styles.marqueeMask}>
           <div className={styles.marquee}>

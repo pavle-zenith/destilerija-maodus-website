@@ -109,6 +109,33 @@
   color: var(--cream);
 }
 
+/* smaller product cards on phones */
+@media (max-width: 600px) {
+  .card {
+    min-height: 360px;
+  }
+  .md .name {
+    font-size: 25px;
+  }
+  .md .category {
+    font-size: 15px;
+  }
+  .md .top {
+    padding: 24px 22px 0;
+  }
+  .md .bottom {
+    padding: 0 22px 22px;
+  }
+  .md .abv {
+    font-size: 19px;
+  }
+  .md .plus {
+    width: 46px;
+    height: 46px;
+    font-size: 24px;
+  }
+}
+
 /* larger variant — floating hero featured card */
 .lg .name {
   font-size: 29px;

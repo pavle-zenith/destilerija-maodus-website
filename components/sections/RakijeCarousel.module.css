@@ -45,6 +45,20 @@
   gap: 14px;
   flex-shrink: 0;
 }
+/* desktop: arrows in the header; mobile: arrows below the track */
+.arrowsMobile {
+  display: none;
+}
+@media (max-width: 899px) {
+  .arrowsDesktop {
+    display: none;
+  }
+  .arrowsMobile {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
 .arrow {
   width: 54px;
   height: 54px;
@@ -100,6 +114,14 @@
 .slide {
   flex: 0 0 var(--card);
   scroll-snap-align: start;
+}
+
+/* smaller cards on mobile so more fit per scroll */
+@media (max-width: 600px) {
+  .track {
+    --card: clamp(160px, 50vw, 240px);
+    gap: 14px;
+  }
 }
 
 .cta {
