@@ -1,0 +1,130 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--body-2);
+}
+.req {
+  color: var(--red);
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--body);
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+.input:focus,
+.textarea:focus,
+.select:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(181, 50, 50, 0.12);
+}
+
+.error {
+  font-size: 12.5px;
+  color: var(--red);
+}
+
+/* visually-hidden honeypot */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.submitRow {
+  margin-top: 6px;
+}
+.submit {
+  width: 100%;
+  padding: 15px 24px;
+  background: var(--red);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.submit:hover {
+  background: var(--red-hover);
+}
+.submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.formError {
+  font-size: 13.5px;
+  color: var(--red);
+  margin: 0;
+}
+
+.success {
+  text-align: center;
+  padding: 8px 0 4px;
+}
+.successTitle {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--body);
+  margin: 0 0 8px;
+}
+.successText {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+.alt {
+  font-size: 13px;
+  color: var(--caption);
+  text-align: center;
+  margin: 4px 0 0;
+}
+.altLink {
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(181, 50, 50, 0.4);
+}
+
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,98 @@
+.eyebrow {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* colors */
+.red {
+  color: var(--red);
+}
+.gold {
+  color: var(--gold);
+}
+.muted {
+  color: var(--muted);
+}
+
+/* plain: standalone label (section eyebrows) */
+.plain {
+  font-size: 13px;
+  letter-spacing: 0.24em;
+}
+
+/* square: red 14px chip + label (hero) */
+.square {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.mark {
+  width: 14px;
+  height: 14px;
+  background: var(--red);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.square .label {
+  font-size: 12.5px;
+  letter-spacing: 0.2em;
+}
+
+/* dash: short red line + label (b2b) */
+.dash {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.markLine {
+  width: 26px;
+  height: 1px;
+  background: var(--red);
+}
+.dash .label {
+  font-size: 12.5px;
+  letter-spacing: 0.22em;
+}
+
+/* pill: bordered rounded pill with a leading dot */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border-radius: 999px;
+  padding: 7px 16px;
+  border: 1px solid rgba(181, 50, 50, 0.3);
+}
+.pill.muted {
+  border-color: rgba(34, 27, 20, 0.16);
+}
+.pill .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+}
+.pill .label {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+}
+.pill.red .label {
+  letter-spacing: 0.18em;
+}
+
+/* rules: red line — label — red line (final CTA) */
+.rules {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.rules .rule {
+  width: 30px;
+  height: 1px;
+  background: var(--red);
+}
+.rules .label {
+  font-size: 12px;
+  letter-spacing: 0.24em;
+}

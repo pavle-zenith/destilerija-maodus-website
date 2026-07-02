@@ -1,0 +1,104 @@
+.section {
+  background: linear-gradient(rgba(250, 246, 238, 0.93), rgba(250, 246, 238, 0.93)),
+    url("/images/orchard-texture.png");
+  background-size: cover;
+  background-position: center;
+  padding: clamp(64px, 9vw, 128px) 0;
+  overflow: hidden;
+}
+
+.header {
+  max-width: var(--container);
+  margin: 0 auto clamp(30px, 4vw, 50px);
+  padding: 0 var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 40px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.headText {
+  max-width: 620px;
+}
+.eyebrow {
+  margin-bottom: 18px;
+  letter-spacing: 0.24em;
+}
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(32px, 4.5vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--body);
+  margin: 0 0 16px;
+}
+.intro {
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+
+.arrows {
+  display: flex;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.arrow {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(34, 27, 20, 0.25);
+  background: transparent;
+  color: var(--body);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.arrow:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--cream);
+}
+
+.track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 6px 0 22px;
+  padding-left: calc(
+    max(0px, (100% - var(--container)) / 2) + var(--gutter)
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 clamp(48px, 7vw, 120px),
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 clamp(48px, 7vw, 120px),
+    #000 100%
+  );
+}
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 clamp(280px, 80vw, 338px);
+}
+
+.cta {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(30px, 3.5vw, 46px) var(--gutter) 0;
+  display: flex;
+  justify-content: center;
+}

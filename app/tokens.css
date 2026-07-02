@@ -1,0 +1,48 @@
+/* ============================================================
+   Destilerija Maoduš — design tokens
+   Sourced from HANDOFF_CLAUDE_CODE.md + Naslovna.dc.html
+   ============================================================ */
+:root {
+  /* Paper / light backgrounds */
+  --paper: #faf6ee;
+  --paper-hero-top: #f5edde;
+  --paper-hero-mid: #eee3d1;
+  --paper-hero-bottom: #e7dbcc;
+  --paper-alt: #efe5d2;
+  --card-cream: #fffdf9;
+
+  /* Darks */
+  --charcoal: #1c1815; /* trust strip, b2b, final cta base */
+  --footer-black: #141110;
+  --card-dark: #241e19; /* product / usp cards */
+  --plum: #4a1e2a; /* O nama */
+  --dark-btn-hover: #332b24;
+
+  /* Accents */
+  --red: #b53232;
+  --red-hover: #8e2626;
+  --gold: #c9a34e;
+
+  /* Text */
+  --cream: #f4ecdd; /* text on dark */
+  --off-white: #f7efe0; /* card headings on dark */
+  --taupe: #a99a82; /* secondary text on dark */
+  --body: #221b14; /* primary text on light */
+  --body-2: #3a3025; /* nav links */
+  --muted: #6e5d48; /* body paragraphs on light */
+  --muted-2: #5a4a38;
+  --caption: #8a7a61; /* small captions on light */
+
+  /* Borders */
+  --border-light: #e7dcc8;
+
+  /* Layout */
+  --container: 1280px;
+  --gutter: clamp(20px, 5vw, 56px);
+  --section-y: clamp(64px, 9vw, 128px);
+
+  /* Fonts (wired via next/font variables in layout.tsx) */
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}

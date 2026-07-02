@@ -1,0 +1,119 @@
+.section {
+  background: linear-gradient(rgba(239, 229, 210, 0.93), rgba(239, 229, 210, 0.93)),
+    url("/images/orchard-texture.png");
+  background-size: cover;
+  background-position: center;
+}
+.inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: clamp(64px, 9vw, 128px) var(--gutter);
+  text-align: center;
+}
+
+.eyebrow {
+  margin-bottom: 24px;
+}
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(32px, 4.8vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--body);
+  margin: 0 auto 14px;
+  max-width: 760px;
+}
+.accent {
+  font-style: italic;
+  color: var(--red);
+}
+.intro {
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 520px;
+  margin: 0 auto clamp(48px, 6vw, 72px);
+}
+
+.timeline {
+  position: relative;
+  max-width: 940px;
+  margin: 0 auto;
+}
+.connector {
+  position: absolute;
+  top: 30px;
+  left: 16.66%;
+  right: 16.66%;
+  height: 2px;
+  background: rgba(181, 50, 50, 0.32);
+  z-index: 0;
+}
+.steps {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 40px);
+}
+.circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--red);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 26px;
+  box-shadow: 0 0 0 10px #efe5d2;
+}
+.stepTitle {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(19px, 2vw, 23px);
+  color: var(--body);
+  margin: 0 0 10px;
+}
+.stepText {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0 auto;
+  max-width: 260px;
+}
+
+.reassure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-size: 14.5px;
+  color: var(--caption);
+  margin: clamp(44px, 5vw, 60px) 0 clamp(30px, 3.5vw, 40px);
+}
+.lock {
+  color: var(--taupe);
+}
+
+.ctas {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .connector {
+    display: none;
+  }
+}

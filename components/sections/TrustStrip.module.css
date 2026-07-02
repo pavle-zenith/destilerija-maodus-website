@@ -1,0 +1,36 @@
+.strip {
+  background: var(--charcoal);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(22px, 2.6vw, 30px) var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(20px, 3vw, 44px);
+  align-items: center;
+  justify-content: center;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.chip {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: var(--red);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--cream);
+}

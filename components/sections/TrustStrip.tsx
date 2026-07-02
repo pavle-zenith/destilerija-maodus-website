@@ -1,0 +1,26 @@
+import { Icon, type IconName } from "@/components/ui/Icon";
+import styles from "./TrustStrip.module.css";
+
+const items: { icon: IconName; label: string }[] = [
+  { icon: "award", label: "Tradicija od 1960-ih" },
+  { icon: "drop", label: "Dvostruka destilacija u bakru" },
+  { icon: "flask", label: "Kontrolisana proizvodnja" },
+  { icon: "leaf", label: "Voće iz sopstvenog voćnjaka" },
+];
+
+export function TrustStrip() {
+  return (
+    <section className={styles.strip} aria-label="Zašto Maoduš">
+      <div className={styles.inner}>
+        {items.map((it) => (
+          <div key={it.label} className={styles.item}>
+            <span className={styles.chip}>
+              <Icon name={it.icon} size={22} />
+            </span>
+            <span className={styles.label}>{it.label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}

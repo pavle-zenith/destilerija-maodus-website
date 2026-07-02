@@ -1,0 +1,56 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  background: rgba(20, 15, 10, 0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(16px, 5vh, 64px) 16px;
+  overflow-y: auto;
+}
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  background: var(--card-cream);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: clamp(28px, 4vw, 44px);
+  box-shadow: 0 40px 120px rgba(20, 15, 10, 0.45);
+}
+.close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 26px;
+  line-height: 0;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.close:hover {
+  background: rgba(34, 27, 20, 0.06);
+  color: var(--body);
+}
+.title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(24px, 3vw, 30px);
+  line-height: 1.1;
+  color: var(--body);
+  margin: 0 0 8px;
+  max-width: 90%;
+}
+.subtitle {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0 0 22px;
+}

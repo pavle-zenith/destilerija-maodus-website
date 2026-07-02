@@ -1,0 +1,127 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: var(--card-dark);
+  border-radius: 5px;
+  min-height: 462px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.25s ease;
+}
+.card:hover {
+  box-shadow: 0 20px 44px rgba(34, 27, 20, 0.22);
+}
+
+.photo {
+  object-fit: cover;
+  z-index: 0;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 13, 9, 0.82) 0%,
+    rgba(18, 13, 9, 0.14) 26%,
+    rgba(18, 13, 9, 0.04) 50%,
+    rgba(18, 13, 9, 0.62) 78%,
+    rgba(18, 13, 9, 0.95) 100%
+  );
+}
+
+.top {
+  position: relative;
+  z-index: 2;
+  padding: 32px 32px 0;
+}
+.eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.04;
+  color: var(--off-white);
+  margin: 0 0 6px;
+}
+.category {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--gold);
+  margin: 0;
+}
+
+.bottom {
+  position: relative;
+  z-index: 2;
+  padding: 0 32px 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.abv {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 0.005em;
+}
+.volume {
+  font-size: 13px;
+  color: #c6b49c;
+  margin-top: 5px;
+  letter-spacing: 0.02em;
+}
+
+.plus {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 253, 249, 0.14);
+  border: 1px solid rgba(244, 236, 221, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 0;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+.plus:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--cream);
+}
+
+/* larger variant — floating hero featured card */
+.lg .name {
+  font-size: 29px;
+}
+.lg .category {
+  font-size: 17px;
+}
+.lg .top {
+  padding: 28px 30px 0;
+}
+.lg .bottom {
+  padding: 0 30px 26px;
+}
+.lg .eyebrow {
+  margin-bottom: 14px;
+}
