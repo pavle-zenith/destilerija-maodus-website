@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  /* offset anchored sections so they aren't hidden under the sticky header */
+  scroll-padding-top: 84px;
+}
+
 html,
 body {
   margin: 0;

@@ -24,7 +24,7 @@ export function ProductCard({
   abv,
   volume,
   image,
-  href = "#kontakt",
+  href = "/kontakt",
   eyebrow,
   size = "md",
   priority,

@@ -22,8 +22,16 @@ export function StructuredData({
       areaServed: "RS",
       address: {
         "@type": "PostalAddress",
+        streetAddress: "Stevana Novkovića 25",
+        postalCode: "24426",
+        addressLocality: "Velebit",
         addressRegion: "Vojvodina",
         addressCountry: "RS",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: site.coords.lat,
+        longitude: site.coords.lng,
       },
       sameAs: [site.instagramHref],
     },

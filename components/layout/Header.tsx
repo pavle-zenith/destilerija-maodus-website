@@ -25,7 +25,7 @@ export function Header() {
     <>
     <header className={styles.header}>
       <div className={styles.inner}>
-        <a href="#" className={styles.logo} aria-label="Destilerija Maoduš — početna" onClick={close}>
+        <a href="/" className={styles.logo} aria-label="Destilerija Maoduš — početna" onClick={close}>
           <Image src="/images/logo.png" alt="Destilerija Maoduš" width={180} height={46} priority className={styles.logoImg} />
         </a>
 
@@ -48,14 +48,14 @@ export function Header() {
               <Icon name="phone" size={20} />
             </a>
             <a
-              href="#veleprodaja"
+              href="/#veleprodaja"
               className={styles.secondary}
               onClick={() => track.cta("Veleprodaja (nav)", "#veleprodaja")}
             >
               Veleprodaja
             </a>
             <a
-              href="#kontakt"
+              href="/kontakt"
               className={styles.pill}
               onClick={() => track.cta("Poručite (nav)", "#kontakt")}
             >
@@ -67,7 +67,7 @@ export function Header() {
         {/* mobile controls (<900px) */}
         <div className={styles.mobileControls}>
           <a
-            href="#kontakt"
+            href="/kontakt"
             className={styles.pillSm}
             onClick={() => track.cta("Poručite (nav)", "#kontakt")}
           >
@@ -93,7 +93,9 @@ export function Header() {
       {open && (
         <div className={styles.overlay} role="dialog" aria-modal="true" aria-label="Meni">
           <div className={styles.overlayTop}>
-            <Image src="/images/logo.png" alt="Destilerija Maoduš" width={180} height={46} className={styles.logoImg} />
+            <a href="/" aria-label="Destilerija Maoduš — početna" onClick={close}>
+              <Image src="/images/logo.png" alt="Destilerija Maoduš" width={180} height={46} className={styles.logoImg} />
+            </a>
             <button
               type="button"
               aria-label="Zatvorite meni"
@@ -126,10 +128,10 @@ export function Header() {
               {site.phone}
             </a>
             <div className={styles.overlayCtas}>
-              <a href="#veleprodaja" className={styles.overlaySecondary} onClick={close}>
+              <a href="/#veleprodaja" className={styles.overlaySecondary} onClick={close}>
                 Veleprodaja
               </a>
-              <a href="#kontakt" className={styles.overlayPrimary} onClick={close}>
+              <a href="/kontakt" className={styles.overlayPrimary} onClick={close}>
                 Poručite
               </a>
             </div>

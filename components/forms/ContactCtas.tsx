@@ -3,31 +3,22 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Modal } from "./Modal";
-import { InquiryForm } from "./InquiryForm";
 import { WholesaleForm } from "./WholesaleForm";
 import styles from "./ContactCtas.module.css";
 
-type Which = null | "inquiry" | "wholesale";
-
 export function ContactCtas() {
-  const [open, setOpen] = useState<Which>(null);
-  const close = () => setOpen(null);
+  const [open, setOpen] = useState(false);
 
   return (
     <>
       <div className={styles.ctas}>
-        <Button
-          variant="red"
-          size="lg"
-          onClick={() => setOpen("inquiry")}
-          track="Poručite rakiju (kontakt)"
-        >
+        <Button href="/kontakt" variant="red" size="lg" track="Poručite rakiju (kontakt)">
           Poručite rakiju
         </Button>
         <Button
           variant="outline"
           size="lg"
-          onClick={() => setOpen("wholesale")}
+          onClick={() => setOpen(true)}
           track="Veleprodajni upit"
         >
           Veleprodajni upit
@@ -35,17 +26,8 @@ export function ContactCtas() {
       </div>
 
       <Modal
-        open={open === "inquiry"}
-        onClose={close}
-        title="Porudžbina za sebe ili poklon"
-        subtitle="Javite koju rakiju želite, količinu i grad — vraćamo se sa predlogom."
-      >
-        <InquiryForm />
-      </Modal>
-
-      <Modal
-        open={open === "wholesale"}
-        onClose={close}
+        open={open}
+        onClose={() => setOpen(false)}
         title="Veleprodajni upit"
         subtitle="Za restorane, barove, sale i vinoteke. Šaljemo ponudu po meri."
       >

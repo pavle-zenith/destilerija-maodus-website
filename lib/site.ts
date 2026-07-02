@@ -15,8 +15,20 @@ export const site = {
   instagram: "@destilerija.maodus",
   instagramHref: "https://instagram.com/destilerija.maodus",
   region: "Vojvodina, Srbija",
+  address: "Stevana Novkovića 25, 24426 Velebit, Srbija",
+  addressShort: "Stevana Novkovića 25, 24426 Velebit",
+  coords: { lat: 46.008, lng: 19.94 },
   slogan: "Dobra do poslednje kapi.",
 } as const;
+
+/** Keyless Google Maps embed (no API key required). */
+export const mapEmbedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(
+  site.address
+)}&z=15&output=embed`;
+
+export const mapLinkHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  site.address
+)}`;
 
 export const whatsappHref = (message?: string) =>
   `https://wa.me/${site.phoneDigits}${
@@ -28,11 +40,14 @@ export const viberHref = (message?: string) =>
     message ? `&text=${encodeURIComponent(message)}` : ""
   }`;
 
-/** Primary navigation (matches the in-page section anchors). */
+/**
+ * Primary navigation. Home-section links are absolute (/#...) so they work from
+ * any page (e.g. /kontakt); Kontakt is a real route.
+ */
 export const navLinks = [
-  { href: "#rakije", label: "Rakije" },
-  { href: "#o-nama", label: "O nama" },
-  { href: "#partneri", label: "Partneri" },
-  { href: "#blog", label: "Blog" },
-  { href: "#kontakt", label: "Kontakt" },
+  { href: "/#rakije", label: "Rakije" },
+  { href: "/#o-nama", label: "O nama" },
+  { href: "/#partneri", label: "Partneri" },
+  { href: "/#blog", label: "Blog" },
+  { href: "/kontakt", label: "Kontakt" },
 ] as const;

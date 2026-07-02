@@ -45,7 +45,7 @@ export function Hero() {
           </p>
 
           <div className={styles.ctas}>
-            <Button href="#kontakt" variant="red" size="lg" glow track="Poručite rakiju (hero)">
+            <Button href="/kontakt" variant="red" size="lg" glow track="Poručite rakiju (hero)">
               Poručite rakiju
             </Button>
             <Button href="#veleprodaja" variant="dark" size="lg" glow track="Za lokale i proslave">

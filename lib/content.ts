@@ -30,6 +30,18 @@ export const featuredRakija: Rakija & { eyebrow: string; tagline: string } = {
   tagline: "Kraljica voćnih rakija",
 };
 
+/** All 8 SKU names for form selects (2 "Classic" have no photos yet). */
+export const allSkuNames = [
+  "Dunja",
+  "Kajsija",
+  "Viljamovka",
+  "Dunja Barrique",
+  "Šljiva Barrique",
+  "Jabuka Barrique",
+  "Šljiva Classic",
+  "Jabuka Classic",
+] as const;
+
 export type Faq = { q: string; a: string };
 
 export const faqs: Faq[] = [
@@ -54,6 +66,9 @@ export const faqs: Faq[] = [
     a: "Voćne bele i classic rakije su 40% vol, dok su barrique izdanja 42% vol.",
   },
 ];
+
+/** Consumer-focused subset for the /kontakt page (drops the wholesale question). */
+export const consumerFaqs: Faq[] = [faqs[0], faqs[2], faqs[3], faqs[4]];
 
 export type Partner = { name: string; logo: string; maxHeight: number };
 
@@ -104,7 +119,7 @@ export const bento: BentoCard[] = [
   {
     title: "Za poslovne poklone",
     tag: "Pokloni",
-    href: "#kontakt",
+    href: "/kontakt",
     image: "/images/bento-poklon.png",
     copy: "Poklon boce za klijente, partnere i ljude kojima želite da pošaljete nešto domaće i ozbiljno.",
     tint: [52, 38, 12],
@@ -112,7 +127,7 @@ export const bento: BentoCard[] = [
   {
     title: "Za privatne kupce",
     tag: "Porudžbina",
-    href: "#kontakt",
+    href: "/kontakt",
     image: "/images/bento-slava.png",
     copy: "Za slavu, poklon, odlazak u goste ili ličnu kolekciju.",
     tint: [38, 12, 22],

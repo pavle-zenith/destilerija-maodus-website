@@ -22,7 +22,7 @@ const steps = [
   },
 ];
 
-export function HowToOrder() {
+export function HowToOrder({ showCtas = true }: { showCtas?: boolean }) {
   return (
     <section className={styles.section} aria-label="Kako naručiti">
       <div className={styles.inner}>
@@ -57,14 +57,16 @@ export function HowToOrder() {
           Ponudu pravimo prema količini, nameni i mestu isporuke.
         </p>
 
-        <div className={styles.ctas}>
-          <Button href="#kontakt" variant="red" size="lg" glow track="Pošaljite upit (Kako naručiti)">
-            Pošaljite upit
-          </Button>
-          <Button href="#veleprodaja" variant="text" track="Zatražite veleprodaju">
-            Zatražite veleprodaju →
-          </Button>
-        </div>
+        {showCtas && (
+          <div className={styles.ctas}>
+            <Button href="/kontakt" variant="red" size="lg" glow track="Pošaljite upit (Kako naručiti)">
+              Pošaljite upit
+            </Button>
+            <Button href="/#veleprodaja" variant="text" track="Zatražite veleprodaju">
+              Zatražite veleprodaju →
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

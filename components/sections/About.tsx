@@ -19,7 +19,7 @@ export function About() {
             ostane čist, voćan i prepoznatljiv.
           </p>
           <div className={styles.cta}>
-            <Button href="#kontakt" variant="red" track="Poručite rakiju (O nama)">
+            <Button href="/kontakt" variant="red" track="Poručite rakiju (O nama)">
               Poručite rakiju →
             </Button>
           </div>
