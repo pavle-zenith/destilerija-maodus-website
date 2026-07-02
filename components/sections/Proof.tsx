@@ -13,7 +13,7 @@ export function Proof() {
   const loop = [...partners, ...partners];
 
   return (
-    <section className={styles.section} aria-label="Poverenje">
+    <section id="partneri" className={styles.section} aria-label="Poverenje">
       <div className={styles.inner}>
         <div className={styles.header}>
           <Eyebrow className={styles.eyebrow}>Poverenje</Eyebrow>

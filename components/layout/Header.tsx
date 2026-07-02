@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { navLinks } from "@/lib/site";
+import { navLinks, site } from "@/lib/site";
 import { track } from "@/lib/analytics";
+import { Icon } from "@/components/ui/Icon";
 import styles from "./Header.module.css";
 
 export function Header() {
@@ -17,27 +18,54 @@ export function Header() {
         </a>
 
         {/* desktop nav (>=900px) */}
-        <nav className={styles.desktopNav} aria-label="Glavna navigacija">
-          {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className={styles.link}>
-              {l.label}
+        <div className={styles.desktopNav}>
+          <nav className={styles.links} aria-label="Glavna navigacija">
+            {navLinks.map((l) => (
+              <a key={l.href} href={l.href} className={styles.link}>
+                {l.label}
+              </a>
+            ))}
+          </nav>
+          <div className={styles.actions}>
+            <a
+              href={site.phoneHref}
+              className={styles.phone}
+              aria-label={`Pozovite ${site.phone}`}
+              onClick={() => track.cta("Telefon (nav)", site.phoneHref)}
+            >
+              <Icon name="phone" size={20} />
             </a>
-          ))}
-          <a
-            href="#kontakt"
-            className={styles.pill}
-            onClick={() => track.cta("Poručite", "#kontakt")}
-          >
-            Poručite
-          </a>
-        </nav>
+            <a
+              href="#veleprodaja"
+              className={styles.secondary}
+              onClick={() => track.cta("Veleprodaja (nav)", "#veleprodaja")}
+            >
+              Veleprodaja
+            </a>
+            <a
+              href="#kontakt"
+              className={styles.pill}
+              onClick={() => track.cta("Poručite (nav)", "#kontakt")}
+            >
+              Poručite
+            </a>
+          </div>
+        </div>
 
         {/* mobile controls (<900px) */}
         <div className={styles.mobileControls}>
           <a
+            href={site.phoneHref}
+            className={styles.phone}
+            aria-label={`Pozovite ${site.phone}`}
+            onClick={() => track.cta("Telefon (nav)", site.phoneHref)}
+          >
+            <Icon name="phone" size={20} />
+          </a>
+          <a
             href="#kontakt"
             className={styles.pillSm}
-            onClick={() => track.cta("Poručite", "#kontakt")}
+            onClick={() => track.cta("Poručite (nav)", "#kontakt")}
           >
             Poručite
           </a>
@@ -67,6 +95,13 @@ export function Header() {
               {l.label}
             </a>
           ))}
+          <a
+            href="#veleprodaja"
+            className={styles.mobileSecondary}
+            onClick={() => setOpen(false)}
+          >
+            Veleprodaja
+          </a>
         </nav>
       )}
     </header>

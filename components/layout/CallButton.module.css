@@ -1,0 +1,71 @@
+.button {
+  position: fixed;
+  z-index: 850;
+  right: clamp(16px, 3vw, 28px);
+  bottom: clamp(16px, 3vw, 28px);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 20px 13px 16px;
+  background: var(--red);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(181, 50, 50, 0.4), 0 2px 6px rgba(20, 15, 10, 0.25);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.button:hover {
+  background: var(--red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(181, 50, 50, 0.46), 0 2px 6px rgba(20, 15, 10, 0.25);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  white-space: nowrap;
+}
+
+/* subtle attention pulse on the icon */
+@keyframes callPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+.icon {
+  animation: callPulse 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon {
+    animation: none;
+  }
+}
+
+/* shrink to an icon-only circle on very small screens */
+@media (max-width: 420px) {
+  .button {
+    padding: 14px;
+    border-radius: 50%;
+  }
+  .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+}

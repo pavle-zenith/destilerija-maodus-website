@@ -30,7 +30,12 @@
 .desktopNav {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
+}
+.links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 .link {
   text-decoration: none;
@@ -43,15 +48,61 @@
   color: var(--red);
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  color: var(--body-2);
+  border-radius: 50%;
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+.phone:hover {
+  color: var(--red);
+  background: rgba(181, 50, 50, 0.08);
+}
+
+/* secondary CTA */
+.secondary {
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid rgba(34, 27, 20, 0.22);
+  color: var(--body-2);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+.secondary:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+/* primary CTA */
 .pill {
   text-decoration: none;
-  padding: 11px 24px;
+  padding: 11px 22px;
   background: var(--red);
   color: var(--cream);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   border-radius: 2px;
   transition: background 0.2s ease;
+  white-space: nowrap;
 }
 .pill:hover {
   background: var(--red-hover);
@@ -60,15 +111,17 @@
 .mobileControls {
   display: none;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 .pillSm {
   text-decoration: none;
-  padding: 10px 18px;
+  padding: 10px 16px;
   background: var(--red);
   color: var(--cream);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   border-radius: 2px;
 }
 .hamburger {
@@ -83,6 +136,7 @@
   border: 1px solid rgba(34, 27, 20, 0.2);
   border-radius: 2px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 .hamburger span {
   width: 20px;
@@ -104,8 +158,18 @@
   padding: 14px 0;
   border-bottom: 1px solid rgba(34, 27, 20, 0.07);
 }
-.mobileLink:last-child {
-  border-bottom: none;
+.mobileSecondary {
+  text-decoration: none;
+  margin-top: 18px;
+  padding: 14px 20px;
+  text-align: center;
+  border: 1px solid rgba(34, 27, 20, 0.22);
+  color: var(--body-2);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 2px;
 }
 
 @media (max-width: 899px) {

@@ -30,10 +30,9 @@ export const viberHref = (message?: string) =>
 
 /** Primary navigation (matches the in-page section anchors). */
 export const navLinks = [
-  { href: "#zakoga", label: "Za koga" },
   { href: "#rakije", label: "Rakije" },
-  { href: "#veleprodaja", label: "Veleprodaja" },
   { href: "#o-nama", label: "O nama" },
+  { href: "#partneri", label: "Partneri" },
   { href: "#blog", label: "Blog" },
   { href: "#kontakt", label: "Kontakt" },
 ] as const;

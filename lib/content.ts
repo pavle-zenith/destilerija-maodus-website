@@ -62,6 +62,12 @@ export const partners: Partner[] = [
   { name: "Tiska", logo: "/images/partner-tiska.jpg", maxHeight: 66 },
   { name: "Strand", logo: "/images/partner-strand.png", maxHeight: 70 },
   { name: "Basch", logo: "/images/partner-basch.png", maxHeight: 74 },
+  { name: "Ananas", logo: "/images/partner-ananas.png", maxHeight: 42 },
+  { name: "AlatCoop", logo: "/images/partner-alatcoop.png", maxHeight: 48 },
+  { name: "Svelatron", logo: "/images/partner-svelatron.png", maxHeight: 34 },
+  { name: "Galaxis-I", logo: "/images/partner-galaxis.jpeg", maxHeight: 74 },
+  { name: "Čarda Kapetanski rit", logo: "/images/partner-kapetanski-rit.jpeg", maxHeight: 70 },
+  { name: "PiZSU", logo: "/images/partner-pizsu.jpeg", maxHeight: 74 },
 ];
 
 export type BentoCard = {

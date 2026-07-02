@@ -66,14 +66,20 @@
 }
 
 .track {
+  --card: clamp(280px, 80vw, 338px);
+  --lead: calc(max(0px, (100% - var(--container)) / 2) + var(--gutter));
   display: flex;
   gap: 24px;
   overflow-x: auto;
   scrollbar-width: none;
   padding: 6px 0 22px;
-  padding-left: calc(
-    max(0px, (100% - var(--container)) / 2) + var(--gutter)
-  );
+  padding-left: var(--lead);
+  /* trailing space so the LAST card can slide all the way to the front
+     (empty space after it is intentional) */
+  padding-right: max(var(--gutter), calc(100% - var(--card) - var(--lead)));
+  /* snap each card to the left gutter line */
+  scroll-snap-type: x proximity;
+  scroll-padding-left: var(--lead);
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0,
@@ -92,7 +98,8 @@
 }
 
 .slide {
-  flex: 0 0 clamp(280px, 80vw, 338px);
+  flex: 0 0 var(--card);
+  scroll-snap-align: start;
 }
 
 .cta {

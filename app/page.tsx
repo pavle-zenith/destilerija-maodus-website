@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AgeGate } from "@/components/layout/AgeGate";
+import { CallButton } from "@/components/layout/CallButton";
 import { Hero } from "@/components/sections/Hero";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { RakijeCarousel } from "@/components/sections/RakijeCarousel";
@@ -41,6 +42,7 @@ export default async function Home() {
         <FinalCta />
       </main>
       <Footer />
+      <CallButton />
     </>
   );
 }

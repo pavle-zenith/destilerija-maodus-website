@@ -7,57 +7,40 @@ import { ProductCard } from "@/components/ui/ProductCard";
 import type { Rakija } from "@/lib/content";
 import styles from "./RakijeCarousel.module.css";
 
-const STEP = 362; // card 338 + gap 24
-
-function computeStops(el: HTMLElement) {
-  const max = el.scrollWidth - el.clientWidth;
-  const stops: number[] = [];
-  for (let i = 0; i * STEP < max; i++) stops.push(i * STEP);
-  stops.push(max);
-  // merge a too-close final stop
-  while (stops.length >= 2 && max - stops[stops.length - 2] < STEP * 0.55) {
-    stops.splice(stops.length - 2, 1);
-  }
-  return { stops, max };
+/** One card + gap, measured from the DOM (card width is fluid via clamp()). */
+function getStep(el: HTMLElement) {
+  const first = el.firstElementChild as HTMLElement | null;
+  const gap = parseFloat(getComputedStyle(el).columnGap || "0") || 24;
+  const cardWidth = first?.getBoundingClientRect().width ?? 338;
+  return cardWidth + gap;
 }
 
 export function RakijeCarousel({ items }: { items: Rakija[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number | null>(null);
 
-  const tween = (el: HTMLElement, target: number) => {
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    const start = el.scrollLeft;
-    const delta = target - start;
-    if (Math.abs(delta) < 1) return;
-    const dur = 380;
-    const t0 = performance.now();
-    const ease = (t: number) => 1 - Math.pow(1 - t, 3);
-    const step = (now: number) => {
-      const p = Math.min(1, (now - t0) / dur);
-      el.scrollLeft = start + delta * ease(p);
-      if (p < 1) rafRef.current = requestAnimationFrame(step);
-    };
-    rafRef.current = requestAnimationFrame(step);
-  };
-
+  // Slide one card at a time. Trailing padding (CSS) lets the last card come
+  // fully into view; reaching the end + "next" resets to the start, and "prev"
+  // at the start jumps to the end.
   const next = () => {
     const el = trackRef.current;
     if (!el) return;
-    const { stops } = computeStops(el);
-    const cur = el.scrollLeft;
-    const target = stops.find((s) => s > cur + 4);
-    tween(el, target == null ? 0 : target); // wrap to start
+    const max = el.scrollWidth - el.clientWidth;
+    if (el.scrollLeft >= max - 2) {
+      el.scrollTo({ left: 0, behavior: "smooth" }); // slid to the end → back to start
+    } else {
+      el.scrollBy({ left: getStep(el), behavior: "smooth" });
+    }
   };
 
   const prev = () => {
     const el = trackRef.current;
     if (!el) return;
-    const { stops } = computeStops(el);
-    const cur = el.scrollLeft;
-    let target: number | null = null;
-    for (const s of stops) if (s < cur - 4) target = s;
-    tween(el, target == null ? stops[stops.length - 1] : target); // wrap to end
+    if (el.scrollLeft <= 2) {
+      const max = el.scrollWidth - el.clientWidth;
+      el.scrollTo({ left: max, behavior: "smooth" }); // at start → jump to the end
+    } else {
+      el.scrollBy({ left: -getStep(el), behavior: "smooth" });
+    }
   };
 
   return (

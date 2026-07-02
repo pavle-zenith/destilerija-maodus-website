@@ -19,18 +19,18 @@ export function ContactCtas() {
         <Button
           variant="red"
           size="lg"
-          onClick={() => setOpen("wholesale")}
-          track="Veleprodajni upit"
+          onClick={() => setOpen("inquiry")}
+          track="Poručite rakiju (kontakt)"
         >
-          Veleprodajni upit
+          Poručite rakiju
         </Button>
         <Button
           variant="outline"
           size="lg"
-          onClick={() => setOpen("inquiry")}
-          track="Porudžbina za sebe"
+          onClick={() => setOpen("wholesale")}
+          track="Veleprodajni upit"
         >
-          Porudžbina za sebe
+          Veleprodajni upit
         </Button>
       </div>
 

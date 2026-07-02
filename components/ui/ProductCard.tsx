@@ -14,6 +14,8 @@ export type ProductCardProps = {
   priority?: boolean;
   sizes?: string;
   className?: string;
+  /** clone used only to fill the infinite-carousel loop — hidden from a11y/tab */
+  duplicate?: boolean;
 };
 
 export function ProductCard({
@@ -28,9 +30,14 @@ export function ProductCard({
   priority,
   sizes = "338px",
   className,
+  duplicate,
 }: ProductCardProps) {
   return (
-    <article className={`${styles.card} ${styles[size]} ${className ?? ""}`}>
+    <article
+      className={`${styles.card} ${styles[size]} ${className ?? ""}`}
+      aria-hidden={duplicate || undefined}
+      inert={duplicate || undefined}
+    >
       <Image
         src={image}
         alt={name}

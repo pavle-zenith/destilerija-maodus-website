@@ -45,11 +45,11 @@ export function Hero() {
           </p>
 
           <div className={styles.ctas}>
-            <Button href="#veleprodaja" variant="red" size="lg" glow track="Za lokale i proslave">
-              Za lokale i proslave
+            <Button href="#kontakt" variant="red" size="lg" glow track="Poručite rakiju (hero)">
+              Poručite rakiju
             </Button>
-            <Button href="#kontakt" variant="dark" size="lg" glow track="Poručite za sebe ili poklon">
-              Poručite za sebe ili poklon
+            <Button href="#veleprodaja" variant="dark" size="lg" glow track="Za lokale i proslave">
+              Za lokale i proslave
             </Button>
           </div>
 
