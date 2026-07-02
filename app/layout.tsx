@@ -23,7 +23,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.domain),
   title: {
-    default: "Destilerija Maoduš — Voćna rakija iz Vojvodine",
+    default: "Destilerija Maoduš — Voćna rakija iz Kanjiže, Vojvodina",
     template: "%s · Destilerija Maoduš",
   },
   description: site.description,
@@ -31,6 +31,8 @@ export const metadata: Metadata = {
     "rakija",
     "voćna rakija",
     "destilerija",
+    "Kanjiža",
+    "rakija Kanjiža",
     "Vojvodina",
     "veleprodaja rakije",
     "rakija za poklon",
@@ -46,7 +48,7 @@ export const metadata: Metadata = {
     locale: site.locale,
     url: site.domain,
     siteName: site.name,
-    title: "Destilerija Maoduš — Voćna rakija iz Vojvodine",
+    title: "Destilerija Maoduš — Voćna rakija iz Kanjiže, Vojvodina",
     description: site.description,
   },
   robots: { index: true, follow: true },

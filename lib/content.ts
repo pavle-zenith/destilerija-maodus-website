@@ -5,22 +5,74 @@
  * queries in sanity/queries.ts override these.
  */
 
+export type RakijaGroupId = "vocne-bele" | "barrique" | "classic";
+
 export type Rakija = {
   slug: string;
   name: string;
   category: string; // gold italic subtitle
+  group: RakijaGroupId;
   abv: string;
   volume: string;
   image: string;
+  /**
+   * One-line tasting/aroma note for the /rakije hub cards.
+   * TODO: only Dunja is final copy from the client — the other 7 are
+   * placeholders and must be replaced before launch.
+   */
+  tastingNote: string;
 };
 
-export const rakije: Rakija[] = [
-  { slug: "dunja", name: "Dunja", category: "Voćna bela", abv: "40% vol", volume: "0,70 l", image: "/images/dunja.png" },
-  { slug: "kajsija", name: "Kajsija", category: "Voćna bela", abv: "40% vol", volume: "0,70 l", image: "/images/kajsija.png" },
-  { slug: "viljamovka", name: "Viljamovka", category: "Voćna bela", abv: "40% vol", volume: "0,70 l", image: "/images/viljamovka.png" },
-  { slug: "dunja-barrique", name: "Dunja Barrique", category: "Barrique", abv: "42% vol", volume: "0,70 l", image: "/images/dunja-barrique.png" },
-  { slug: "sljiva-barrique", name: "Šljiva Barrique", category: "Barrique", abv: "42% vol", volume: "0,70 l", image: "/images/sljiva-barrique.png" },
-  { slug: "jabuka-barrique", name: "Jabuka Barrique", category: "Barrique", abv: "42% vol", volume: "0,70 l", image: "/images/jabuka-barrique.png" },
+/**
+ * All 8 SKUs. Ordering here is hero-first within each group (Dunja / Dunja
+ * Barrique lead as the flagship), which is the order the hub renders.
+ * The homepage carousel reads the first 6 (photographed) SKUs via `rakije`.
+ */
+export const allRakije: Rakija[] = [
+  // ── Voćne bele ──
+  { slug: "dunja", name: "Dunja", category: "Voćna bela", group: "vocne-bele", abv: "40% vol", volume: "0,70 l", image: "/images/dunja.png", tastingNote: "Kraljica voćnih rakija sa punim mirisom zrele dunje i baršunastim završetkom." },
+  { slug: "kajsija", name: "Kajsija", category: "Voćna bela", group: "vocne-bele", abv: "40% vol", volume: "0,70 l", image: "/images/kajsija.png", tastingNote: "Sočna aroma zrele kajsije, mekana i cvetna. Klasičan aperitiv." /* TODO: finalna nota */ },
+  { slug: "viljamovka", name: "Viljamovka", category: "Voćna bela", group: "vocne-bele", abv: "40% vol", volume: "0,70 l", image: "/images/viljamovka.png", tastingNote: "Intenzivan miris kruške vilijamovke, svež i elegantan." /* TODO: finalna nota */ },
+  // ── Barrique ──
+  { slug: "dunja-barrique", name: "Dunja Barrique", category: "Barrique", group: "barrique", abv: "42% vol", volume: "0,70 l", image: "/images/dunja-barrique.png", tastingNote: "Odležana dunja u hrastu, dubljeg ukusa sa notama vanile i zlatnom bojom." /* TODO: finalna nota */ },
+  { slug: "sljiva-barrique", name: "Šljiva Barrique", category: "Barrique", group: "barrique", abv: "42% vol", volume: "0,70 l", image: "/images/sljiva-barrique.png", tastingNote: "Tradicionalna šljiva oplemenjena hrastom, topla i zaokružena. Odličan digestiv." /* TODO: finalna nota */ },
+  { slug: "jabuka-barrique", name: "Jabuka Barrique", category: "Barrique", group: "barrique", abv: "42% vol", volume: "0,70 l", image: "/images/jabuka-barrique.png", tastingNote: "Jabuka odležana u buretu, blage slatkoće i prijatnog, dugog završetka." /* TODO: finalna nota */ },
+  // ── Classic / koktel (bez fotografija — koriste barrique sliku kao privremeni placeholder) ──
+  { slug: "sljiva-barrique-classic", name: "Šljiva Barrique Classic", category: "Classic", group: "classic", abv: "40% vol", volume: "0,70 l", image: "/images/sljiva-barrique.png", tastingNote: "Lakša i pristupačna šljiva, odlična baza za koktele i mešane napitke." /* TODO: finalna nota + fotografija */ },
+  { slug: "jabuka-barrique-classic", name: "Jabuka Barrique Classic", category: "Classic", group: "classic", abv: "40% vol", volume: "0,70 l", image: "/images/jabuka-barrique.png", tastingNote: "Pitka jabuka blažeg karaktera, koktel-prijateljska varijanta." /* TODO: finalna nota + fotografija */ },
+];
+
+/** The 6 photographed SKUs the homepage carousel renders. */
+export const rakije: Rakija[] = allRakije.slice(0, 6);
+
+export type RakijaGroup = {
+  id: RakijaGroupId;
+  title: string;
+  /** one sentence describing what DEFINES the category (not just the name) */
+  description: string;
+  items: Rakija[];
+};
+
+/** Grouped for the /rakije hub — 3 categories, rendered top-to-bottom. */
+export const rakijeGroups: RakijaGroup[] = [
+  {
+    id: "vocne-bele",
+    title: "Voćne bele",
+    description: "Čiste i mirisne, bez odležavanja u hrastu — savršene kao aperitiv.",
+    items: allRakije.filter((r) => r.group === "vocne-bele"),
+  },
+  {
+    id: "barrique",
+    title: "Barrique",
+    description: "Odležane godinama u hrastovim buradima — dublji ukus, zlatna boja, za aperitiv i digestiv.",
+    items: allRakije.filter((r) => r.group === "barrique"),
+  },
+  {
+    id: "classic",
+    title: "Classic / koktel",
+    description: "Lakše i pristupačnije varijante, prijateljske prema koktelima i mešanim napicima.",
+    items: allRakije.filter((r) => r.group === "classic"),
+  },
 ];
 
 /** Featured hero card. */

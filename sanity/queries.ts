@@ -5,12 +5,13 @@ import {
   faqs as fallbackFaqs,
   partners as fallbackPartners,
   type Rakija,
+  type RakijaGroupId,
   type Faq,
   type Partner,
 } from "@/lib/content";
 
 const RAKIJE_QUERY = `*[_type == "rakija"] | order(order asc){
-  "slug": slug.current, name, category, abv, volume, image
+  "slug": slug.current, name, category, group, abv, volume, image, tastingNote
 }`;
 const FAQ_QUERY = `*[_type == "faqItem"] | order(order asc){ q, a }`;
 const PARTNER_QUERY = `*[_type == "partner"] | order(order asc){ name, logo, maxHeight }`;
@@ -22,16 +23,29 @@ export async function getRakije(): Promise<Rakija[]> {
   if (!client) return fallbackRakije;
   try {
     const docs = await client.fetch<
-      { slug: string; name: string; category: string; abv: string; volume: string; image: unknown }[]
+      {
+        slug: string;
+        name: string;
+        category: string;
+        group?: RakijaGroupId;
+        abv: string;
+        volume: string;
+        image: unknown;
+        tastingNote?: string;
+      }[]
     >(RAKIJE_QUERY, {}, opts);
     if (!docs?.length) return fallbackRakije;
     return docs.map((d) => ({
       slug: d.slug,
       name: d.name,
       category: d.category,
+      // `group`/`tastingNote` aren't in the lean homepage schema yet — fall back
+      // until the schema is extended when we mirror the hub model into Sanity.
+      group: d.group ?? "vocne-bele",
       abv: d.abv,
       volume: d.volume,
       image: d.image ? urlFor(d.image)?.width(700).height(920).fit("crop").url() ?? "" : "",
+      tastingNote: d.tastingNote ?? "",
     }));
   } catch {
     return fallbackRakije;

@@ -1,0 +1,32 @@
+.nav {
+  font-size: 13.5px;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.item {
+  display: inline-flex;
+}
+.link {
+  color: var(--caption);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.link:hover {
+  color: var(--red);
+}
+.current {
+  color: var(--muted);
+  font-weight: 600;
+}
+.sep {
+  color: var(--caption);
+  opacity: 0.6;
+  line-height: 1;
+}

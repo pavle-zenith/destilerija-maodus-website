@@ -11,7 +11,7 @@ import { BentoCrossroads } from "@/components/sections/BentoCrossroads";
 import { About } from "@/components/sections/About";
 import { Proof } from "@/components/sections/Proof";
 import { HowToOrder } from "@/components/sections/HowToOrder";
-import { BlogTeaser } from "@/components/sections/BlogTeaser";
+// import { BlogTeaser } from "@/components/sections/BlogTeaser"; // skriveno dok nema sadržaja
 import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { StructuredData } from "@/components/seo/StructuredData";
@@ -37,7 +37,7 @@ export default async function Home() {
         <About />
         <Proof />
         <HowToOrder />
-        <BlogTeaser />
+        {/* Blog skriven dok se ne napravi sadržaj — vrati <BlogTeaser /> kad bude spreman */}
         <Faq items={faqs} />
         <FinalCta />
       </main>

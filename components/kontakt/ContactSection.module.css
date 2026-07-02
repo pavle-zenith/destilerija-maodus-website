@@ -58,6 +58,10 @@
 .formCard {
   grid-area: form;
 }
+/* mobile quick-call button — hidden on desktop */
+.mobileCall {
+  display: none;
+}
 
 /* ---- intro ---- */
 .eyebrow {
@@ -228,11 +232,31 @@ a.rowLink:hover .chip {
     grid-template-columns: 1fr;
     grid-template-areas:
       "intro"
+      "call"
       "form"
       "info"
       "map";
   }
   .formCard {
     position: static;
+  }
+  .mobileCall {
+    grid-area: call;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 22px;
+    background: var(--red);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 12px 30px rgba(181, 50, 50, 0.28);
+    transition: background 0.2s ease;
+  }
+  .mobileCall:hover {
+    background: var(--red-hover);
   }
 }

@@ -21,19 +21,10 @@
   box-shadow: 0 40px 120px rgba(0, 0, 0, 0.55);
 }
 
-.wordmark {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 26px;
-  letter-spacing: 0.02em;
-  color: var(--cream);
-}
-.brandLabel {
-  font-size: 11px;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: var(--taupe);
-  margin-top: 6px;
+.logo {
+  height: 52px;
+  width: auto;
+  margin: 0 auto;
 }
 .divider {
   height: 1px;
@@ -63,14 +54,12 @@
 
 .actions {
   display: flex;
+  flex-direction: column;
   gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 .yes,
 .no {
-  flex: 1;
-  min-width: 120px;
+  width: 100%;
   padding: 15px 24px;
   font-family: var(--font-body);
   font-weight: 600;

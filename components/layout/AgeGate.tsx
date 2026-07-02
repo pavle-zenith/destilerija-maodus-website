@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import styles from "./AgeGate.module.css";
 
 const COOKIE = "maodus_age_ok";
@@ -31,8 +32,14 @@ export function AgeGate({ defaultOpen }: { defaultOpen: boolean }) {
   return (
     <div className={styles.overlay} role="dialog" aria-modal="true" aria-label="Provera punoletstva">
       <div className={styles.card}>
-        <div className={styles.wordmark}>MAODUŠ</div>
-        <div className={styles.brandLabel}>Destilerija</div>
+        <Image
+          src="/images/logo-white.png"
+          alt="Destilerija Maoduš"
+          width={200}
+          height={54}
+          priority
+          className={styles.logo}
+        />
         <div className={styles.divider} aria-hidden="true" />
 
         {denied ? (

@@ -42,6 +42,12 @@ export function ContactSection() {
           </p>
         </div>
 
+        {/* mobile-only quick-call button, sits between intro and form */}
+        <a href={site.phoneHref} className={styles.mobileCall}>
+          <Icon name="phone" size={20} />
+          Pozovite nas — {site.phone}
+        </a>
+
         {/* form */}
         <div className={styles.formCard}>
           <h2 className={styles.formTitle}>Pošaljite upit za porudžbinu</h2>

@@ -121,6 +121,9 @@
   .track {
     --card: clamp(160px, 50vw, 240px);
     gap: 14px;
+    /* drop the left fade on mobile — cards start flush at the gutter */
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 }
 

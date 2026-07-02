@@ -8,10 +8,10 @@ const columns = [
   {
     title: "Proizvodi",
     links: [
-      { label: "Dunja", href: "/#rakije" },
-      { label: "Kajsija", href: "/#rakije" },
-      { label: "Viljamovka", href: "/#rakije" },
-      { label: "Sve rakije", href: "/#rakije" },
+      { label: "Dunja", href: "/rakije/dunja" },
+      { label: "Kajsija", href: "/rakije/kajsija" },
+      { label: "Viljamovka", href: "/rakije/viljamovka" },
+      { label: "Sve rakije", href: "/rakije" },
     ],
   },
   {
@@ -36,7 +36,6 @@ const columns = [
     title: "Info",
     links: [
       { label: "O nama", href: "/#o-nama" },
-      { label: "Blog", href: "/#blog" },
       { label: "Kontakt", href: "/kontakt" },
       { label: "Privatnost", href: "/privatnost" },
     ],

@@ -1,0 +1,38 @@
+.band {
+  background: var(--card-dark);
+  color: var(--cream);
+}
+.inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(20px, 3vw, 28px) var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 32px;
+  flex-wrap: wrap;
+}
+.text {
+  margin: 0;
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.5;
+  color: var(--cream);
+  max-width: 640px;
+}
+.cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 163, 78, 0.4);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.cta:hover {
+  color: #e0c07a;
+  border-color: #e0c07a;
+}

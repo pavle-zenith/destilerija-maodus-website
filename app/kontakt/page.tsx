@@ -13,7 +13,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Kontakt — poručite rakiju",
   description:
-    "Poručite Maoduš voćnu rakiju za poklon, proslavu, slavu ili ličnu porudžbinu. Pošaljite upit, pozovite +381 64 61 59 033 ili pišite na mejl — odgovaramo u roku od 24–48h.",
+    "Poručite Maoduš voćnu rakiju iz Kanjiže, Vojvodina — za poklon, proslavu, slavu ili ličnu porudžbinu. Pošaljite upit, pozovite +381 64 61 59 033 ili pišite na mejl — odgovaramo u roku od 24–48h.",
   alternates: { canonical: "/kontakt" },
   openGraph: {
     type: "website",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: "Kontakt — poručite rakiju · Destilerija Maoduš",
     description:
-      "Poručite voćnu rakiju za poklon, proslavu ili ličnu porudžbinu. Odgovaramo u roku od 24–48h.",
+      "Poručite voćnu rakiju iz Kanjiže, Vojvodina za poklon, proslavu ili ličnu porudžbinu. Odgovaramo u roku od 24–48h.",
   },
 };
 
