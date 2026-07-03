@@ -58,7 +58,7 @@ export function Footer() {
               className={styles.logo}
             />
             <p className={styles.tagline}>
-              Porodična vojvođanska destilerija voćne rakije — od pažljivo
+              Porodična vojvođanska destilerija voćne rakije, od pažljivo
               odabranog voća i dvostruke destilacije u bakru.
             </p>
             <div className={styles.contact}>

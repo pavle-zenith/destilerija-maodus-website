@@ -62,7 +62,7 @@ export function InquiryForm({
       <div className={styles.row}>
         <Field label="Koja rakija vas zanima" name="rakija" error={fe.rakija}>
           <select name="rakija" className={styles.select} defaultValue={defaultRakija}>
-            <option value="">Nisam siguran/na — pomozite mi da izaberem</option>
+            <option value="">Nisam siguran/na, pomozite mi da izaberem</option>
             {allSkuNames.map((name) => (
               <option key={name} value={name}>
                 {name}
@@ -95,7 +95,7 @@ export function InquiryForm({
         <textarea
           name="message"
           className={styles.textarea}
-          placeholder="Napišite nam par reči — prilika, rok, posebni zahtevi…"
+          placeholder="Napišite nam par reči: prilika, rok, posebni zahtevi…"
         />
       </Field>
 

@@ -85,7 +85,7 @@ export async function submitInquiry(
         occasion: d.occasion,
         message: d.message,
       }),
-      sendEmail(`Nova porudžbina / upit — ${d.name}`, [
+      sendEmail(`Nova porudžbina / upit: ${d.name}`, [
         `Ime: ${d.name}`,
         `Kontakt: ${d.contact}`,
         `Grad: ${d.city}`,
@@ -125,7 +125,7 @@ export async function submitWholesale(
         city: d.city,
         message: d.message,
       }),
-      sendEmail(`Veleprodajni upit — ${d.businessName}`, [
+      sendEmail(`Veleprodajni upit: ${d.businessName}`, [
         `Lokal / firma: ${d.businessName}`,
         `Kontakt osoba: ${d.name}`,
         `Kontakt: ${d.contact}`,

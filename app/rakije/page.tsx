@@ -14,18 +14,18 @@ import { site } from "@/lib/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Naše rakije — asortiman",
+  title: "Naše rakije · asortiman",
   description:
-    "Osam voćnih rakija Destilerije Maoduš iz Kanjiže, Vojvodina — voćne bele, barrique i classic izdanja. Izaberite bocu za poklon, proslavu, meni ili kućnu kolekciju.",
+    "Osam voćnih rakija Destilerije Maoduš iz Kanjiže, Vojvodina: voćne bele, barrique i classic izdanja. Izaberite bocu za poklon, proslavu, meni ili kućnu kolekciju.",
   alternates: { canonical: "/rakije" },
   openGraph: {
     type: "website",
     locale: site.locale,
     url: `${site.domain}/rakije`,
     siteName: site.name,
-    title: "Naše rakije — asortiman · Destilerija Maoduš",
+    title: "Naše rakije · asortiman · Destilerija Maoduš",
     description:
-      "Osam voćnih rakija iz Kanjiže, Vojvodina — voćne bele, barrique i classic. Izaberite bocu za poklon, proslavu ili meni.",
+      "Osam voćnih rakija iz Kanjiže, Vojvodina: voćne bele, barrique i classic. Izaberite bocu za poklon, proslavu ili meni.",
   },
 };
 
@@ -46,7 +46,7 @@ const breadcrumbLd = {
 const itemListLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Rakije — Destilerija Maoduš",
+  name: "Rakije · Destilerija Maoduš",
   itemListElement: allRakije.map((r, i) => ({
     "@type": "ListItem",
     position: i + 1,

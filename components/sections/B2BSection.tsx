@@ -9,7 +9,7 @@ const usps: { icon: IconName; title: string; text: string }[] = [
   {
     icon: "menu",
     title: "Jasan izbor za meni",
-    text: "Voćne bele, barrique i classic rakije — za aperitiv, digestiv, poklon bocu ili preporuku uz obrok.",
+    text: "Voćne bele, barrique i classic rakije za aperitiv, digestiv, poklon bocu ili preporuku uz obrok.",
   },
   {
     icon: "goblet",

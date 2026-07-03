@@ -1,23 +1,31 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
+import { allRakije } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
   return [
     {
       url: site.domain,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
       url: `${site.domain}/rakije`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    ...allRakije.map((r) => ({
+      url: `${site.domain}/rakije/${r.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
     {
       url: `${site.domain}/kontakt`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
     },

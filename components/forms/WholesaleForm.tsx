@@ -21,7 +21,7 @@ export function WholesaleForm() {
       <div className={styles.success}>
         <p className={styles.successTitle}>Hvala! Upit je poslat.</p>
         <p className={styles.successText}>
-          Vraćamo se sa ponudom po meri — količine, ritam isporuke i izbor rakija
+          Vraćamo se sa ponudom po meri: količine, ritam isporuke i izbor rakija
           prema vašem lokalu.
         </p>
       </div>

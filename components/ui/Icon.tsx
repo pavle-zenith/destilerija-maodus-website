@@ -10,6 +10,13 @@ const paths: Record<string, React.ReactNode> = {
     </>
   ),
   drop: <path d="M12 3s5 5.5 5 9a5 5 0 0 1-10 0c0-3.5 5-9 5-9z" />,
+  barrel: (
+    <>
+      <path d="M7 4h10M7 20h10" />
+      <path d="M8 4c-2 5-2 11 0 16M16 4c2 5 2 11 0 16" />
+      <path d="M4.6 8.5h14.8M4.6 15.5h14.8M4 12h16" />
+    </>
+  ),
   flask: (
     <path d="M9.5 3h5M10.5 3v5.5l-4.6 8.2A2 2 0 0 0 7.6 20h8.8a2 2 0 0 0 1.7-3.3L13.5 8.5V3" />
   ),

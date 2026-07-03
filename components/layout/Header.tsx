@@ -25,7 +25,7 @@ export function Header() {
     <>
     <header className={styles.header}>
       <div className={styles.inner}>
-        <a href="/" className={styles.logo} aria-label="Destilerija Maoduš — početna" onClick={close}>
+        <a href="/" className={styles.logo} aria-label="Destilerija Maoduš, početna" onClick={close}>
           <Image src="/images/logo.png" alt="Destilerija Maoduš" width={180} height={46} priority className={styles.logoImg} />
         </a>
 
@@ -93,7 +93,7 @@ export function Header() {
       {open && (
         <div className={styles.overlay} role="dialog" aria-modal="true" aria-label="Meni">
           <div className={styles.overlayTop}>
-            <a href="/" aria-label="Destilerija Maoduš — početna" onClick={close}>
+            <a href="/" aria-label="Destilerija Maoduš, početna" onClick={close}>
               <Image src="/images/logo.png" alt="Destilerija Maoduš" width={180} height={46} className={styles.logoImg} />
             </a>
             <button

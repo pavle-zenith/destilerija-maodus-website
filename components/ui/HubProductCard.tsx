@@ -19,7 +19,7 @@ export function HubProductCard({
     <Link
       href={`/rakije/${rakija.slug}`}
       className={styles.card}
-      aria-label={`${rakija.name} — pogledaj rakiju`}
+      aria-label={`${rakija.name}, pogledaj rakiju`}
     >
       <Image
         src={rakija.image}

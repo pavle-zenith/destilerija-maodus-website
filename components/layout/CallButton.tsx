@@ -10,7 +10,7 @@ export function CallButton() {
     <a
       href={site.phoneHref}
       className={styles.button}
-      aria-label={`Pozovite nas — ${site.phone}`}
+      aria-label={`Pozovite nas: ${site.phone}`}
       onClick={() => track.cta("Pozovite nas (floating)", site.phoneHref)}
     >
       <span className={styles.icon}>

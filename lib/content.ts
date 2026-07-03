@@ -23,6 +23,33 @@ export type Rakija = {
   tastingNote: string;
 };
 
+/** A single price row. `price` in RSD, or "na upit" when not fixed. */
+export type PriceRow = { volume: string; price: number | "na upit" };
+
+/**
+ * Rich per-product content for /rakije/{slug}, keyed by slug.
+ * Prices are real (client-supplied 2026-07-03, VAT 20% included).
+ * Everything else marked TODO is a plausible draft to be replaced with
+ * final client copy before launch.
+ */
+export type RakijaDetail = {
+  /** oak ageing summary; null for non-aged whites */
+  oak: string | null;
+  sensory: { nose: string; taste: string; finish: string };
+  /** occasion + serving temperature (JTBD) */
+  whenToDrink: string;
+  servingTemp: string;
+  /** 3–5 sentence variety/process story specific to this rakija */
+  story: string;
+  /** food-pairing line — only set for true barrique products */
+  pairing?: string;
+  /**
+   * Price rows in intentional anchoring order (1L → 0,7L → 0,5L → 0,1L).
+   * Variable length: Classic SKUs are 0,7L only; some lack 0,1L.
+   */
+  prices: PriceRow[];
+};
+
 /**
  * All 8 SKUs. Ordering here is hero-first within each group (Dunja / Dunja
  * Barrique lead as the flagship), which is the order the hub renders.
@@ -58,13 +85,13 @@ export const rakijeGroups: RakijaGroup[] = [
   {
     id: "vocne-bele",
     title: "Voćne bele",
-    description: "Čiste i mirisne, bez odležavanja u hrastu — savršene kao aperitiv.",
+    description: "Čiste i mirisne, bez odležavanja u hrastu, savršene kao aperitiv.",
     items: allRakije.filter((r) => r.group === "vocne-bele"),
   },
   {
     id: "barrique",
     title: "Barrique",
-    description: "Odležane godinama u hrastovim buradima — dublji ukus, zlatna boja, za aperitiv i digestiv.",
+    description: "Odležane godinama u hrastovim buradima: dublji ukus, zlatna boja, za aperitiv i digestiv.",
     items: allRakije.filter((r) => r.group === "barrique"),
   },
   {
@@ -75,6 +102,214 @@ export const rakijeGroups: RakijaGroup[] = [
   },
 ];
 
+/**
+ * Per-slug detail content for /rakije/{slug}.
+ * PRICES: real, client-supplied (2026-07-03), RSD, VAT 20% included.
+ * SENSORY / STORY / PAIRING / TEMP: TODO — drafts, replace with final copy.
+ */
+export const rakijaDetails: Record<string, RakijaDetail> = {
+  dunja: {
+    oak: null,
+    sensory: {
+      nose: "Intenzivan miris zrele dunje i cvet bagrema, sa nagoveštajem meda.", // TODO
+      taste: "Pun i baršunast, sa jasnom voćnom slatkoćom bez oštrine.", // TODO
+      finish: "Dug, mekan završetak koji zadržava miris svežeg voća.", // TODO
+    },
+    whenToDrink: "Aperitiv i poklon, savršena za svečane trenutke.", // TODO
+    servingTemp: "10–12°C kao aperitiv",
+    story:
+      "Dunja se pravi od pažljivo odabrane, potpuno zrele dunje leskovačke sorte. Nazivaju je kraljicom voćnih rakija zbog izražene arome i pune teksture. Fermentacija je kontrolisana, a dvostruka destilacija u bakarnom kotlu čuva svežinu voća. Bez odležavanja u hrastu, čista i mirisna.", // TODO: doraditi
+    prices: [
+      { volume: "1 l", price: 2950 },
+      { volume: "0,7 l", price: 2360 },
+      { volume: "0,5 l", price: 1650 },
+      { volume: "0,1 l", price: "na upit" },
+    ],
+  },
+  kajsija: {
+    oak: null,
+    sensory: {
+      nose: "Sočna aroma zrele kajsije sa cvetnim tonovima.", // TODO
+      taste: "Mekan i voćan, sa prijatnom, blagom slatkoćom.", // TODO
+      finish: "Svež i čist završetak srednje dužine.", // TODO
+    },
+    whenToDrink: "Klasičan aperitiv za svaku priliku.", // TODO
+    servingTemp: "10–12°C kao aperitiv",
+    story:
+      "Kajsija se destiluje od zrelih plodova iz vojvođanskih voćnjaka, u trenutku pune aromatične zrelosti. Pažljiva fermentacija i dvostruka destilacija u bakru izvlače prepoznatljiv miris kajsije. Bez odležavanja u hrastu, svetla i cvetna.", // TODO: doraditi
+    prices: [
+      { volume: "1 l", price: 2950 },
+      { volume: "0,7 l", price: 2360 },
+      { volume: "0,5 l", price: 1650 },
+      { volume: "0,1 l", price: "na upit" },
+    ],
+  },
+  viljamovka: {
+    oak: null,
+    sensory: {
+      nose: "Intenzivan, prepoznatljiv miris kruške vilijamovke.", // TODO
+      taste: "Svež i elegantan, sa čistim ukusom kruške.", // TODO
+      finish: "Živahan, osvežavajući završetak.", // TODO
+    },
+    whenToDrink: "Elegantan aperitiv, odličan i uz desert.", // TODO
+    servingTemp: "8–10°C kao aperitiv",
+    story:
+      "Viljamovka nastaje od aromatične kruške vilijamovke, poznate po intenzivnom mirisu. Plodovi se beru u punoj zrelosti, a destilacija u bakru čuva prepoznatljiv karakter sorte. Bez odležavanja u hrastu, svež i mirisan izraz kruške.", // TODO: doraditi
+    prices: [
+      { volume: "1 l", price: 2950 },
+      { volume: "0,7 l", price: 2360 },
+      { volume: "0,5 l", price: 1650 },
+      { volume: "0,1 l", price: "na upit" },
+    ],
+  },
+  "dunja-barrique": {
+    oak: "Da, min. 3 godine, hrast kitnjak",
+    sensory: {
+      nose: "Zrela dunja isprepletena notama vanile i hrasta.", // TODO
+      taste: "Dublji i zaokružen, sa toplim tonovima drveta i suvog voća.", // TODO
+      finish: "Dug, topao završetak sa blagom začinskom notom.", // TODO
+    },
+    whenToDrink: "Aperitiv i digestiv, za mirna, svečana druženja.", // TODO
+    servingTemp: "15–18°C",
+    story:
+      "Dunja barrique počinje kao naša klasična dunja, a potom najmanje tri godine odležava u buradima od hrasta kitnjaka. Drvo joj daje zlatnu boju, note vanile i zaokruženiju teksturu, uz očuvan miris voća. Vreme u hrastu pretvara svežu rakiju u ozbiljan digestiv.", // TODO: doraditi
+    pairing: "Uparite sa zrelim tvrdim sirevima, tamnom čokoladom ili dimljenim mesom.", // TODO
+    prices: [
+      { volume: "1 l", price: 2990 },
+      { volume: "0,7 l", price: 2570 },
+      { volume: "0,5 l", price: 1830 },
+      { volume: "0,1 l", price: "na upit" },
+    ],
+  },
+  "sljiva-barrique": {
+    oak: "Da, odležava u hrastu",
+    sensory: {
+      nose: "Tradicionalna šljiva sa toplim notama hrasta i suvih šljiva.", // TODO
+      taste: "Pun i topao, zaokružen odležavanjem, bez oštrine.", // TODO
+      finish: "Dug, zaobljen završetak koji podseća na suvo voće.", // TODO
+    },
+    whenToDrink: "Odličan digestiv, za kraj obroka i posebne prilike.", // TODO
+    servingTemp: "15–18°C",
+    story:
+      "Šljiva barrique čuva srpsku tradiciju šljivovice, oplemenjenu odležavanjem u hrastu. Zrele šljive se destiluju u bakru, a potom rakija sazreva u buradima gde dobija dubinu, boju i mekoću. Rezultat je topao, zaokružen digestiv.", // TODO: doraditi
+    pairing: "Uparite sa dimljenim mesom, suvomesnatim narescima ili tamnom čokoladom.", // TODO
+    prices: [
+      { volume: "1 l", price: 2650 },
+      { volume: "0,7 l", price: 2260 },
+      { volume: "0,5 l", price: 1660 },
+      { volume: "0,1 l", price: "na upit" },
+    ],
+  },
+  "jabuka-barrique": {
+    oak: "Da, odležava u hrastu",
+    sensory: {
+      nose: "Zrela jabuka sa blagim notama vanile iz hrasta.", // TODO
+      taste: "Blaga slatkoća i mekana tekstura, prijatan i pitak.", // TODO
+      finish: "Dug, prijatan završetak sa voćnim tonovima.", // TODO
+    },
+    whenToDrink: "Aperitiv i digestiv, svestrana za razne prilike.", // TODO
+    servingTemp: "15–18°C",
+    story:
+      "Jabuka barrique se pravi od aromatičnih sorti jabuka i odležava u hrastovim buradima. Odležavanje joj daje blagu slatkoću, mekoću i topao karakter, uz prepoznatljiv miris jabuke. Pitka i zaokružena.", // TODO: doraditi
+    pairing: "Uparite sa zrelim sirevima, jabukama i orasima ili blagim desertima.", // TODO
+    prices: [
+      { volume: "1 l", price: 2450 },
+      { volume: "0,7 l", price: 2090 },
+      { volume: "0,5 l", price: 1530 },
+    ],
+  },
+  "sljiva-barrique-classic": {
+    oak: "Da, odležava u hrastu (lakša linija)",
+    sensory: {
+      nose: "Blaga šljiva sa nežnim tonovima hrasta.", // TODO
+      taste: "Lakša i pristupačna, mekana i pitka.", // TODO
+      finish: "Čist, srednje dug završetak.", // TODO
+    },
+    whenToDrink: "Koktel-prijateljska, odlična baza za mešane napitke.", // TODO
+    servingTemp: "12–16°C ili u koktelu",
+    story:
+      "Šljiva barrique classic je lakša i pristupačnija verzija naše barrique šljive. Zadržava karakter odležavanja u hrastu, ali u blažem, svestranijem izdanju, idealna kao baza za koktele i mešane napitke.", // TODO: doraditi
+    prices: [{ volume: "0,7 l", price: 1590 }],
+  },
+  "jabuka-barrique-classic": {
+    oak: "Da, odležava u hrastu (lakša linija)",
+    sensory: {
+      nose: "Sveža jabuka sa nagoveštajem hrasta.", // TODO
+      taste: "Pitka i blaga, koktel-prijateljskog karaktera.", // TODO
+      finish: "Lagan, osvežavajući završetak.", // TODO
+    },
+    whenToDrink: "Koktel-prijateljska, za mešane napitke i lakša druženja.", // TODO
+    servingTemp: "12–16°C ili u koktelu",
+    story:
+      "Jabuka barrique classic je lakša varijanta naše barrique jabuke. Blagog karaktera i pitka, sa nežnim tonovima hrasta, stvorena da bude svestrana baza za koktele i mešane napitke.", // TODO: doraditi
+    prices: [{ volume: "0,7 l", price: 1590 }],
+  },
+};
+
+/** Look up a rakija (+ its detail) by slug. */
+export function getRakijaBySlug(slug: string) {
+  const rakija = allRakije.find((r) => r.slug === slug);
+  if (!rakija) return null;
+  return { rakija, detail: rakijaDetails[slug] ?? null };
+}
+
+/** A brand-feature panel: line icon + short gold title + one-line description. */
+export type ProductFeature = { icon: string; label: string; text: string };
+
+/**
+ * The 3 process/brand features shown as the sliding trio on the detail page.
+ * Derived from whether the rakija is oak-aged, so every SKU gets a sensible
+ * trio without hand-authoring all eight.
+ */
+export function getFeatures(detail: RakijaDetail): ProductFeature[] {
+  const aged = Boolean(detail.oak);
+  return [
+    aged
+      ? {
+          icon: "barrel",
+          label: "Hrastovo bure",
+          text: "Odležava u hrastovim buradima koja daju boju, dubinu i note vanile.",
+        }
+      : {
+          icon: "leaf",
+          label: "Čist izraz voća",
+          text: "Bez odležavanja u hrastu, čuva svež miris i karakter voća.",
+        },
+    {
+      icon: "drop",
+      label: "Bakarni kotao",
+      text: "Dvostruka destilacija u bakru izvlači čistu, prepoznatljivu aromu.",
+    },
+    aged
+      ? {
+          icon: "goblet",
+          label: "Mekan finiš",
+          text: "Odležavanje zaokružuje ukus u baršunast, dug završetak.",
+        }
+      : {
+          icon: "goblet",
+          label: "Pitak finiš",
+          text: "Svež i mirisan završetak, lagan i prijatan za piće.",
+        },
+  ];
+}
+
+/**
+ * Related rakije for the detail page: same group first, then top up from
+ * other groups (hero-first order) to reach `count`. Never includes self.
+ */
+export function getRelatedRakije(slug: string, count = 3): Rakija[] {
+  const current = allRakije.find((r) => r.slug === slug);
+  if (!current) return allRakije.slice(0, count);
+  const sameGroup = allRakije.filter(
+    (r) => r.group === current.group && r.slug !== slug,
+  );
+  const others = allRakije.filter(
+    (r) => r.group !== current.group && r.slug !== slug,
+  );
+  return [...sameGroup, ...others].slice(0, count);
+}
+
 /** Featured hero card. */
 export const featuredRakija: Rakija & { eyebrow: string; tagline: string } = {
   ...rakije[3],
@@ -82,17 +317,8 @@ export const featuredRakija: Rakija & { eyebrow: string; tagline: string } = {
   tagline: "Kraljica voćnih rakija",
 };
 
-/** All 8 SKU names for form selects (2 "Classic" have no photos yet). */
-export const allSkuNames = [
-  "Dunja",
-  "Kajsija",
-  "Viljamovka",
-  "Dunja Barrique",
-  "Šljiva Barrique",
-  "Jabuka Barrique",
-  "Šljiva Classic",
-  "Jabuka Classic",
-] as const;
+/** All 8 SKU names for form selects — derived so names always match products. */
+export const allSkuNames: string[] = allRakije.map((r) => r.name);
 
 export type Faq = { q: string; a: string };
 

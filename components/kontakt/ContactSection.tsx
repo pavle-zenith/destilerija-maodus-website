@@ -25,7 +25,7 @@ const rows: Row[] = [
   { icon: "pin", value: site.addressShort, label: "Adresa", href: mapLinkHref, external: true },
 ];
 
-export function ContactSection() {
+export function ContactSection({ defaultRakija = "" }: { defaultRakija?: string }) {
   return (
     <section className={styles.section} aria-label="Kontakt">
       <div className={styles.inner}>
@@ -38,20 +38,20 @@ export function ContactSection() {
           </div>
           <h1 className={styles.h1}>Poručite rakiju</h1>
           <p className={styles.subhead}>
-            Za poklon, proslavu, ličnu porudžbinu ili bilo koje pitanje — tu smo.
+            Za poklon, proslavu, ličnu porudžbinu ili bilo koje pitanje, tu smo.
           </p>
         </div>
 
         {/* mobile-only quick-call button, sits between intro and form */}
         <a href={site.phoneHref} className={styles.mobileCall}>
           <Icon name="phone" size={20} />
-          Pozovite nas — {site.phone}
+          Pozovite nas: {site.phone}
         </a>
 
         {/* form */}
         <div className={styles.formCard}>
           <h2 className={styles.formTitle}>Pošaljite upit za porudžbinu</h2>
-          <InquiryForm variant="consumer" />
+          <InquiryForm variant="consumer" defaultRakija={defaultRakija} />
         </div>
 
         {/* contact info */}
@@ -113,7 +113,7 @@ export function ContactSection() {
           <div className={styles.mapWrap}>
             <iframe
               src={mapEmbedSrc}
-              title="Lokacija — Destilerija Maoduš"
+              title="Lokacija · Destilerija Maoduš"
               className={styles.map}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

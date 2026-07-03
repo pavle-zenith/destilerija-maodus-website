@@ -57,6 +57,17 @@
   color: var(--red);
 }
 
+/* dark-text outline for light backgrounds */
+.outlineDark {
+  background: transparent;
+  color: var(--body);
+  border-color: rgba(34, 27, 20, 0.28);
+}
+.outlineDark:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
 .outlineGold {
   background: transparent;
   color: var(--cream);

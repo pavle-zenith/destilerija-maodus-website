@@ -5,7 +5,7 @@ import type { ReactNode, MouseEvent } from "react";
 import { track } from "@/lib/analytics";
 import styles from "./Button.module.css";
 
-type Variant = "red" | "dark" | "outline" | "outlineGold" | "text";
+type Variant = "red" | "dark" | "outline" | "outlineDark" | "outlineGold" | "text";
 type Size = "sm" | "md" | "lg";
 
 type BaseProps = {
