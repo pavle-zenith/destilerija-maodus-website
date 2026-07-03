@@ -77,7 +77,7 @@ export default async function RakijaDetailPage({
   const sensoryIcons: { icon: IconName; label: string; text: string }[] = [
     { icon: "drop", label: "Miris", text: detail.sensory.nose },
     { icon: "flask", label: "Ukus", text: detail.sensory.taste },
-    { icon: "goblet", label: "Završnica", text: detail.sensory.finish },
+    { icon: "glass", label: "Završnica", text: detail.sensory.finish },
   ];
 
   const cookieStore = await cookies();
@@ -198,19 +198,6 @@ export default async function RakijaDetailPage({
               Temperatura služenja: {detail.servingTemp}.
             </p>
 
-            {/* per-product sensory notes, 3-icon row (Jack Daniels style) */}
-            <ul className={styles.sensoryRow}>
-              {sensoryIcons.map((s) => (
-                <li key={s.label} className={styles.sensoryItem}>
-                  <span className={styles.sensoryIcon} aria-hidden="true">
-                    <Icon name={s.icon} size={40} />
-                  </span>
-                  <span className={styles.sensoryLabel}>{s.label}</span>
-                  <span className={styles.sensoryText}>{s.text}</span>
-                </li>
-              ))}
-            </ul>
-
             {/* brand-feature trio as the sliding component */}
             <div className={styles.featureSlider}>
               <SensorySlider
@@ -224,6 +211,19 @@ export default async function RakijaDetailPage({
                 }))}
               />
             </div>
+
+            {/* per-product sensory notes, 3-icon row (Jack Daniels style) */}
+            <ul className={styles.sensoryRow}>
+              {sensoryIcons.map((s) => (
+                <li key={s.label} className={styles.sensoryItem}>
+                  <span className={styles.sensoryIcon} aria-hidden="true">
+                    <Icon name={s.icon} size={40} />
+                  </span>
+                  <span className={styles.sensoryLabel}>{s.label}</span>
+                  <span className={styles.sensoryText}>{s.text}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -276,13 +276,15 @@ export default async function RakijaDetailPage({
                 >
                   Poručite
                 </Button>
+                <Button
+                  href="/veleprodaja"
+                  variant="outline"
+                  size="lg"
+                  track={`Ponuda za veleprodaju (${rakija.name})`}
+                >
+                  Ponuda za veleprodaju
+                </Button>
               </div>
-              <p className={styles.ctaAside}>
-                Ugostitelj?{" "}
-                <a href="/veleprodaja" className={styles.ctaLink}>
-                  Pogledajte veleprodaju →
-                </a>
-              </p>
             </div>
             <div className={styles.ctaMedia} aria-hidden="true">
               <Image

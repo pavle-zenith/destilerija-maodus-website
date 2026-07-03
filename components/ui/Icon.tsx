@@ -17,6 +17,12 @@ const paths: Record<string, React.ReactNode> = {
       <path d="M4.6 8.5h14.8M4.6 15.5h14.8M4 12h16" />
     </>
   ),
+  glass: (
+    <>
+      <path d="M6 4h12l-1 15.5a1.5 1.5 0 0 1-1.5 1.4h-7A1.5 1.5 0 0 1 7 19.5z" />
+      <path d="M6.6 11h10.8" />
+    </>
+  ),
   flask: (
     <path d="M9.5 3h5M10.5 3v5.5l-4.6 8.2A2 2 0 0 0 7.6 20h8.8a2 2 0 0 0 1.7-3.3L13.5 8.5V3" />
   ),

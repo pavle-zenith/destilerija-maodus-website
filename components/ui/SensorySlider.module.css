@@ -173,14 +173,32 @@
   }
 }
 
-/* phones: shorter, still works as slivers */
+/* phones: no slider — just 3 stacked blocks, all content shown */
 @media (max-width: 760px) {
   .track {
-    height: clamp(320px, 90vw, 440px);
-    gap: 10px;
+    flex-direction: column;
+    height: auto;
+    gap: 12px;
   }
-  .collapsed {
-    flex-basis: clamp(52px, 15vw, 72px);
+  .panel {
+    flex: 1 1 auto;
+    height: clamp(200px, 52vw, 260px);
+    cursor: default;
+    transition: none;
+  }
+  .spineLabel {
+    display: none;
+  }
+  .content {
+    position: absolute;
+    width: 100%;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    pointer-events: auto;
+  }
+  .progress {
+    display: none;
   }
   .text {
     font-size: 16px;

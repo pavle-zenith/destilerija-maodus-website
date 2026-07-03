@@ -282,12 +282,12 @@ export function getFeatures(detail: RakijaDetail): ProductFeature[] {
     },
     aged
       ? {
-          icon: "goblet",
+          icon: "glass",
           label: "Mekan finiš",
           text: "Odležavanje zaokružuje ukus u baršunast, dug završetak.",
         }
       : {
-          icon: "goblet",
+          icon: "glass",
           label: "Pitak finiš",
           text: "Svež i mirisan završetak, lagan i prijatan za piće.",
         },
