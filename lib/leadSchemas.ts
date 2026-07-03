@@ -17,11 +17,20 @@ export const inquirySchema = z.object({
   company: z.string().max(0).optional().default(""),
 });
 
+/** What the B2B visitor is asking for — sample-first funnel. */
+export const wholesaleWants = ["uzorak", "ponuda", "oboje"] as const;
+export type WholesaleWant = (typeof wholesaleWants)[number];
+
 export const wholesaleSchema = z.object({
+  want: z.enum(wholesaleWants).default("uzorak"),
   businessName: z.string().min(2, req),
+  venueType: z.string().min(2, req),
   name: z.string().min(2, req),
-  contact,
+  phone: z.string().min(6, "Unesite broj telefona."),
+  email: z.string().email("Unesite ispravnu mejl adresu."),
   city: z.string().min(2, req),
+  rakije: z.array(z.string()).optional().default([]),
+  volume: z.string().optional().default(""),
   message: z.string().optional().default(""),
   company: z.string().max(0).optional().default(""),
 });

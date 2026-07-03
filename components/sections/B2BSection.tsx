@@ -23,9 +23,26 @@ const usps: { icon: IconName; title: string; text: string }[] = [
   },
 ];
 
-export function B2BSection() {
+type Cta = { href: string; label: string };
+
+export function B2BSection({
+  id = "veleprodaja",
+  primaryCta = { href: "/veleprodaja", label: "Zatražite veleprodajnu ponudu" },
+  secondaryCta = {
+    href: "/veleprodaja?zelja=uzorak#upit",
+    label: "Pitajte za degustacioni uzorak",
+  },
+  note,
+}: {
+  id?: string;
+  /** pass null to hide */
+  primaryCta?: Cta | null;
+  secondaryCta?: Cta | null;
+  /** small proof line above the CTAs (e.g. lab-verified quality) */
+  note?: string;
+}) {
   return (
-    <section id="veleprodaja" className={styles.section} aria-label="Za ugostitelje">
+    <section id={id} className={styles.section} aria-label="Za ugostitelje">
       <div className={styles.inner}>
         <Reveal className={styles.header}>
           <div className={styles.headLeft}>
@@ -80,14 +97,22 @@ export function B2BSection() {
           ))}
         </div>
 
-        <div className={styles.ctas}>
-          <Button href="#kontakt" variant="red" track="Zatražite veleprodajnu ponudu">
-            Zatražite veleprodajnu ponudu
-          </Button>
-          <Button href="#kontakt" variant="outlineGold" track="Pitajte za degustacioni uzorak">
-            Pitajte za degustacioni uzorak
-          </Button>
-        </div>
+        {note && <p className={styles.note}>{note}</p>}
+
+        {(primaryCta || secondaryCta) && (
+          <div className={styles.ctas}>
+            {primaryCta && (
+              <Button href={primaryCta.href} variant="red" track={primaryCta.label}>
+                {primaryCta.label}
+              </Button>
+            )}
+            {secondaryCta && (
+              <Button href={secondaryCta.href} variant="outlineGold" track={secondaryCta.label}>
+                {secondaryCta.label}
+              </Button>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

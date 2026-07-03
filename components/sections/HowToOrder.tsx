@@ -4,7 +4,9 @@ import { Icon } from "@/components/ui/Icon";
 import { Reveal, RevealItem } from "@/components/ui/Reveal";
 import styles from "./HowToOrder.module.css";
 
-const steps = [
+export type OrderStep = { n: string; title: string; text: string };
+
+const defaultSteps: OrderStep[] = [
   {
     n: "1",
     title: "Izaberite rakiju",
@@ -22,21 +24,33 @@ const steps = [
   },
 ];
 
-export function HowToOrder({ showCtas = true }: { showCtas?: boolean }) {
+export function HowToOrder({
+  showCtas = true,
+  eyebrow = "Kako naručiti",
+  accentWord = "porudžbine",
+  intro = "Nema webshopa i nema komplikovanja. Javite nam šta vam treba, a mi se vraćamo sa predlogom, količinom i dogovorom oko isporuke.",
+  steps = defaultSteps,
+  reassure = "Ponudu pravimo prema količini, nameni i mestu isporuke.",
+}: {
+  showCtas?: boolean;
+  eyebrow?: string;
+  /** the accented word in "Tri koraka do …" */
+  accentWord?: string;
+  intro?: string;
+  steps?: OrderStep[];
+  reassure?: string;
+}) {
   return (
-    <section className={styles.section} aria-label="Kako naručiti">
+    <section className={styles.section} aria-label={eyebrow}>
       <div className={styles.inner}>
         <Reveal>
           <Eyebrow variant="pill" color="red" className={styles.eyebrow}>
-            Kako naručiti
+            {eyebrow}
           </Eyebrow>
           <h2 className={styles.h2}>
-            Tri koraka do <span className={styles.accent}>porudžbine</span>
+            Tri koraka do <span className={styles.accent}>{accentWord}</span>
           </h2>
-          <p className={styles.intro}>
-            Nema webshopa i nema komplikovanja. Javite nam šta vam treba, a mi se
-            vraćamo sa predlogom, količinom i dogovorom oko isporuke.
-          </p>
+          <p className={styles.intro}>{intro}</p>
         </Reveal>
 
         <div className={styles.timeline}>
@@ -54,7 +68,7 @@ export function HowToOrder({ showCtas = true }: { showCtas?: boolean }) {
 
         <p className={styles.reassure}>
           <Icon name="lock" size={17} className={styles.lock} />
-          Ponudu pravimo prema količini, nameni i mestu isporuke.
+          {reassure}
         </p>
 
         {showCtas && (
@@ -62,7 +76,7 @@ export function HowToOrder({ showCtas = true }: { showCtas?: boolean }) {
             <Button href="/kontakt" variant="red" size="lg" glow track="Pošaljite upit (Kako naručiti)">
               Pošaljite upit
             </Button>
-            <Button href="/#veleprodaja" variant="text" track="Zatražite veleprodaju">
+            <Button href="/veleprodaja" variant="text" track="Zatražite veleprodaju">
               Zatražite veleprodaju →
             </Button>
           </div>

@@ -48,7 +48,7 @@ export function Hero() {
             <Button href="/kontakt" variant="red" size="lg" glow track="Poručite rakiju (hero)">
               Poručite rakiju
             </Button>
-            <Button href="#veleprodaja" variant="dark" size="lg" glow track="Za lokale i proslave">
+            <Button href="/veleprodaja" variant="dark" size="lg" glow track="Za lokale i proslave">
               Za lokale i proslave
             </Button>
           </div>

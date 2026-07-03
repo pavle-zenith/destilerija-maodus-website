@@ -10,19 +10,27 @@ const checks = [
   "Direktan kontakt sa proizvođačem",
 ];
 
-export function Proof() {
+export function Proof({
+  eyebrow = "Poverenje",
+  title = "Dokaz umesto obećanja",
+  intro = "Dobra rakija ne traži mnogo objašnjenja, ali traži poverenje. Zato pokazujemo poreklo, proces, analize i ljude koji stoje iza svake boce.",
+  showChecks = true,
+}: {
+  eyebrow?: string;
+  title?: string;
+  /** pass null to drop the intro paragraph */
+  intro?: string | null;
+  showChecks?: boolean;
+}) {
   const loop = [...partners, ...partners];
 
   return (
     <section id="partneri" className={styles.section} aria-label="Poverenje">
       <div className={styles.inner}>
         <Reveal className={styles.header}>
-          <Eyebrow className={styles.eyebrow}>Poverenje</Eyebrow>
-          <h2 className={styles.h2}>Dokaz umesto obećanja</h2>
-          <p className={styles.intro}>
-            Dobra rakija ne traži mnogo objašnjenja, ali traži poverenje. Zato
-            pokazujemo poreklo, proces, analize i ljude koji stoje iza svake boce.
-          </p>
+          <Eyebrow className={styles.eyebrow}>{eyebrow}</Eyebrow>
+          <h2 className={styles.h2}>{title}</h2>
+          {intro && <p className={styles.intro}>{intro}</p>}
         </Reveal>
 
         <div className={styles.marqueeMask}>
@@ -42,13 +50,15 @@ export function Proof() {
           </div>
         </div>
 
-        <ul className={styles.checks}>
-          {checks.map((c) => (
-            <li key={c} className={styles.check}>
-              <span className={styles.tick} aria-hidden="true">✓</span> {c}
-            </li>
-          ))}
-        </ul>
+        {showChecks && (
+          <ul className={styles.checks}>
+            {checks.map((c) => (
+              <li key={c} className={styles.check}>
+                <span className={styles.tick} aria-hidden="true">✓</span> {c}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </section>
   );

@@ -48,9 +48,9 @@ export function Header() {
               <Icon name="phone" size={20} />
             </a>
             <a
-              href="/#veleprodaja"
+              href="/veleprodaja"
               className={styles.secondary}
-              onClick={() => track.cta("Veleprodaja (nav)", "#veleprodaja")}
+              onClick={() => track.cta("Veleprodaja (nav)", "/veleprodaja")}
             >
               Veleprodaja
             </a>
@@ -128,7 +128,7 @@ export function Header() {
               {site.phone}
             </a>
             <div className={styles.overlayCtas}>
-              <a href="/#veleprodaja" className={styles.overlaySecondary} onClick={close}>
+              <a href="/veleprodaja" className={styles.overlaySecondary} onClick={close}>
                 Veleprodaja
               </a>
               <a href="/kontakt" className={styles.overlayPrimary} onClick={close}>

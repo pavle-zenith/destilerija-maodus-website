@@ -101,11 +101,21 @@ export async function submitInquiry(
   }
 }
 
+const wantLabels: Record<string, string> = {
+  uzorak: "Besplatan degustacioni uzorak",
+  ponuda: "Ponudu i cene",
+  oboje: "Uzorak i ponudu",
+};
+
 export async function submitWholesale(
   _prev: ActionState,
   formData: FormData
 ): Promise<ActionState> {
-  const parsed = wholesaleSchema.safeParse(Object.fromEntries(formData));
+  // checkboxes submit one entry per checked box — Object.fromEntries keeps only the last
+  const parsed = wholesaleSchema.safeParse({
+    ...Object.fromEntries(formData),
+    rakije: formData.getAll("rakije").map(String),
+  });
   if (!parsed.success) {
     return { ok: false, fieldErrors: zodErrors(parsed.error.issues) };
   }
@@ -115,21 +125,36 @@ export async function submitWholesale(
   const human = await verifyTurnstile(formData.get("cf-turnstile-response") as string | null);
   if (!human) return { ok: false, error: "Potvrdite da niste robot." };
 
+  const subject =
+    d.want === "uzorak"
+      ? `Zahtev za degustacioni uzorak: ${d.businessName}`
+      : `Veleprodajni upit: ${d.businessName}`;
+
   try {
     await Promise.all([
       createLead({
         kind: "wholesale",
+        want: d.want,
         businessName: d.businessName,
+        venueType: d.venueType,
         name: d.name,
-        contact: d.contact,
+        phone: d.phone,
+        email: d.email,
         city: d.city,
+        rakije: d.rakije,
+        volume: d.volume,
         message: d.message,
       }),
-      sendEmail(`Veleprodajni upit: ${d.businessName}`, [
+      sendEmail(subject, [
+        `Šta žele: ${wantLabels[d.want] ?? d.want}`,
         `Lokal / firma: ${d.businessName}`,
+        `Tip objekta: ${d.venueType}`,
         `Kontakt osoba: ${d.name}`,
-        `Kontakt: ${d.contact}`,
+        `Telefon: ${d.phone}`,
+        `Email: ${d.email}`,
         `Grad: ${d.city}`,
+        `Rakije: ${d.rakije.length ? d.rakije.join(", ") : "-"}`,
+        `Okvirna količina / učestalost: ${d.volume || "-"}`,
         `Poruka: ${d.message || "-"}`,
       ]),
     ]);

@@ -20,16 +20,16 @@ const columns = [
       { label: "Kako naručiti", href: "/kontakt" },
       { label: "Poklon pakovanja", href: "/kontakt" },
       { label: "Rakija za proslave", href: "/#zakoga" },
-      { label: "Personalizovana etiketa", href: "/#veleprodaja" },
+      { label: "Personalizovana etiketa", href: "/veleprodaja" },
     ],
   },
   {
     title: "Za ugostitelje",
     links: [
-      { label: "Veleprodaja", href: "/#veleprodaja" },
-      { label: "Restorani i barovi", href: "/#veleprodaja" },
-      { label: "Sale i svadbe", href: "/#zakoga" },
-      { label: "Zatražite ponudu", href: "/kontakt" },
+      { label: "Veleprodaja", href: "/veleprodaja" },
+      { label: "Restorani i barovi", href: "/veleprodaja" },
+      { label: "Sale i svadbe", href: "/veleprodaja" },
+      { label: "Zatražite ponudu", href: "/veleprodaja#upit" },
     ],
   },
   {

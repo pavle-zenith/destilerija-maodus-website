@@ -54,6 +54,66 @@
   color: var(--red);
 }
 
+/* segmented radio row — "Šta želite?" */
+.radioRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--body);
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 3px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.radio:hover {
+  border-color: var(--red);
+}
+.radioActive {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: var(--off-white);
+}
+.radioInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.radioActive:focus-within,
+.radio:focus-within {
+  box-shadow: 0 0 0 3px rgba(181, 50, 50, 0.12);
+}
+
+/* SKU interest checkboxes */
+.checkGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 14px;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  color: var(--body);
+  cursor: pointer;
+}
+.checkInput {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  accent-color: var(--red);
+  cursor: pointer;
+}
+
 /* visually-hidden honeypot */
 .honeypot {
   position: absolute;

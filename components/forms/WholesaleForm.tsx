@@ -1,16 +1,30 @@
 "use client";
 
-import { useActionState, useEffect } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { submitWholesale } from "@/app/actions/leads";
-import { idleState } from "@/lib/leadSchemas";
+import { idleState, type WholesaleWant } from "@/lib/leadSchemas";
+import { allSkuNames, venueTypes } from "@/lib/content";
 import { track } from "@/lib/analytics";
 import { site, whatsappHref } from "@/lib/site";
 import { Field } from "./Field";
 import { Turnstile } from "./Turnstile";
 import styles from "./fields.module.css";
 
-export function WholesaleForm() {
+const WANTS: { value: WholesaleWant; label: string }[] = [
+  { value: "uzorak", label: "Besplatan degustacioni uzorak" },
+  { value: "ponuda", label: "Ponudu i cene" },
+  { value: "oboje", label: "Oboje" },
+];
+
+export function WholesaleForm({
+  defaultWant = "uzorak",
+  defaultVenue = "",
+}: {
+  defaultWant?: WholesaleWant;
+  defaultVenue?: string;
+}) {
   const [state, action, pending] = useActionState(submitWholesale, idleState);
+  const [want, setWant] = useState<WholesaleWant>(defaultWant);
 
   useEffect(() => {
     if (state.ok) track.formSubmit("wholesale");
@@ -21,8 +35,9 @@ export function WholesaleForm() {
       <div className={styles.success}>
         <p className={styles.successTitle}>Hvala! Upit je poslat.</p>
         <p className={styles.successText}>
-          Vraćamo se sa ponudom po meri: količine, ritam isporuke i izbor rakija
-          prema vašem lokalu.
+          Javljamo se u roku od 24–48h
+          {want !== "ponuda" ? " i dogovaramo slanje degustacionog uzorka" : ""}.
+          Ponudu pravimo prema tipu objekta, količini i ritmu isporuke.
         </p>
       </div>
     );
@@ -39,29 +54,101 @@ export function WholesaleForm() {
         </label>
       </div>
 
+      <Field label="Šta želite?" name="want" error={fe.want} required>
+        <div className={styles.radioRow} role="radiogroup" aria-label="Šta želite?">
+          {WANTS.map((w) => (
+            <label
+              key={w.value}
+              className={`${styles.radio} ${want === w.value ? styles.radioActive : ""}`}
+            >
+              <input
+                type="radio"
+                name="want"
+                value={w.value}
+                checked={want === w.value}
+                onChange={() => setWant(w.value)}
+                className={styles.radioInput}
+              />
+              {w.label}
+            </label>
+          ))}
+        </div>
+      </Field>
+
       <div className={styles.row}>
         <Field label="Naziv lokala / firme" name="businessName" error={fe.businessName} required>
           <input name="businessName" className={styles.input} required />
         </Field>
-        <Field label="Kontakt osoba" name="name" error={fe.name} required>
-          <input name="name" className={styles.input} required />
+        <Field label="Tip objekta" name="venueType" error={fe.venueType} required>
+          <select
+            name="venueType"
+            className={styles.select}
+            defaultValue={defaultVenue}
+            required
+          >
+            <option value="" disabled>
+              Izaberite tip objekta
+            </option>
+            {venueTypes.map((v) => (
+              <option key={v} value={v}>
+                {v}
+              </option>
+            ))}
+          </select>
         </Field>
       </div>
 
       <div className={styles.row}>
-        <Field label="Telefon ili mejl" name="contact" error={fe.contact} required>
-          <input name="contact" className={styles.input} required />
+        <Field label="Kontakt osoba" name="name" error={fe.name} required>
+          <input name="name" className={styles.input} required />
         </Field>
         <Field label="Grad" name="city" error={fe.city} required>
           <input name="city" className={styles.input} required />
         </Field>
       </div>
 
-      <Field label="Šta vam treba? (opciono)" name="message" error={fe.message}>
+      <div className={styles.row}>
+        <Field label="Telefon" name="phone" error={fe.phone} required>
+          <input name="phone" type="tel" className={styles.input} required />
+        </Field>
+        <Field label="Email" name="email" error={fe.email} required>
+          <input name="email" type="email" className={styles.input} required />
+        </Field>
+      </div>
+
+      <Field label="Koje rakije vas zanimaju? (opciono)" name="rakije" error={fe.rakije}>
+        <div className={styles.checkGrid}>
+          {allSkuNames.map((name) => (
+            <label key={name} className={styles.check}>
+              <input type="checkbox" name="rakije" value={name} className={styles.checkInput} />
+              {name}
+            </label>
+          ))}
+          <label className={styles.check}>
+            <input
+              type="checkbox"
+              name="rakije"
+              value="Nisam siguran, pomozite mi da izaberem"
+              className={styles.checkInput}
+            />
+            Nisam siguran, pomozite mi da izaberem
+          </label>
+        </div>
+      </Field>
+
+      <Field label="Okvirna količina / učestalost (opciono)" name="volume" error={fe.volume}>
+        <input
+          name="volume"
+          className={styles.input}
+          placeholder="Primer: 12 boca mesečno, jednokratno za događaj…"
+        />
+      </Field>
+
+      <Field label="Poruka / dodatne napomene (opciono)" name="message" error={fe.message}>
         <textarea
           name="message"
           className={styles.textarea}
-          placeholder="Vrste rakija, količine, sezona, degustacija…"
+          placeholder="Meni, kokteli, etiketa za lokal, termin događaja…"
         />
       </Field>
 
@@ -71,12 +158,12 @@ export function WholesaleForm() {
 
       <div className={styles.submitRow}>
         <button type="submit" className={styles.submit} disabled={pending}>
-          {pending ? "Slanje…" : "Zatražite ponudu"}
+          {pending ? "Slanje…" : want === "ponuda" ? "Pošaljite upit" : "Zatražite uzorak"}
         </button>
       </div>
 
       <p className={styles.alt}>
-        Radije direktno?{" "}
+        Odgovaramo u roku od 24–48h. Radije direktno?{" "}
         <a
           className={styles.altLink}
           href={whatsappHref("Zdravo! Zainteresovani smo za veleprodaju rakije.")}

@@ -1,0 +1,401 @@
+/* ── [1] hero — dark, sample-first ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--charcoal);
+}
+.heroBg {
+  object-fit: cover;
+  object-position: center 40%;
+  z-index: 0;
+}
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    rgba(18, 13, 9, 0.94) 0%,
+    rgba(18, 13, 9, 0.82) 48%,
+    rgba(18, 13, 9, 0.55) 100%
+  );
+}
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(64px, 9vw, 130px) var(--gutter) clamp(56px, 8vw, 110px);
+}
+.heroEyebrow {
+  margin-bottom: 20px;
+}
+.h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(36px, 5.4vw, 62px);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: var(--off-white);
+  margin: 0 0 18px;
+  max-width: 15ch;
+}
+.heroSub {
+  font-size: clamp(16px, 1.7vw, 19px);
+  line-height: 1.6;
+  color: var(--taupe);
+  max-width: 52ch;
+  margin: 0 0 clamp(26px, 3.5vw, 36px);
+}
+.heroCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.heroNote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(15px, 1.5vw, 18px);
+  color: var(--gold);
+  margin: clamp(20px, 2.5vw, 28px) 0 0;
+}
+.heroBullets {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin: clamp(28px, 4vw, 44px) 0 0;
+  padding: clamp(18px, 2.5vw, 24px) 0 0;
+  border-top: 1px solid rgba(247, 239, 224, 0.14);
+}
+.heroBullet {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--off-white);
+}
+.tick {
+  color: var(--gold);
+}
+
+/* ── [3] segments — "Za vaš tip lokala" ── */
+.section {
+  background: var(--paper);
+}
+.alt {
+  background: #f4ecdd;
+}
+.sectionInner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(44px, 6vw, 80px) var(--gutter);
+}
+.sectionEyebrow {
+  margin-bottom: 12px;
+}
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(26px, 3.4vw, 38px);
+  line-height: 1.1;
+  color: var(--body);
+  margin: 0 0 clamp(20px, 3vw, 30px);
+}
+.lede {
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0 0 clamp(28px, 4vw, 44px);
+  max-width: 60ch;
+}
+
+/* stacked full-bleed photo panels, styled like the SensorySlider cards */
+.segmentStack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.8vw, 20px);
+}
+.segment {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--card-dark);
+  min-height: clamp(340px, 36vw, 460px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0 16px;
+}
+.segmentPhoto {
+  object-fit: cover;
+  z-index: 0;
+}
+.segmentTint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* bottom scrim for the copy + a soft left edge so titles stay legible on bright photos */
+  background:
+    linear-gradient(100deg, rgba(12, 9, 6, 0.55) 0%, rgba(12, 9, 6, 0.18) 52%, rgba(12, 9, 6, 0) 74%),
+    linear-gradient(to top, rgba(12, 9, 6, 0.92) 0%, rgba(12, 9, 6, 0.5) 45%, rgba(12, 9, 6, 0.16) 100%);
+}
+.segmentBody {
+  position: relative;
+  z-index: 2;
+  width: min(620px, 92%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(24px, 3vw, 40px);
+}
+.segmentIcon {
+  display: inline-flex;
+  color: var(--off-white);
+  margin-bottom: 14px;
+}
+.segmentTitle {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(22px, 2.6vw, 30px);
+  color: var(--gold);
+  margin: 0 0 10px;
+}
+.segmentPitch {
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.55;
+  color: var(--off-white);
+  margin: 0 0 16px;
+  max-width: 54ch;
+}
+.segmentRecLabel {
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gold);
+  margin: 0 0 8px;
+}
+.segmentRecs {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.segmentRec {
+  position: relative;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--off-white);
+  padding-left: 16px;
+}
+.segmentRec::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+/* CTA button pinned to the card's bottom-right corner */
+.segmentAction {
+  position: relative;
+  z-index: 2;
+  margin-left: auto;
+  padding: 0 clamp(24px, 3vw, 40px) clamp(24px, 3vw, 40px) 0;
+}
+.whiteLabel {
+  font-size: 13.5px;
+  color: rgba(247, 239, 224, 0.68);
+  margin: 14px 0 0;
+}
+.whiteLabelLink {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 163, 78, 0.45);
+}
+
+/* ── [6] asortiman (condensed) ── */
+.rakijeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(18px, 2.4vw, 30px);
+}
+.rakijeMore {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(26px, 3.5vw, 40px);
+}
+
+/* ── [7] cenovna napomena ── */
+.priceNote {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter) clamp(44px, 6vw, 80px);
+}
+.priceNoteCard {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  padding: clamp(22px, 3vw, 32px) clamp(22px, 3.5vw, 40px);
+}
+.priceNoteTitle {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gold);
+  margin: 0 0 10px;
+}
+.priceNoteText {
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.65;
+  color: var(--body);
+  margin: 0;
+  max-width: 68ch;
+}
+
+/* ── [8] upit — contact intro + form card ── */
+.inquiry {
+  scroll-margin-top: 90px;
+}
+.inquiryInner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(44px, 6vw, 80px) var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 40%) 1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+.inquiryIntro {
+  position: sticky;
+  top: 96px;
+}
+.inquiryText {
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0 0 clamp(24px, 3vw, 32px);
+  max-width: 44ch;
+}
+.contactRows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.contactRow {
+  display: flex;
+}
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.contactChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  background: rgba(181, 50, 50, 0.08);
+  color: var(--red);
+}
+.contactValue {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--body);
+}
+.formCard {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: clamp(24px, 3.5vw, 44px);
+  box-shadow: 0 18px 44px rgba(34, 27, 20, 0.08);
+}
+.formTitle {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(22px, 2.4vw, 28px);
+  color: var(--body);
+  margin: 0 0 20px;
+}
+
+/* ── responsive ── */
+@media (max-width: 1000px) {
+  .rakijeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .segment {
+    min-height: 0;
+  }
+  .segmentBody {
+    width: 100%;
+    padding: clamp(160px, 42vw, 220px) 20px 14px;
+  }
+  .segmentTint {
+    background: linear-gradient(
+      to top,
+      rgba(12, 9, 6, 0.94) 0%,
+      rgba(12, 9, 6, 0.78) 45%,
+      rgba(12, 9, 6, 0.15) 78%
+    );
+  }
+  /* button drops below the copy, full width */
+  .segmentAction {
+    margin-left: 0;
+    width: 100%;
+    padding: 0 20px 20px;
+  }
+  .segmentAction > a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+  }
+}
+@media (max-width: 900px) {
+  .inquiryInner {
+    grid-template-columns: 1fr;
+  }
+  .inquiryIntro {
+    position: static;
+  }
+}
+@media (max-width: 760px) {
+  .rakijeGrid {
+    grid-template-columns: 1fr;
+  }
+  .heroCtas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .heroCtas > a {
+    justify-content: center;
+    text-align: center;
+    /* the long sample CTA label must wrap on narrow phones */
+    white-space: normal;
+  }
+  .heroBullets {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

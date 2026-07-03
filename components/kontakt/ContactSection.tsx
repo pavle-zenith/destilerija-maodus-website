@@ -91,7 +91,7 @@ export function ContactSection({ defaultRakija = "" }: { defaultRakija?: string 
 
           <p className={styles.crossLink}>
             Tražite veleprodajnu ponudu?{" "}
-            <a href="/#veleprodaja" className={styles.crossLinkA}>
+            <a href="/veleprodaja" className={styles.crossLinkA}>
               Posetite stranicu za ugostitelje →
             </a>
           </p>

@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ContactCtas } from "@/components/forms/ContactCtas";
@@ -5,7 +6,21 @@ import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
 import styles from "./FinalCta.module.css";
 
-export function FinalCta() {
+export function FinalCta({
+  eyebrow = "Poručite direktno",
+  title = "Za poklon, proslavu, meni ili ličnu porudžbinu",
+  showSlogan = true,
+  showContact = false,
+  children,
+}: {
+  eyebrow?: string;
+  title?: string;
+  showSlogan?: boolean;
+  /** phone · email · instagram line under the CTAs */
+  showContact?: boolean;
+  /** custom CTA block; defaults to the B2C ContactCtas pair */
+  children?: ReactNode;
+}) {
   return (
     <section id="kontakt" className={styles.section} aria-label="Kontakt">
       <Image
@@ -19,14 +34,33 @@ export function FinalCta() {
 
       <Reveal className={styles.content}>
         <Eyebrow variant="rules" color="gold" className={styles.eyebrow}>
-          Poručite direktno
+          {eyebrow}
         </Eyebrow>
-        <h2 className={styles.h2}>
-          Za poklon, proslavu, meni ili ličnu porudžbinu
-        </h2>
-        <p className={styles.slogan}>„{site.slogan}"</p>
+        <h2 className={styles.h2}>{title}</h2>
+        {showSlogan && <p className={styles.slogan}>„{site.slogan}"</p>}
 
-        <ContactCtas />
+        {children ?? <ContactCtas />}
+
+        {showContact && (
+          <p className={styles.contact}>
+            <a href={site.phoneHref} className={styles.contactLink}>
+              {site.phone}
+            </a>{" "}
+            ·{" "}
+            <a href={site.emailHref} className={styles.contactLink}>
+              {site.email}
+            </a>{" "}
+            ·{" "}
+            <a
+              href={site.instagramHref}
+              className={styles.contactLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {site.instagram}
+            </a>
+          </p>
+        )}
       </Reveal>
     </section>
   );

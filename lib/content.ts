@@ -348,6 +348,94 @@ export const faqs: Faq[] = [
 /** Consumer-focused subset for the /kontakt page (drops the wholesale question). */
 export const consumerFaqs: Faq[] = [faqs[0], faqs[2], faqs[3], faqs[4]];
 
+/** Wholesale FAQ for /veleprodaja. */
+export const wholesaleFaqs: Faq[] = [
+  {
+    q: "Koja je minimalna količina za veleprodaju?",
+    a: "Nemamo krutu minimalnu količinu. Uslove dogovaramo prema tipu objekta, izboru rakija i ritmu isporuke, pa se javite i za manje početne porudžbine.",
+  },
+  {
+    q: "Da li je degustacioni uzorak zaista besplatan i bez obaveze?",
+    a: "Da. Pošaljete upit, mi šaljemo uzorak, a vi probate sa svojim timom. Ako se ukusi ne poklope, ne dugujete nam ništa.",
+  },
+  {
+    q: "Da li pravite personalizovanu etiketu za naš lokal ili događaj?",
+    a: "Da. Radimo etikete za restorane, barove, sale, svadbe i poslovne poklone. Napišite u upitu šta vam treba i za koju priliku.",
+  },
+  {
+    q: "Koji su rokovi isporuke?",
+    a: "Zavisi od količine i lokacije. Za standardne porudžbine potvrđujemo rok odmah uz ponudu, a odgovaramo u roku od 24–48h.",
+  },
+  {
+    q: "Da li radite i sa manjim lokalima, ili samo veće narudžbine?",
+    a: "Radimo i sa manjim kafićima i vinotekama. Važnije nam je da rakija stoji na pravom mestu nego da porudžbina bude velika.",
+  },
+  {
+    q: "Koje rakije preporučujete za koktele?",
+    a: "Classic liniju: Šljiva Barrique Classic i Jabuka Barrique Classic su pravljene kao koktel baza, uz konzistentan profil i pristupačnu cenu. Za shot i aperitiv ponudu dodajte Viljamovku.",
+  },
+];
+
+/** Venue types for the wholesale form select (+ segment CTA prefill values). */
+export const venueTypes = [
+  "Restoran",
+  "Bar / kafić",
+  "Sala za venčanja i proslave",
+  "Vinoteka / prodavnica",
+  "Hotel",
+  "Drugo",
+] as const;
+
+/** A B2B segment card on /veleprodaja: pitch + recommended pours per venue type. */
+export type B2BSegment = {
+  id: string;
+  title: string;
+  pitch: string;
+  recommended: string[];
+  image: string;
+  icon: string;
+  ctaLabel: string;
+  /** value fed into the form's "Tip objekta" select via ?tip= */
+  venueType: (typeof venueTypes)[number];
+};
+
+export const b2bSegments: B2BSegment[] = [
+  {
+    id: "restorani",
+    title: "Restorani i vinoteke",
+    icon: "menu",
+    pitch:
+      "Domaća premium rakija sa pričom podiže doživljaj i maržu. Barrique linija radi kao aperitiv i digestiv na meniju, uz preporuku osoblja uz jelo.",
+    recommended: ["Dunja Barrique", "Šljiva Barrique", "Jabuka Barrique", "Dunja (aperitiv)"],
+    image: "/images/bento-restoran.png",
+    ctaLabel: "Uzorak za vaš meni",
+    venueType: "Restoran",
+  },
+  {
+    id: "barovi",
+    title: "Barovi i kafići",
+    icon: "glass",
+    pitch:
+      "Rakija koktel kultura raste, a Classic linija je pravljena baš za to: pristupačna cena i konzistentan profil. Voćne bele rade kao shot i aperitiv ponuda.",
+    // TODO: dodati 1-2 konkretna predloga koktela sa rakijom (copy + kasnije blog tema)
+    recommended: ["Šljiva Barrique Classic", "Jabuka Barrique Classic", "Viljamovka"],
+    image: "/images/b2b-sank.png",
+    ctaLabel: "Uzorak za vaš bar",
+    venueType: "Bar / kafić",
+  },
+  {
+    id: "sale",
+    title: "Sale, svadbe i event prostori",
+    icon: "goblet",
+    pitch:
+      "Welcome rakija za doček gostiju, poklon bočice od 0,1 l i personalizovana etiketa: za mladence, firmu ili vaš prostor.",
+    recommended: ["Dunja (welcome rakija)", "Poklon bočice 0,1 l, bilo koja rakija"],
+    image: "/images/bento-svadba.png",
+    ctaLabel: "Uzorak za vaš događaj",
+    venueType: "Sala za venčanja i proslave",
+  },
+];
+
 export type Partner = { name: string; logo: string; maxHeight: number };
 
 export const partners: Partner[] = [
@@ -379,7 +467,7 @@ export const bento: BentoCard[] = [
   {
     title: "Za restorane i barove",
     tag: "Veleprodaja",
-    href: "#veleprodaja",
+    href: "/veleprodaja",
     image: "/images/bento-restoran.png",
     copy: "Rakija za meni, preporuku osoblja i goste koji traže domaći izbor.",
     tint: [58, 26, 6],
@@ -388,7 +476,7 @@ export const bento: BentoCard[] = [
   {
     title: "Za sale i svadbe",
     tag: "Proslave",
-    href: "#veleprodaja",
+    href: "/veleprodaja",
     image: "/images/bento-svadba.png",
     copy: "Boce za posluženje, poklon pakovanja i etikete za događaj.",
     tint: [58, 18, 32],
