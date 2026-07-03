@@ -61,7 +61,9 @@ export function ProductCard({
         </div>
         <a
           href={href}
-          aria-label={`Poručite ${name}`}
+          aria-label={
+            href.startsWith("/rakije") ? `Pogledajte ${name}` : `Poručite ${name}`
+          }
           className={styles.plus}
         >
           +

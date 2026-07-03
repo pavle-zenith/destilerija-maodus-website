@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { HubProductCard } from "@/components/ui/HubProductCard";
 import { Proof } from "@/components/sections/Proof";
-import { B2BSection } from "@/components/sections/B2BSection";
 import { HowToOrder, type OrderStep } from "@/components/sections/HowToOrder";
 import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
@@ -239,13 +238,88 @@ export default async function VeleprodajaPage({
           </div>
         </section>
 
-        {/* [4] Zašto Maoduš — value props + lab-quality line */}
-        <B2BSection
-          id="zasto-maodus"
-          note="Kvalitet svake šarže potvrđujemo laboratorijskim analizama, a iza boce stoji porodica sa kojom razgovarate direktno."
-          primaryCta={{ href: "#upit", label: "Zatražite uzorak" }}
-          secondaryCta={null}
-        />
+        {/* [4] Za ugostitelje — authority through specifics (redesign 2026-07-03) */}
+        <section id="zasto-maodus" className={styles.why} aria-label="Za ugostitelje">
+          <div className={styles.whyInner}>
+            <div className={styles.whyHeader}>
+              <div>
+                <Eyebrow variant="dash" color="gold" className={styles.whyEyebrow}>
+                  Za ugostitelje
+                </Eyebrow>
+                <h2 className={styles.whyH2}>
+                  Rakija za meni koji ima šta da preporuči.
+                </h2>
+              </div>
+              <p className={styles.whyIntro}>
+                Radimo sa restoranima, barovima, salama i vinotekama i stojimo iza
+                svake flaše koju vaš konobar otvori pred gostom.
+              </p>
+            </div>
+
+            {/* 01 — featured: the consistency mechanism */}
+            <div className={styles.whyFeatured}>
+              <span className={styles.whyNum} aria-hidden="true">01</span>
+              <div>
+                <h3 className={styles.whyFeaturedTitle}>Isti ukus u januaru i u julu</h3>
+                <p className={styles.whyFeaturedText}>
+                  Zrelo voće, kontrolisana fermentacija i dvostruka destilacija u
+                  bakarnom kazanu, zato svaka šarža ima isti ukus. Bez posrednika:
+                  količine, ritam isporuke i izbor dogovaramo direktno, prema vašem
+                  lokalu i sezoni.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.whyGrid}>
+              {/* 02 — lab proof (gold = premium/proof accent) */}
+              {/* TODO (Pavle): potvrditi da lab analiza sme da se pokaže partnerima na zahtev;
+                  ako ne, ublažiti u "Svaku šaržu potvrđujemo laboratorijskom analizom." */}
+              <div className={`${styles.whyBlock} ${styles.whyGold}`}>
+                <span className={styles.whyNum} aria-hidden="true">02</span>
+                <h3 className={styles.whyBlockTitle}>Laboratorija, ne obećanje</h3>
+                <p className={styles.whyBlockText}>
+                  Svaku šaržu potvrđujemo laboratorijskom analizom pre nego što
+                  izađe iz destilerije. Papir postoji, tražite ga uz uzorak.
+                </p>
+              </div>
+
+              {/* 03 — story as margin */}
+              {/* TODO (Pavle): potvrditi "porodični voćnjak"; ako voće nije 100% sopstveno,
+                  zameniti sa "iz Vojvodine, od pažljivo odabranog voća" */}
+              <div className={styles.whyBlock}>
+                <span className={styles.whyNum} aria-hidden="true">03</span>
+                <h3 className={styles.whyBlockTitle}>
+                  Priča koju konobar prenese u jednoj rečenici
+                </h3>
+                <p className={styles.whyBlockText}>
+                  „Dunja iz porodičnog voćnjaka u Vojvodini, kraljica voćnih
+                  rakija." Gost pamti, druga runda se ne prodaje sama. Priča je
+                  marža.
+                </p>
+              </div>
+
+              {/* 04 — personalised label */}
+              <div className={styles.whyBlock}>
+                <span className={styles.whyNum} aria-hidden="true">04</span>
+                <h3 className={styles.whyBlockTitle}>Etiketa za lokal ili događaj</h3>
+                <p className={styles.whyBlockText}>
+                  Personalizovana etiketa za sale, svadbe i poslovne poklone: ime
+                  mladenaca, vaše firme ili vašeg lokala na boci koju pravimo mi.
+                </p>
+              </div>
+            </div>
+
+            <p className={styles.whyClosing}>
+              Na upit odgovara isti čovek koji peče rakiju: dogovara isporuku i
+              pamti šta vaši gosti piju.
+            </p>
+            <div className={styles.whyCta}>
+              <Button href="#upit" variant="red" track="Zatražite uzorak (Za ugostitelje)">
+                Zatražite uzorak
+              </Button>
+            </div>
+          </div>
+        </section>
 
         {/* [5] Kako izgleda saradnja — 3 koraka */}
         <HowToOrder

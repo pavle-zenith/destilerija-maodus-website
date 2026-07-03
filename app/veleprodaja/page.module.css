@@ -224,6 +224,122 @@
   border-bottom: 1px solid rgba(201, 163, 78, 0.45);
 }
 
+/* ── [4] za ugostitelje — numbered typographic blocks on charcoal ── */
+.why {
+  background: var(--charcoal);
+}
+.whyInner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 100px) var(--gutter);
+}
+.whyHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 38%);
+  gap: clamp(20px, 4vw, 64px);
+  align-items: end;
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+.whyEyebrow {
+  margin-bottom: 16px;
+}
+.whyH2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(28px, 3.8vw, 46px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--off-white);
+  margin: 0;
+}
+.whyIntro {
+  font-size: clamp(15px, 1.5vw, 17px);
+  line-height: 1.7;
+  color: var(--taupe);
+  margin: 0;
+}
+.whyNum {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1;
+  color: rgba(247, 239, 224, 0.42);
+}
+/* 01 — featured row, carries the most weight */
+.whyFeatured {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 64px);
+  align-items: start;
+  border-top: 1px solid rgba(247, 239, 224, 0.16);
+  padding: clamp(28px, 4vw, 48px) 0;
+}
+.whyFeatured .whyNum {
+  font-size: clamp(44px, 6vw, 76px);
+}
+.whyFeaturedTitle {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.12;
+  color: var(--off-white);
+  margin: 0 0 14px;
+}
+.whyFeaturedText {
+  font-size: clamp(15px, 1.7vw, 19px);
+  line-height: 1.65;
+  color: #cbbba3;
+  margin: 0;
+  max-width: 64ch;
+}
+/* 02–04 */
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+  border-top: 1px solid rgba(247, 239, 224, 0.16);
+  padding-top: clamp(28px, 4vw, 48px);
+}
+.whyBlock .whyNum {
+  display: block;
+  font-size: clamp(26px, 3vw, 36px);
+  margin-bottom: 14px;
+}
+.whyBlockTitle {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(19px, 2vw, 24px);
+  line-height: 1.2;
+  color: var(--off-white);
+  margin: 0 0 10px;
+}
+.whyBlockText {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #cbbba3;
+  margin: 0;
+}
+/* lab block: the proof moment gets the gold accent */
+.whyGold {
+  border-left: 2px solid var(--gold);
+  padding-left: clamp(16px, 2vw, 26px);
+}
+.whyGold .whyNum {
+  color: var(--gold);
+}
+.whyClosing {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.5;
+  color: var(--cream);
+  margin: clamp(36px, 5vw, 56px) 0 0;
+  max-width: 56ch;
+}
+.whyCta {
+  margin-top: clamp(20px, 3vw, 28px);
+}
+
 /* ── [6] asortiman (condensed) ── */
 .rakijeGrid {
   display: grid;
@@ -378,6 +494,21 @@
   }
   .inquiryIntro {
     position: static;
+  }
+  .whyHeader {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 16px;
+  }
+  .whyGrid {
+    grid-template-columns: 1fr;
+  }
+  .whyFeatured {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .whyFeatured .whyNum {
+    font-size: clamp(32px, 9vw, 44px);
   }
 }
 @media (max-width: 760px) {

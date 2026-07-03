@@ -13,6 +13,7 @@ export function Hero() {
     volume: featuredRakija.volume,
     image: featuredRakija.image,
     eyebrow: featuredRakija.eyebrow,
+    href: `/rakije/${featuredRakija.slug}`,
   };
 
   return (
