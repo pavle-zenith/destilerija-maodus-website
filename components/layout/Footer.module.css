@@ -73,7 +73,13 @@
   font-weight: 500;
   font-size: clamp(19px, 2vw, 24px);
   color: var(--cream);
-  margin-bottom: 18px;
+  margin-bottom: 8px;
+}
+.newsletterNote {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--taupe);
+  margin: 0 0 16px;
 }
 
 .columns {

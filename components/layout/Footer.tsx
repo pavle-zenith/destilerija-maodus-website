@@ -19,7 +19,7 @@ const columns = [
     links: [
       { label: "Kako naručiti", href: "/kontakt" },
       { label: "Poklon pakovanja", href: "/kontakt" },
-      { label: "Rakija za proslave", href: "/#zakoga" },
+      { label: "Rakija za proslave", href: "/veleprodaja" },
       { label: "Personalizovana etiketa", href: "/veleprodaja" },
     ],
   },
@@ -58,8 +58,9 @@ export function Footer() {
               className={styles.logo}
             />
             <p className={styles.tagline}>
-              Porodična vojvođanska destilerija voćne rakije, od pažljivo
-              odabranog voća i dvostruke destilacije u bakru.
+              Porodična destilerija voćne rakije iz Velebita kod Kanjiže
+              (Vojvodina). Voće iz sopstvenog voćnjaka i dvostruka destilacija u
+              bakru od 1960-ih.
             </p>
             <div className={styles.contact}>
               <a href={site.phoneHref} className={styles.contactLink}>
@@ -73,6 +74,9 @@ export function Footer() {
 
           <div className={styles.newsletter}>
             <div className={styles.newsletterTitle}>Novosti i nova izdanja</div>
+            <p className={styles.newsletterNote}>
+              Povremeno, bez spama, samo za punoletne (18+).
+            </p>
             <NewsletterForm />
           </div>
         </div>

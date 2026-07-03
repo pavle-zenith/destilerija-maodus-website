@@ -6,7 +6,7 @@ export const site = {
   domain: "https://destilerijamaodus.rs",
   locale: "sr_RS",
   description:
-    "Porodična destilerija voćne rakije iz Kanjiže, Vojvodina. Rakija za poklon, proslavu i dobar meni, od pažljivo odabranog voća, kontrolisane fermentacije i dvostruke destilacije u bakru.",
+    "Porodična destilerija iz Vojvodine: rakija od dunje, kajsije, viljamovke i barrique izdanja. Voće iz sopstvenog voćnjaka, dvostruka destilacija u bakru, laboratorijski potvrđen kvalitet. Poručite ili zatražite veleprodajnu ponudu.",
   phone: "+381 64 61 59 033",
   phoneHref: "tel:+381646159033",
   phoneDigits: "381646159033", // for wa.me / viber

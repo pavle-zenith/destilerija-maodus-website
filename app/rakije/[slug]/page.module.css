@@ -152,6 +152,34 @@
   max-width: 60ch;
 }
 
+/* pairing / cocktail highlight under the sensory row */
+.pairing {
+  margin: clamp(32px, 4.5vw, 52px) auto 0;
+  max-width: 60ch;
+  text-align: center;
+  font-size: clamp(15.5px, 1.5vw, 17px);
+  line-height: 1.6;
+  color: var(--body);
+}
+.pairingLabel {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+/* [6] Priča — story body */
+.storyBody {
+  font-size: clamp(16.5px, 1.7vw, 19px);
+  line-height: 1.72;
+  color: var(--muted);
+  margin: 0;
+  max-width: 68ch;
+}
+
 /* ── [3+4] sensory notes: 3-icon row (Jack Daniels style) ── */
 .sensoryRow {
   list-style: none;

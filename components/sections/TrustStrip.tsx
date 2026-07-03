@@ -5,7 +5,7 @@ import styles from "./TrustStrip.module.css";
 const items: { icon: IconName; label: string }[] = [
   { icon: "award", label: "Tradicija od 1960-ih" },
   { icon: "drop", label: "Dvostruka destilacija u bakru" },
-  { icon: "flask", label: "Kontrolisana proizvodnja" },
+  { icon: "flask", label: "Laboratorijska analiza svake šarže" },
   { icon: "leaf", label: "Voće iz sopstvenog voćnjaka" },
 ];
 

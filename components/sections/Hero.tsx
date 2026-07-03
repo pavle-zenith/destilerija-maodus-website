@@ -31,7 +31,7 @@ export function Hero() {
       <div className={styles.content}>
         <div className={styles.copy}>
           <Eyebrow variant="square" color="red" className={styles.eyebrow}>
-            Porodična destilerija iz Vojvodine
+            Porodična destilerija iz Vojvodine, od 1960-ih
           </Eyebrow>
 
           <h1 className={styles.h1}>
@@ -41,13 +41,14 @@ export function Hero() {
           </h1>
 
           <p className={styles.sub}>
-            Voćne rakije od pažljivo odabranog voća, kontrolisane fermentacije i
-            dvostruke destilacije u bakru.
+            Destilerija Maoduš je porodična destilerija iz Kanjiže u Vojvodini
+            koja već tri generacije proizvodi rakiju od dunje, kajsije,
+            viljamovke, jabuke i šljive za ugostitelje i kupce širom regiona.
           </p>
 
           <div className={styles.ctas}>
-            <Button href="/kontakt" variant="red" size="lg" glow track="Poručite rakiju (hero)">
-              Poručite rakiju
+            <Button href="/kontakt" variant="red" size="lg" glow track="Poručite za sebe ili poklon (hero)">
+              Poručite za sebe ili poklon
             </Button>
             <Button href="/veleprodaja" variant="dark" size="lg" glow track="Za lokale i proslave">
               Za lokale i proslave
@@ -69,7 +70,7 @@ export function Hero() {
             <div className={styles.trustLabel}>
               Biraju nas kupci,
               <br />
-              domaćini i ugostitelji
+              domaćini i ugostitelji.
             </div>
           </div>
 

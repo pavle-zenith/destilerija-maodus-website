@@ -56,11 +56,23 @@
 }
 
 .sub {
-  font-size: clamp(16px, 1.5vw, 19px);
-  line-height: 1.6;
+  font-size: clamp(16px, 1.4vw, 17px);
+  line-height: 1.65;
   color: var(--muted-2);
-  max-width: 452px;
+  max-width: 560px;
+  text-wrap: pretty;
   margin: 0 0 32px;
+}
+@media (min-width: 1024px) {
+  .copy {
+    max-width: 840px;
+  }
+  .sub {
+    /* dve linije na desktopu; 100vw-520px čuva razmak od plutajuće kartice */
+    font-size: 16.5px;
+    max-width: clamp(560px, calc(100vw - 520px), 820px);
+    text-wrap: balance;
+  }
 }
 
 .ctas {

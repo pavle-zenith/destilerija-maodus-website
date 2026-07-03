@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 import styles from "./FinalCta.module.css";
 
 export function FinalCta({
-  eyebrow = "Poručite direktno",
+  eyebrow = "Javite nam šta vam treba",
   title = "Za poklon, proslavu, meni ili ličnu porudžbinu",
   showSlogan = true,
   showContact = false,
@@ -43,14 +43,15 @@ export function FinalCta({
 
         {showContact && (
           <p className={styles.contact}>
+            Pozovite{" "}
             <a href={site.phoneHref} className={styles.contactLink}>
               {site.phone}
-            </a>{" "}
-            ·{" "}
+            </a>
+            , pišite na{" "}
             <a href={site.emailHref} className={styles.contactLink}>
               {site.email}
             </a>{" "}
-            ·{" "}
+            ili na Instagram{" "}
             <a
               href={site.instagramHref}
               className={styles.contactLink}

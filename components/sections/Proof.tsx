@@ -5,9 +5,9 @@ import { partners } from "@/lib/content";
 import styles from "./Proof.module.css";
 
 const checks = [
-  "Laboratorijske analize",
+  "Laboratorijska analiza svake šarže",
   "Fotografije procesa i voćnjaka",
-  "Direktan kontakt sa proizvođačem",
+  "Direktan kontakt sa porodicom",
 ];
 
 export function Proof({

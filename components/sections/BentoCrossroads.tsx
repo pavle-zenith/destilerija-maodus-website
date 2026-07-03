@@ -45,8 +45,7 @@ export function BentoCrossroads() {
           <Eyebrow className={styles.eyebrow}>Za koga je Maoduš?</Eyebrow>
           <h2 className={styles.h2}>Izaberite svoj put</h2>
           <p className={styles.intro}>
-            Bilo da birate bocu za poklon, spremate proslavu ili tražite rakiju za
-            meni, javite nam šta vam treba. Predložićemo izbor i količinu.
+            Recite nam priliku, predložićemo rakiju i količinu.
           </p>
         </Reveal>
 

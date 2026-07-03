@@ -41,10 +41,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const found = getRakijaBySlug(slug);
-  if (!found) return {};
-  const { rakija } = found;
-  const title = `${rakija.name} · ${rakija.category}`;
-  const description = `${rakija.name}: ${rakija.tastingNote} ${rakija.abv}, ${rakija.volume}. Poručite direktno od Destilerije Maoduš iz Kanjiže, Vojvodina.`;
+  if (!found || !found.detail) return {};
+  const { rakija, detail } = found;
+  // guide formula: "{Ime} | {fraza pretrage}" — layout template appends
+  // " | Destilerija Maoduš" automatically.
+  const title = detail.metaTitle;
+  const description = detail.metaDescription;
   return {
     title,
     description,
@@ -54,7 +56,7 @@ export async function generateMetadata({
       locale: site.locale,
       url: `${site.domain}/rakije/${slug}`,
       siteName: site.name,
-      title: `${title} · Destilerija Maoduš`,
+      title: `${title} | ${site.name}`,
       description,
       images: [{ url: rakija.image }],
     },
@@ -122,6 +124,21 @@ export default async function RakijaDetailPage({
     ],
   };
 
+  // Per-product FAQ (only Dunja, per guide) gets its own FAQPage schema.
+  // Everything else shows the general consumer FAQ without duplicate markup.
+  const productFaqs = detail.faq ?? consumerFaqs;
+  const faqLd = detail.faq
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: detail.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
+
   return (
     <>
       <script
@@ -132,6 +149,12 @@ export default async function RakijaDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
       <AgeGate defaultOpen={!ageOk} />
       <Header />
 
@@ -224,6 +247,27 @@ export default async function RakijaDetailPage({
                 </li>
               ))}
             </ul>
+
+            {/* barrique → uparivanje; classic → u koktelu */}
+            {(detail.pairing || detail.cocktail) && (
+              <p className={styles.pairing}>
+                <span className={styles.pairingLabel}>
+                  {detail.cocktail ? "U koktelu" : "Uparite sa"}
+                </span>
+                {detail.cocktail ?? detail.pairing}
+              </p>
+            )}
+          </div>
+        </section>
+
+        {/* [6] Priča — poreklo, sorta, proces */}
+        <section className={`${styles.section} ${styles.alt}`} aria-labelledby="prica">
+          <div className={styles.sectionInnerNarrow}>
+            <Eyebrow className={styles.sectionEyebrow}>Priča</Eyebrow>
+            <h2 id="prica" className={styles.h2}>
+              Kako nastaje {rakija.name}
+            </h2>
+            <p className={styles.storyBody}>{detail.story}</p>
           </div>
         </section>
 
@@ -253,8 +297,6 @@ export default async function RakijaDetailPage({
             </div>
           </div>
         </section>
-
-        {/* [6] Story — hidden for now (copy pending) */}
 
         {/* [8] Dual CTA — inset card with the bottle popping outside */}
         <section className={styles.ctaWrap} aria-label="Poručite">
@@ -314,7 +356,7 @@ export default async function RakijaDetailPage({
         </section>
 
         {/* FAQ */}
-        <Faq items={consumerFaqs} />
+        <Faq items={productFaqs} />
       </main>
 
       <Footer />

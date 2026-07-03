@@ -62,7 +62,8 @@ export function RakijeCarousel({ items }: { items: Rakija[] }) {
           <Eyebrow className={styles.eyebrow}>Asortiman</Eyebrow>
           <h2 className={styles.h2}>Naše rakije</h2>
           <p className={styles.intro}>
-            Od mirisnih voćnih rakija do odležanih barrique izdanja. Izaberite bocu
+            Osam rakija u tri linije: voćne bele (dunja, kajsija, viljamovka),
+            barrique odležane u hrastu i classic linija za koktele. Izaberite bocu
             za poklon, proslavu, meni ili kućnu kolekciju.
           </p>
         </Reveal>
@@ -79,6 +80,7 @@ export function RakijeCarousel({ items }: { items: Rakija[] }) {
             abv={r.abv}
             volume={r.volume}
             image={r.image}
+            href={`/rakije/${r.slug}`}
             sizes="clamp(280px, 80vw, 338px)"
           />
         ))}

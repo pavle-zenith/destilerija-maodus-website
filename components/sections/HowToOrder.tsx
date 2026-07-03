@@ -10,17 +10,17 @@ const defaultSteps: OrderStep[] = [
   {
     n: "1",
     title: "Izaberite rakiju",
-    text: "Pogledajte asortiman i izdvojite šta vam treba za poklon, proslavu, meni ili ličnu porudžbinu.",
+    text: "Pogledajte asortiman i izdvojite šta vam treba: za poklon, proslavu, meni ili za sebe.",
   },
   {
     n: "2",
     title: "Pošaljite upit",
-    text: "Napišite količinu, priliku i grad. Možete preko forme, telefona, mejla ili društvenih mreža.",
+    text: "Napišite količinu, priliku i grad. Možete preko forme, telefona, mejla ili Instagrama.",
   },
   {
     n: "3",
     title: "Dogovaramo isporuku",
-    text: "Potvrđujemo dostupnost, cenu, isporuku i način plaćanja.",
+    text: "Potvrđujemo dostupnost, cenu i način plaćanja. Odgovaramo u roku od 24–48h.",
   },
 ];
 
@@ -28,7 +28,7 @@ export function HowToOrder({
   showCtas = true,
   eyebrow = "Kako naručiti",
   accentWord = "porudžbine",
-  intro = "Nema webshopa i nema komplikovanja. Javite nam šta vam treba, a mi se vraćamo sa predlogom, količinom i dogovorom oko isporuke.",
+  intro = "Nema webshopa i nema komplikovanja: javite šta vam treba, vraćamo se sa predlogom i dogovorom oko isporuke.",
   steps = defaultSteps,
   reassure = "Ponudu pravimo prema količini, nameni i mestu isporuke.",
 }: {

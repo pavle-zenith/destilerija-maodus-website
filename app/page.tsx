@@ -39,7 +39,7 @@ export default async function Home() {
         <HowToOrder />
         {/* Blog skriven dok se ne napravi sadržaj — vrati <BlogTeaser /> kad bude spreman */}
         <Faq items={faqs} />
-        <FinalCta />
+        <FinalCta showContact />
       </main>
       <Footer />
       <CallButton />

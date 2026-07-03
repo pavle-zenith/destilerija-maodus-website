@@ -7,19 +7,19 @@ import styles from "./B2BSection.module.css";
 
 const usps: { icon: IconName; title: string; text: string }[] = [
   {
-    icon: "menu",
-    title: "Jasan izbor za meni",
-    text: "Voćne bele, barrique i classic rakije za aperitiv, digestiv, poklon bocu ili preporuku uz obrok.",
+    icon: "flask",
+    title: "Laboratorija, ne obećanje",
+    text: "Svaku šaržu potvrđujemo laboratorijskom analizom pre nego što izađe iz destilerije.",
   },
   {
-    icon: "goblet",
-    title: "Degustacija pre odluke",
-    text: "Probajte, uporedite i izaberite ono što odgovara vašim gostima pre prve veće porudžbine.",
+    icon: "menu",
+    title: "Priča koju konobar prenese u jednoj rečenici",
+    text: "„Dunja iz porodičnog voćnjaka u Vojvodini, kraljica voćnih rakija.\" Gost pamti, druga runda se ne prodaje sama.",
   },
   {
     icon: "tag",
     title: "Etiketa za lokal ili događaj",
-    text: "Personalizovana etiketa za sale, svadbe, poslovne poklone i posebne prilike.",
+    text: "Personalizovana etiketa za sale, svadbe i poslovne poklone: ime mladenaca, vaše firme ili vašeg lokala.",
   },
 ];
 
@@ -27,11 +27,8 @@ type Cta = { href: string; label: string };
 
 export function B2BSection({
   id = "veleprodaja",
-  primaryCta = { href: "/veleprodaja", label: "Zatražite veleprodajnu ponudu" },
-  secondaryCta = {
-    href: "/veleprodaja?zelja=uzorak#upit",
-    label: "Pitajte za degustacioni uzorak",
-  },
+  primaryCta = { href: "/veleprodaja", label: "Zatražite besplatan uzorak" },
+  secondaryCta = { href: "/veleprodaja", label: "Sve o veleprodaji" },
   note,
 }: {
   id?: string;
@@ -52,9 +49,8 @@ export function B2BSection({
             <h2 className={styles.h2}>Rakija za meni koji ima šta da preporuči.</h2>
           </div>
           <p className={styles.headText}>
-            Radimo sa restoranima, barovima, salama i vinotekama koje žele domaću
-            rakiju sa stabilnim kvalitetom, jasnim izborom i pričom koju osoblje
-            može da prenese gostu.
+            Radimo sa restoranima, barovima, salama i vinotekama. Stojimo iza
+            svake flaše koju vaš konobar otvori pred gostom.
           </p>
         </Reveal>
 
@@ -73,10 +69,12 @@ export function B2BSection({
             <div className={styles.goldChip}>
               <Icon name="checkCircle" size={24} />
             </div>
-            <h3 className={styles.heroTitle}>Stabilan kvalitet i direktna isporuka</h3>
+            <h3 className={styles.heroTitle}>Isti ukus u januaru i u julu</h3>
             <p className={styles.heroPara}>
-              Bez posrednika i bez nagađanja. Dogovaramo količine, ritam isporuke i
-              izbor rakija prema vašem lokalu, meniju ili sezoni proslava.
+              Zrelo voće, kontrolisana fermentacija i dvostruka destilacija u
+              bakarnom kazanu, zato svaka šarža ima isti ukus. Bez posrednika:
+              količine, ritam isporuke i izbor dogovaramo direktno, prema vašem
+              lokalu i sezoni.
             </p>
           </div>
         </Reveal>

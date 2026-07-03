@@ -13,10 +13,12 @@ export function About() {
           <Eyebrow color="gold" className={styles.eyebrow}>O nama</Eyebrow>
           <h2 className={styles.h2}>Tri generacije posvećene rakiji</h2>
           <p className={styles.para}>
-            Maoduš je porodična destilerija iz Vojvodine. Rakiju pravimo od pažljivo
-            odabranog voća, uz kontrolisanu fermentaciju i dvostruku destilaciju u
-            bakarnim kazanima. Bez žurbe, bez prečica, sa ukusom koji treba da
-            ostane čist, voćan i prepoznatljiv.
+            Destilerija Maoduš je porodična destilerija voćne rakije iz Velebita
+            kod Kanjiže (Vojvodina), koja od 2007. samostalno proizvodi rakiju
+            dvostrukom destilacijom u bakarnim kazanima, na temeljima porodičnog
+            voćarstva od 1960-ih. Bez žurbe i bez prečica: zrelo voće iz
+            sopstvenog voćnjaka, kontrolisana fermentacija i ukus koji ostaje čist
+            i prepoznatljiv.
           </p>
           <div className={styles.cta}>
             <Button href="/kontakt" variant="red" track="Poručite rakiju (O nama)">
@@ -27,9 +29,7 @@ export function About() {
           <div className={styles.stats}>
             {stats.map((s, i) => (
               <RevealItem key={s.label} className={styles.stat} index={i}>
-                <div className={`${styles.statValue} ${s.small ? styles.statValueSmall : ""}`}>
-                  {s.value}
-                </div>
+                <div className={styles.statValue}>{s.value}</div>
                 <div className={styles.statLabel}>{s.label}</div>
               </RevealItem>
             ))}

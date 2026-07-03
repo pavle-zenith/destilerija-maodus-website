@@ -14,18 +14,18 @@ import { site } from "@/lib/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Naše rakije · asortiman",
+  title: "Domaća voćna rakija iz Vojvodine",
   description:
-    "Osam voćnih rakija Destilerije Maoduš iz Kanjiže, Vojvodina: voćne bele, barrique i classic izdanja. Izaberite bocu za poklon, proslavu, meni ili kućnu kolekciju.",
+    "Osam domaćih voćnih rakija u tri linije: voćne bele (dunja, kajsija, viljamovka), barrique odležane u hrastu i classic za koktele. Voće iz sopstvenog voćnjaka, dvostruka destilacija u bakru. Pogledajte asortiman i cene.",
   alternates: { canonical: "/rakije" },
   openGraph: {
     type: "website",
     locale: site.locale,
     url: `${site.domain}/rakije`,
     siteName: site.name,
-    title: "Naše rakije · asortiman · Destilerija Maoduš",
+    title: "Domaća voćna rakija iz Vojvodine | Destilerija Maoduš",
     description:
-      "Osam voćnih rakija iz Kanjiže, Vojvodina: voćne bele, barrique i classic. Izaberite bocu za poklon, proslavu ili meni.",
+      "Osam domaćih voćnih rakija u tri linije: voćne bele, barrique odležane u hrastu i classic za koktele. Pogledajte asortiman i cene.",
   },
 };
 
@@ -83,9 +83,9 @@ export default async function RakijePage() {
                 Naše rakije
               </h1>
               <p className={styles.lede}>
-                Od mirisnih voćnih belih do odležanih barrique izdanja, osam rakija,
-                svaka sa svojom pričom. Izaberite bocu za poklon, proslavu, meni ili
-                kućnu kolekciju.
+                Osam domaćih voćnih rakija, svaka od voća iz sopstvenog voćnjaka i
+                dvostruke destilacije u bakru. Izaberite bocu za poklon, proslavu,
+                meni ili kućnu kolekciju.
               </p>
             </div>
             <div className={styles.introCta}>
