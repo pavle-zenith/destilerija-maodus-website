@@ -256,10 +256,11 @@ export default async function VeleprodajaPage({
               </p>
             </div>
 
-            {/* 01 — featured: the consistency mechanism */}
-            <div className={styles.whyFeatured}>
-              <span className={styles.whyNum} aria-hidden="true">01</span>
-              <div>
+            <div className={styles.whyBento}>
+              {/* 01 — featured: the consistency mechanism (spans 2 cols) */}
+              <div className={`${styles.whyBox} ${styles.whyFeatured}`}>
+                <span className={styles.whyTexture} aria-hidden="true" />
+                <span className={styles.whyNum} aria-hidden="true">01</span>
                 <h3 className={styles.whyFeaturedTitle}>Isti ukus u januaru i u julu</h3>
                 <p className={styles.whyFeaturedText}>
                   Zrelo voće, kontrolisana fermentacija i dvostruka destilacija u
@@ -268,16 +269,14 @@ export default async function VeleprodajaPage({
                   lokalu i sezoni.
                 </p>
               </div>
-            </div>
 
-            <div className={styles.whyGrid}>
               {/* 02 — lab proof (gold = premium/proof accent) */}
               {/* TODO (Pavle): potvrditi da lab analiza sme da se pokaže partnerima na zahtev;
                   ako ne, ublažiti u "Svaku šaržu potvrđujemo laboratorijskom analizom." */}
-              <div className={`${styles.whyBlock} ${styles.whyGold}`}>
+              <div className={`${styles.whyBox} ${styles.whyGold}`}>
                 <span className={styles.whyNum} aria-hidden="true">02</span>
-                <h3 className={styles.whyBlockTitle}>Laboratorija, ne obećanje</h3>
-                <p className={styles.whyBlockText}>
+                <h3 className={styles.whyBoxTitle}>Laboratorija, ne obećanje</h3>
+                <p className={styles.whyBoxText}>
                   Svaku šaržu potvrđujemo laboratorijskom analizom pre nego što
                   izađe iz destilerije. Papir postoji, tražite ga uz uzorak.
                 </p>
@@ -286,12 +285,12 @@ export default async function VeleprodajaPage({
               {/* 03 — story as margin */}
               {/* TODO (Pavle): potvrditi "porodični voćnjak"; ako voće nije 100% sopstveno,
                   zameniti sa "iz Vojvodine, od pažljivo odabranog voća" */}
-              <div className={styles.whyBlock}>
+              <div className={`${styles.whyBox} ${styles.whyPlum}`}>
                 <span className={styles.whyNum} aria-hidden="true">03</span>
-                <h3 className={styles.whyBlockTitle}>
+                <h3 className={styles.whyBoxTitle}>
                   Priča koju konobar prenese u jednoj rečenici
                 </h3>
-                <p className={styles.whyBlockText}>
+                <p className={styles.whyBoxText}>
                   „Dunja iz porodičnog voćnjaka u Vojvodini, kraljica voćnih
                   rakija." Gost pamti, druga runda se ne prodaje sama. Priča je
                   marža.
@@ -299,24 +298,27 @@ export default async function VeleprodajaPage({
               </div>
 
               {/* 04 — personalised label */}
-              <div className={styles.whyBlock}>
+              <div className={styles.whyBox}>
                 <span className={styles.whyNum} aria-hidden="true">04</span>
-                <h3 className={styles.whyBlockTitle}>Etiketa za lokal ili događaj</h3>
-                <p className={styles.whyBlockText}>
+                <h3 className={styles.whyBoxTitle}>Etiketa za lokal ili događaj</h3>
+                <p className={styles.whyBoxText}>
                   Personalizovana etiketa za sale, svadbe i poslovne poklone: ime
                   mladenaca, vaše firme ili vašeg lokala na boci koju pravimo mi.
                 </p>
               </div>
-            </div>
 
-            <p className={styles.whyClosing}>
-              Na upit odgovara isti čovek koji peče rakiju: dogovara isporuku i
-              pamti šta vaši gosti piju.
-            </p>
-            <div className={styles.whyCta}>
-              <Button href="#upit" variant="red" track="Zatražite uzorak (Za ugostitelje)">
-                Zatražite uzorak
-              </Button>
+              {/* action box: closing line + CTA */}
+              <div className={`${styles.whyBox} ${styles.whyCtaBox}`}>
+                <p className={styles.whyClosing}>
+                  Na upit odgovara isti čovek koji peče rakiju: dogovara isporuku
+                  i pamti šta vaši gosti piju.
+                </p>
+                <div className={styles.whyCta}>
+                  <Button href="#upit" variant="dark" track="Zatražite uzorak (Za ugostitelje)">
+                    Zatražite uzorak
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </section>
