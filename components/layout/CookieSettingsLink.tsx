@@ -1,6 +1,14 @@
 "use client";
 
-export function CookieSettingsLink({ className }: { className?: string }) {
+import type { ReactNode } from "react";
+
+export function CookieSettingsLink({
+  className,
+  children = "Kolačići",
+}: {
+  className?: string;
+  children?: ReactNode;
+}) {
   return (
     <a
       href="#"
@@ -10,7 +18,7 @@ export function CookieSettingsLink({ className }: { className?: string }) {
         window.dispatchEvent(new Event("open-cookie-settings"));
       }}
     >
-      Kolačići
+      {children}
     </a>
   );
 }

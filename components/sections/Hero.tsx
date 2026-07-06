@@ -31,7 +31,7 @@ export function Hero() {
       <div className={styles.content}>
         <div className={styles.copy}>
           <Eyebrow variant="square" color="red" className={styles.eyebrow}>
-            Porodična destilerija iz Vojvodine, od 1960-ih
+            Porodična destilerija iz Kanjiže, od 1960-ih
           </Eyebrow>
 
           <h1 className={styles.h1}>

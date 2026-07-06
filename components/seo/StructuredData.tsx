@@ -15,6 +15,9 @@ export function StructuredData({
       "@id": `${site.domain}/#business`,
       name: site.name,
       alternateName: site.shortName,
+      legalName: site.legal.businessName,
+      taxID: site.legal.taxId,
+      foundingDate: "2010-03-31",
       description: site.description,
       url: site.domain,
       telephone: site.phone,
@@ -22,7 +25,7 @@ export function StructuredData({
       areaServed: "RS",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Stevana Novkovića 25",
+        streetAddress: "25 Stevana Novkovića",
         postalCode: "24426",
         addressLocality: "Velebit",
         addressRegion: "Vojvodina",

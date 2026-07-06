@@ -406,28 +406,9 @@ export default async function VeleprodajaPage({
                     <span className={styles.contactChip}>
                       <Icon name="phone" size={19} />
                     </span>
-                    <span className={styles.contactValue}>{site.phone}</span>
-                  </a>
-                </li>
-                <li className={styles.contactRow}>
-                  <a href={site.emailHref} className={styles.contactLink}>
-                    <span className={styles.contactChip}>
-                      <Icon name="mail" size={19} />
+                    <span className={styles.contactValue}>
+                      Uvek smo dostupni na {site.phone}
                     </span>
-                    <span className={styles.contactValue}>{site.email}</span>
-                  </a>
-                </li>
-                <li className={styles.contactRow}>
-                  <a
-                    href={site.instagramHref}
-                    className={styles.contactLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className={styles.contactChip}>
-                      <Icon name="instagram" size={19} />
-                    </span>
-                    <span className={styles.contactValue}>{site.instagram}</span>
                   </a>
                 </li>
               </ul>

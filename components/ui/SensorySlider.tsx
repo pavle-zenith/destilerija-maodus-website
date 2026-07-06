@@ -5,7 +5,14 @@ import Image from "next/image";
 import { Icon, type IconName } from "./Icon";
 import styles from "./SensorySlider.module.css";
 
-type Panel = { key: string; label: string; text: string; icon?: IconName };
+type Panel = {
+  key: string;
+  label: string;
+  text: string;
+  icon?: IconName;
+  /** per-panel background; falls back to the shared `image` prop */
+  image?: string;
+};
 
 const AUTOPLAY_MS = 8000;
 
@@ -13,8 +20,8 @@ const AUTOPLAY_MS = 8000;
  * iskraclub-style featured slider: the active sense fills a wide panel while the
  * other two collapse to narrow slivers on the side. Auto-advances, clicking a
  * sliver jumps to it, hover pauses *without resetting* the timer, and
- * reduced-motion disables autoplay. Panels share the product photo with a
- * per-sense colour tint.
+ * reduced-motion disables autoplay. Each panel shows its own texture (falling
+ * back to the shared `image` prop) with a per-sense colour tint.
  */
 export function SensorySlider({
   image,
@@ -97,7 +104,7 @@ export function SensorySlider({
             onClick={() => setActive(i)}
           >
             <Image
-              src={image}
+              src={p.image ?? image}
               alt={isActive ? alt : ""}
               fill
               sizes="(max-width: 760px) 100vw, 60vw"

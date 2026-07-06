@@ -15,10 +15,20 @@ export const site = {
   instagram: "@destilerija.maodus",
   instagramHref: "https://instagram.com/destilerija.maodus",
   region: "Vojvodina, Srbija",
-  address: "Stevana Novkovića 25, 24426 Velebit, Srbija",
-  addressShort: "Stevana Novkovića 25, 24426 Velebit",
+  address: "25 Stevana Novkovića, 24207, Velebit 24426, Srbija",
+  addressShort: "25 Stevana Novkovića, 24207, Velebit 24426",
   coords: { lat: 46.008, lng: 19.94 },
   slogan: "Dobra do poslednje kapi.",
+  /** Zvanični podaci iz APR-a (rukovalac podacima o ličnosti). */
+  legal: {
+    businessName: "NATAŠA MAODUŠ PR, SR DESTILERIJA MAODUŠ, VELEBIT",
+    legalForm: "Preduzetnik",
+    registrationNumber: "61267972", // matični broj
+    taxId: "106554400", // PIB
+    registeredSince: "31.03.2010.",
+    activityCode: "1101",
+    activity: "Destilacija, prečišćavanje i mešanje pića",
+  },
 } as const;
 
 /** Keyless Google Maps embed (no API key required). */

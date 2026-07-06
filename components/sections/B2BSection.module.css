@@ -119,6 +119,24 @@
     max-width: 760px;
   }
 }
+/* mobile: taller card, icon stays top-left, smaller text */
+@media (max-width: 600px) {
+  .heroCard {
+    min-height: clamp(420px, 118vw, 520px);
+    align-items: flex-start;
+  }
+  .heroContent {
+    padding: clamp(24px, 6vw, 32px);
+  }
+  .heroTitle {
+    font-size: clamp(21px, 5.6vw, 26px);
+    margin-top: 18px;
+  }
+  .heroPara {
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+}
 
 /* 3 USP cards */
 .grid {

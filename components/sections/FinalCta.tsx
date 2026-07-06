@@ -43,22 +43,9 @@ export function FinalCta({
 
         {showContact && (
           <p className={styles.contact}>
-            Pozovite{" "}
+            Uvek smo dostupni na{" "}
             <a href={site.phoneHref} className={styles.contactLink}>
               {site.phone}
-            </a>
-            , pišite na{" "}
-            <a href={site.emailHref} className={styles.contactLink}>
-              {site.email}
-            </a>{" "}
-            ili na Instagram{" "}
-            <a
-              href={site.instagramHref}
-              className={styles.contactLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {site.instagram}
             </a>
           </p>
         )}

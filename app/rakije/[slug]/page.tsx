@@ -232,6 +232,7 @@ export default async function RakijaDetailPage({
                   label: f.label,
                   text: f.text,
                   icon: f.icon as IconName,
+                  image: f.image,
                 }))}
               />
             </div>
@@ -280,8 +281,8 @@ export default async function RakijaDetailPage({
             <div className={styles.priceMedia}>
               <div className={styles.pricePhotoWrap}>
                 <Image
-                  src="/images/cenovnik-lineup.png"
-                  alt="Sve zapremine, od 1 l do 0,1 l"
+                  src={detail.groupImage ?? "/images/cenovnik-lineup.png"}
+                  alt={`${rakija.name}, sve zapremine od 1 l do 0,1 l`}
                   fill
                   sizes="(max-width: 900px) 100vw, 52vw"
                   className={styles.pricePhoto}
@@ -333,7 +334,7 @@ export default async function RakijaDetailPage({
             </div>
             <div className={styles.ctaMedia} aria-hidden="true">
               <Image
-                src={rakija.image}
+                src={detail.ctaImage ?? rakija.image}
                 alt=""
                 width={520}
                 height={650}

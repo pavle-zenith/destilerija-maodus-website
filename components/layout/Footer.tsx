@@ -28,6 +28,7 @@ const columns = [
     links: [
       { label: "Kontakt", href: "/kontakt" },
       { label: "Privatnost", href: "/privatnost" },
+      { label: "Kolačići", href: "/kolacici" },
     ],
   },
 ];
@@ -98,7 +99,12 @@ export function Footer() {
             <a href="/privatnost" className={styles.legalLink}>
               Privatnost
             </a>
-            <CookieSettingsLink className={styles.legalLink} />
+            <a href="/kolacici" className={styles.legalLink}>
+              Kolačići
+            </a>
+            <CookieSettingsLink className={styles.legalLink}>
+              Podešavanja kolačića
+            </CookieSettingsLink>
           </div>
         </div>
       </div>

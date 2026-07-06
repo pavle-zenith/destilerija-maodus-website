@@ -41,6 +41,10 @@ export type RakijaDetail = {
    */
   metaTitle: string;
   metaDescription: string;
+  /** dedicated lifestyle image for the closing CTA; falls back to the bottle shot */
+  ctaImage?: string;
+  /** per-rakija bottle lineup (all volumes) for the Cenovnik section */
+  groupImage?: string;
   /** oak ageing summary; null for non-aged whites */
   oak: string | null;
   sensory: { nose: string; taste: string; finish: string };
@@ -132,6 +136,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
     metaTitle: "Rakija od dunje (dunjevača)",
     metaDescription:
       "Dunjevača od dunje sorte Leskovačka, kraljica voćnih rakija. Bez hrasta, da miris dunje ostane čist. 40% vol. Cena od 1.650 RSD, poručivanje upitom.",
+    ctaImage: "/images/dunja-cta.png",
+    groupImage: "/images/dunja-grupna.png",
     oak: null,
     sensory: {
       nose: "Zrela dunja, cvet i med, miris koji ostane u čaši i kad je ispijete.",
@@ -162,6 +168,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
   },
   kajsija: {
     metaTitle: "Rakija od kajsije (kajsijevača)",
+    ctaImage: "/images/kajsija-cta.png",
+    groupImage: "/images/kajsija-grupna.png",
     metaDescription:
       "Kajsijevača od sorte Mađarska najbolja, poznate po aromi. Mekana i cvetna, klasičan aperitiv. 40% vol. Cena od 1.650 RSD, poručivanje upitom.",
     oak: null,
@@ -184,6 +192,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
   },
   viljamovka: {
     metaTitle: "Viljamovka | Rakija od kruške",
+    ctaImage: "/images/viljamovka-cta.png",
+    groupImage: "/images/viljamovka-grupna.png",
     metaDescription:
       "Viljamovka od kruške Williams, svetskog standarda za rakiju od kruške. Svež i elegantan ukus. 40% vol. Cena od 1.650 RSD, poručivanje upitom.",
     oak: null,
@@ -206,6 +216,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
   },
   "dunja-barrique": {
     metaTitle: "Dunja Barrique | Odležana dunjevača",
+    ctaImage: "/images/dunja-barrique-cta.png",
+    groupImage: "/images/dunja-barrique-grupna.png",
     metaDescription:
       "Dunjevača odležana najmanje 3 godine u buretu od hrasta kitnjaka. Ćilibarno zlatna boja, note karamele, dublji ukus. 42% vol. Cena od 1.830 RSD, poručivanje upitom.",
     oak: "Najmanje 3 godine, hrast kitnjak",
@@ -229,6 +241,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
   },
   "sljiva-barrique": {
     metaTitle: "Šljiva Barrique | Odležana šljivovica",
+    ctaImage: "/images/sljiva-barrique-cta.png",
+    groupImage: "/images/sljiva-barrique-grupna.png",
     metaDescription:
       "Šljivovica od šest sorti šljive, odležana godinama u hrastu. Topla i zaokružena, odličan digestiv. 42% vol. Cena od 1.660 RSD, poručivanje upitom.",
     oak: "Višegodišnje, hrastovo bure",
@@ -252,6 +266,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
   },
   "jabuka-barrique": {
     metaTitle: "Jabuka Barrique | Rakija od jabuke",
+    ctaImage: "/images/jabuka-barrique-cta.png",
+    groupImage: "/images/jabuka-barrique-grupna.png",
     metaDescription:
       "Rakija od fermentisanog soka jabuke, odležana godinama u hrastu. Ćilibarna boja, blaga slatkoća, dug završetak. 42% vol. Cena od 1.530 RSD, poručivanje upitom.",
     oak: "Višegodišnje, hrastovo bure",
@@ -319,7 +335,13 @@ export function getRakijaBySlug(slug: string) {
 }
 
 /** A brand-feature panel: line icon + short gold title + one-line description. */
-export type ProductFeature = { icon: string; label: string; text: string };
+export type ProductFeature = {
+  icon: string;
+  label: string;
+  text: string;
+  /** per-panel background texture for the sensory slider */
+  image: string;
+};
 
 /**
  * The 3 process/brand features shown as the sliding trio on the detail page.
@@ -334,27 +356,32 @@ export function getFeatures(detail: RakijaDetail): ProductFeature[] {
           icon: "barrel",
           label: "Hrastovo bure",
           text: "Odležava u hrastovim buradima koja daju boju, dubinu i note vanile.",
+          image: "/images/teksture-hrast.png",
         }
       : {
           icon: "leaf",
           label: "Čist izraz voća",
           text: "Bez odležavanja u hrastu, čuva svež miris i karakter voća.",
+          image: "/images/teksture-cist-izraz.png",
         },
     {
       icon: "drop",
       label: "Bakarni kotao",
       text: "Dvostruka destilacija u bakru izvlači čistu, prepoznatljivu aromu.",
+      image: "/images/teksture-bakar.png",
     },
     aged
       ? {
           icon: "glass",
           label: "Mekan finiš",
           text: "Odležavanje zaokružuje ukus u baršunast, dug završetak.",
+          image: "/images/teksture-mekan-finis.png",
         }
       : {
           icon: "glass",
           label: "Pitak finiš",
           text: "Svež i mirisan završetak, lagan i prijatan za piće.",
+          image: "/images/teksture-pitak-finis.png",
         },
   ];
 }

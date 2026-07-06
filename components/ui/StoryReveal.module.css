@@ -6,12 +6,14 @@
   letter-spacing: -0.01em;
   color: var(--body);
   margin: 0;
-  max-width: 24ch;
+  max-width: 34ch;
   text-wrap: pretty;
 }
 @media (min-width: 900px) {
   .story {
-    max-width: 26ch;
+    /* fill the story column instead of wrapping early */
+    max-width: none;
+    text-wrap: balance;
   }
 }
 
