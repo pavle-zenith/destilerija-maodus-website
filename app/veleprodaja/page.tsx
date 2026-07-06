@@ -21,16 +21,16 @@ import { site } from "@/lib/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Veleprodaja · rakija za ugostitelje",
+  title: "Veleprodaja rakije za ugostitelje",
   description:
-    "Rakija za restorane, barove, sale i vinoteke: besplatan degustacioni uzorak pre odluke, direktna isporuka bez posrednika i personalizovana etiketa. Destilerija Maoduš, Kanjiža, Vojvodina.",
+    "Rakija za restorane, barove, sale i vinoteke: besplatan degustacioni uzorak, direktna isporuka bez posrednika i personalizovana etiketa. Zatražite ponudu.",
   alternates: { canonical: "/veleprodaja" },
   openGraph: {
     type: "website",
     locale: site.locale,
     url: `${site.domain}/veleprodaja`,
     siteName: site.name,
-    title: "Veleprodaja · rakija za ugostitelje · Destilerija Maoduš",
+    title: "Veleprodaja rakije za ugostitelje | Destilerija Maoduš",
     description:
       "Besplatan degustacioni uzorak za restorane, barove, sale i vinoteke. Direktna saradnja sa porodičnom destilerijom iz Vojvodine.",
   },

@@ -16,7 +16,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Domaća voćna rakija iz Vojvodine",
   description:
-    "Osam domaćih voćnih rakija u tri linije: voćne bele (dunja, kajsija, viljamovka), barrique odležane u hrastu i classic za koktele. Voće iz sopstvenog voćnjaka, dvostruka destilacija u bakru. Pogledajte asortiman i cene.",
+    "Osam domaćih voćnih rakija: voćne bele (dunja, kajsija, viljamovka), barrique u hrastu i classic za koktele. Voće iz sopstvenog voćnjaka. Pogledajte cene.",
   alternates: { canonical: "/rakije" },
   openGraph: {
     type: "website",

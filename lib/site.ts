@@ -6,7 +6,7 @@ export const site = {
   domain: "https://destilerijamaodus.rs",
   locale: "sr_RS",
   description:
-    "Porodična destilerija iz Vojvodine: rakija od dunje, kajsije, viljamovke i barrique izdanja. Voće iz sopstvenog voćnjaka, dvostruka destilacija u bakru, laboratorijski potvrđen kvalitet. Poručite ili zatražite veleprodajnu ponudu.",
+    "Porodična destilerija iz Vojvodine: rakija od dunje, kajsije i viljamovke i barrique izdanja iz sopstvenog voćnjaka. Poručite ili zatražite veleprodajnu ponudu.",
   phone: "+381 64 61 59 033",
   phoneHref: "tel:+381646159033",
   phoneDigits: "381646159033", // for wa.me / viber
@@ -17,6 +17,8 @@ export const site = {
   region: "Vojvodina, Srbija",
   address: "25 Stevana Novkovića, 24207, Velebit 24426, Srbija",
   addressShort: "25 Stevana Novkovića, 24207, Velebit 24426",
+  /** Maps-friendly query (double postal codes in `address` confuse Google Maps). */
+  mapQuery: "Stevana Novkovića 25, Velebit, Srbija",
   coords: { lat: 46.008, lng: 19.94 },
   slogan: "Dobra do poslednje kapi.",
   /** Zvanični podaci iz APR-a (rukovalac podacima o ličnosti). */
@@ -31,13 +33,14 @@ export const site = {
   },
 } as const;
 
-/** Keyless Google Maps embed (no API key required). */
+/** Keyless Google Maps embed (no API key required). Centered on verified coords
+ *  so the visible map always lands on Velebit, with the address as the label. */
 export const mapEmbedSrc = `https://maps.google.com/maps?q=${encodeURIComponent(
-  site.address
-)}&z=15&output=embed`;
+  `${site.mapQuery} (${site.name})`
+)}&ll=${site.coords.lat},${site.coords.lng}&z=15&output=embed`;
 
 export const mapLinkHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  site.address
+  site.mapQuery
 )}`;
 
 export const whatsappHref = (message?: string) =>

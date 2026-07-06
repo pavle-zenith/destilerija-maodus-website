@@ -46,17 +46,20 @@ export function StructuredData({
       inLanguage: "sr-Latn-RS",
       publisher: { "@id": `${site.domain}/#business` },
     },
-    ...rakije.map((r) => ({
-      "@type": "Product",
-      name: `${site.shortName} ${r.name}`,
-      category: r.category,
-      brand: { "@type": "Brand", name: site.shortName },
-      additionalProperty: [
-        { "@type": "PropertyValue", name: "Jačina", value: r.abv },
-        { "@type": "PropertyValue", name: "Zapremina", value: r.volume },
-      ],
-      image: r.image?.startsWith("http") ? r.image : `${site.domain}${r.image}`,
-    })),
+    // ItemList linking to the canonical /rakije/{slug} URLs. The per-product
+    // Product markup lives on those detail pages, so the two don't compete in
+    // the index for the same entity.
+    {
+      "@type": "ItemList",
+      "@id": `${site.domain}/#rakije`,
+      name: "Rakije",
+      itemListElement: rakije.map((r, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: r.name,
+        url: `${site.domain}/rakije/${r.slug}`,
+      })),
+    },
     {
       "@type": "FAQPage",
       "@id": `${site.domain}/#faq`,

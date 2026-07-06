@@ -109,24 +109,27 @@ export function InquiryForm({
         </button>
       </div>
 
-      {isConsumer ? (
+      <p className={styles.alt}>
+        Radije direktno?{" "}
+        <a
+          className={styles.altLink}
+          href={whatsappHref("Zdravo! Zainteresovan/na sam za porudžbinu rakije.")}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => track.whatsapp("inquiry")}
+        >
+          Pišite na WhatsApp
+        </a>{" "}
+        ili pozovite{" "}
+        <a className={styles.altLink} href={site.phoneHref}>
+          {site.phone}
+        </a>
+        .
+      </p>
+      {isConsumer && (
         <p className={styles.alt}>
           Odgovaramo u roku od 24–48h. Rakiju prodajemo isključivo punoletnim
           osobama.
-        </p>
-      ) : (
-        <p className={styles.alt}>
-          Radije direktno?{" "}
-          <a
-            className={styles.altLink}
-            href={whatsappHref("Zdravo! Zainteresovan/na sam za porudžbinu rakije.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => track.whatsapp("inquiry")}
-          >
-            Pišite na WhatsApp
-          </a>{" "}
-          ili pozovite {site.phone}.
         </p>
       )}
     </form>

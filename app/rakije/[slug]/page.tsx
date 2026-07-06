@@ -92,7 +92,13 @@ export default async function RakijaDetailPage({
     { label: rakija.name },
   ];
 
-  const lowestPrice = detail.prices.find((p) => typeof p.price === "number");
+  // All volumes with a numeric price feed the AggregateOffer + per-volume Offers,
+  // so search + AI agents read the full price range, not a single SKU.
+  const productUrl = `${site.domain}/rakije/${slug}`;
+  const pricedRows = detail.prices.filter(
+    (p): p is { volume: string; price: number } => typeof p.price === "number",
+  );
+  const numericPrices = pricedRows.map((p) => p.price);
 
   const productLd = {
     "@context": "https://schema.org",
@@ -102,14 +108,24 @@ export default async function RakijaDetailPage({
     image: `${site.domain}${rakija.image}`,
     description: `${detail.sensory.nose} ${detail.sensory.taste}`,
     brand: { "@type": "Brand", name: site.name },
-    ...(lowestPrice && typeof lowestPrice.price === "number"
+    ...(numericPrices.length > 0
       ? {
           offers: {
-            "@type": "Offer",
-            price: lowestPrice.price,
+            "@type": "AggregateOffer",
             priceCurrency: "RSD",
+            lowPrice: Math.min(...numericPrices),
+            highPrice: Math.max(...numericPrices),
+            offerCount: pricedRows.length,
             availability: "https://schema.org/InStock",
-            url: `${site.domain}/rakije/${slug}`,
+            url: productUrl,
+            offers: pricedRows.map((p) => ({
+              "@type": "Offer",
+              name: `${rakija.name} ${p.volume}`,
+              price: p.price,
+              priceCurrency: "RSD",
+              availability: "https://schema.org/InStock",
+              url: productUrl,
+            })),
           },
         }
       : {}),
@@ -331,6 +347,7 @@ export default async function RakijaDetailPage({
                   Ponuda za veleprodaju
                 </Button>
               </div>
+              <p className={styles.ctaSlogan}>„{site.slogan}"</p>
             </div>
             <div className={styles.ctaMedia} aria-hidden="true">
               <Image

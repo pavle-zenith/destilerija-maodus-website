@@ -322,6 +322,13 @@
   max-width: 460px;
   margin: 0 0 clamp(26px, 3vw, 34px);
 }
+.ctaSlogan {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: var(--gold);
+  margin: clamp(22px, 2.6vw, 30px) 0 0;
+}
 .ctaBtns {
   display: flex;
   flex-wrap: wrap;

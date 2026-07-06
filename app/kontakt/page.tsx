@@ -11,18 +11,18 @@ import { consumerFaqs, allRakije } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Kontakt · poručite rakiju",
+  title: "Kontakt i poručivanje",
   description:
-    "Poručite Maoduš voćnu rakiju iz Kanjiže, Vojvodina za poklon, proslavu, slavu ili ličnu porudžbinu. Pošaljite upit, pozovite +381 64 61 59 033 ili pišite na mejl. Odgovaramo u roku od 24–48h.",
+    "Poručite Maoduš voćnu rakiju iz Kanjiže za poklon, proslavu ili ličnu porudžbinu. Pošaljite upit ili pozovite, odgovaramo u roku od 24–48h.",
   alternates: { canonical: "/kontakt" },
   openGraph: {
     type: "website",
     locale: site.locale,
     url: `${site.domain}/kontakt`,
     siteName: site.name,
-    title: "Kontakt · poručite rakiju · Destilerija Maoduš",
+    title: "Kontakt i poručivanje | Destilerija Maoduš",
     description:
-      "Poručite voćnu rakiju iz Kanjiže, Vojvodina za poklon, proslavu ili ličnu porudžbinu. Odgovaramo u roku od 24–48h.",
+      "Poručite voćnu rakiju iz Kanjiže za poklon, proslavu ili ličnu porudžbinu. Odgovaramo u roku od 24–48h.",
   },
 };
 

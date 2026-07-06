@@ -76,7 +76,7 @@ export function Hero() {
 
           {/* in-flow featured card (<1024px) */}
           <div className={styles.featuredInflow}>
-            <ProductCard {...featured} sizes="340px" />
+            <ProductCard {...featured} sizes="340px" priority />
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ export function Hero() {
       <div className={styles.featuredFloatWrap} aria-hidden={false}>
         <div className={styles.featuredFloatInner}>
           <div className={styles.featuredFloat}>
-            <ProductCard {...featured} size="lg" sizes="332px" />
+            <ProductCard {...featured} size="lg" sizes="332px" priority />
           </div>
         </div>
       </div>
