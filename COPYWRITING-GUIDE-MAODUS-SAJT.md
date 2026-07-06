@@ -418,7 +418,7 @@ Naslov teksta je doslovno pretraga koju cilja (klasteri iz STRATEGIJA-03 §6): �
 
 - **Title:** `Šljiva Barrique Classic | Destilerija Maoduš`
 - **Description:** `Lakša šljivovica od sorte Stenlej, bez koštice i pokožice pre fermentacije. Pitka, čista, rađena za koktele. Cena 1.590 RSD (0,7 l), poručivanje upitom.`
-- **Kategorija:** Classic, **Jačina:** **[TODO: potvrditi % vol]**, **Odležavanje:** višegodišnje, hrastovo bure
+- **Kategorija:** Classic, **Jačina:** 43,0% vol (sa etikete, šarža 2019; potvrditi za tekuću šaržu), **Odležavanje:** višegodišnje, hrastovo bure
 - **Miris:** Čista šljiva, lagana i voćna, bez teških tonova.
 - **Ukus:** Lakši i pitkiji od klasične šljivovice, bez gorčine koštice.
 - **Završnica:** Kratka i čista, ostavlja prostor za sledeći gutljaj.
@@ -432,7 +432,7 @@ Naslov teksta je doslovno pretraga koju cilja (klasteri iz STRATEGIJA-03 §6): �
 
 - **Title:** `Jabuka Barrique Classic | Destilerija Maoduš`
 - **Description:** `Pristupačna rakija od jabuke iz hrasta: Ajdared, Zlatni Delišes, Melroza i Crveni Delišes. Pitka i lagana, rađena za koktel program. Cena 1.590 RSD (0,7 l).`
-- **Kategorija:** Classic, **Jačina:** **[TODO: potvrditi % vol]**, **Odležavanje:** višegodišnje, hrastovo bure
+- **Kategorija:** Classic, **Jačina:** 43,5% vol (sa etikete, šarža 2019; potvrditi za tekuću šaržu), **Odležavanje:** višegodišnje, hrastovo bure
 - **Miris:** Sveža jabuka sa blagom notom hrasta.
 - **Ukus:** Pitka i pristupačna, sa blagom slatkoćom jabuke.
 - **Završnica:** Meke cvetne note, čista i lagana.
@@ -632,7 +632,7 @@ Pokrivena globalnim footerom i linijom ispod forme, ne duplirati posebnim blokom
 - [ ] Radno vreme za LocalBusiness schema + GBP.
 - [ ] `/llms.txt` + `/cenovnik.md`: dodati pri sledećem deploy-u.
 - [ ] Kad stignu nagrade i medalje: dodati u trust traku i O nama (zlatni akcenat po BRIEF-01).
-- [ ] Jačina (% vol) Classic linije: nije u katalogu, potvrditi pre objave stranica proizvoda.
+- [ ] Jačina Classic linije: **sa etiketa (šarža 2019): Šljiva Classic 43,0% vol, Jabuka Classic 43,5% vol.** llms.txt i sajt pogrešno navode 40% — ispraviti u public/llms.txt, lib/content.ts i na stranicama proizvoda. Potvrditi da tekuća šarža ima istu jačinu.
 - [ ] Temperatura služenja Jabuka Barrique: nije u katalogu, potvrditi.
 - [ ] Senzorne opise svih 8 rakija (DEO II-C) Pavle da pročita i koriguje prema stvarnom ukusu.
 - [ ] Veleprodajni FAQ (DEO II-D): potvrditi minimalnu količinu i rokove isporuke, predlozi odgovora čekaju u tekstu.
