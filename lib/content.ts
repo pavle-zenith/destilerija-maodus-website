@@ -406,7 +406,7 @@ export type Faq = { q: string; a: string };
 export const faqs: Faq[] = [
   {
     q: "Kako mogu da poručim rakiju?",
-    a: "Rakiju Destilerije Maoduš poručujete upitom: preko forme na sajtu, telefonom na +381 64 61 59 033, mejlom ili porukom na Instagram @destilerija.maodus. Potvrdimo dostupnost, cenu i isporuku u roku od 24–48h. Webshop ne postoji, svaka porudžbina se dogovara direktno sa porodicom.",
+    a: "Rakiju Destilerije Maoduš poručujete upitom: preko forme na sajtu, telefonom na +381 64 61 59 033, mejlom ili porukom na Instagram @destilerija.maodus. Potvrdimo dostupnost, cenu i isporuku u roku od 24–48h. Svaku porudžbinu dogovarate direktno sa porodicom.",
   },
   {
     q: "Da li radite veleprodaju za restorane i sale?",

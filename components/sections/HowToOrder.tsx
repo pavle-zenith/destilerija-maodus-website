@@ -28,7 +28,7 @@ export function HowToOrder({
   showCtas = true,
   eyebrow = "Kako naručiti",
   accentWord = "porudžbine",
-  intro = "Nema webshopa i nema komplikovanja: javite šta vam treba, vraćamo se sa predlogom i dogovorom oko isporuke.",
+  intro = "Bez komplikovanja: pošaljite upit ili nas pozovite, a mi se vraćamo sa predlogom i dogovorom oko isporuke.",
   steps = defaultSteps,
   reassure = "Ponudu pravimo prema količini, nameni i mestu isporuke.",
 }: {

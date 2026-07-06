@@ -1,0 +1,30 @@
+.story {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(23px, 3vw, 38px);
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+  color: var(--body);
+  margin: 0;
+  max-width: 24ch;
+  text-wrap: pretty;
+}
+@media (min-width: 900px) {
+  .story {
+    max-width: 26ch;
+  }
+}
+
+/* each word is an inline block so the ink span can animate independently */
+.word {
+  display: inline;
+}
+.wordInk {
+  display: inline;
+  /* opacity + color driven by motion; dim baseline handled via inline opacity */
+}
+
+/* reduced-motion / no-JS fallback: plain lit paragraph */
+.static {
+  color: var(--body);
+}

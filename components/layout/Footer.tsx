@@ -15,27 +15,17 @@ const columns = [
     ],
   },
   {
-    title: "Za porudžbinu",
+    title: "Mapa sajta",
     links: [
-      { label: "Kako naručiti", href: "/kontakt" },
-      { label: "Poklon pakovanja", href: "/kontakt" },
-      { label: "Rakija za proslave", href: "/veleprodaja" },
-      { label: "Personalizovana etiketa", href: "/veleprodaja" },
-    ],
-  },
-  {
-    title: "Za ugostitelje",
-    links: [
+      { label: "Rakije", href: "/rakije" },
       { label: "Veleprodaja", href: "/veleprodaja" },
-      { label: "Restorani i barovi", href: "/veleprodaja" },
-      { label: "Sale i svadbe", href: "/veleprodaja" },
-      { label: "Zatražite ponudu", href: "/veleprodaja#upit" },
+      { label: "O nama", href: "/#o-nama" },
+      { label: "Kontakt", href: "/kontakt" },
     ],
   },
   {
     title: "Info",
     links: [
-      { label: "O nama", href: "/#o-nama" },
       { label: "Kontakt", href: "/kontakt" },
       { label: "Privatnost", href: "/privatnost" },
     ],
@@ -58,11 +48,12 @@ export function Footer() {
               className={styles.logo}
             />
             <p className={styles.tagline}>
-              Porodična destilerija voćne rakije iz Velebita kod Kanjiže
-              (Vojvodina). Voće iz sopstvenog voćnjaka i dvostruka destilacija u
-              bakru od 1960-ih.
+              Destilerija Maoduš je porodična destilerija iz Kanjiže u Vojvodini
+              koja već tri generacije proizvodi rakiju od dunje, kajsije,
+              viljamovke, jabuke i šljive za ugostitelje i kupce širom regiona.
             </p>
             <div className={styles.contact}>
+              <address className={styles.address}>{site.address}</address>
               <a href={site.phoneHref} className={styles.contactLink}>
                 {site.phone}
               </a>

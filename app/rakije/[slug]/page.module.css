@@ -171,13 +171,34 @@
   margin-bottom: 8px;
 }
 
-/* [6] Priča — story body */
-.storyBody {
-  font-size: clamp(16.5px, 1.7vw, 19px);
-  line-height: 1.72;
+/* [6] Priča — editorial fill-in layout */
+.storyInner {
+  max-width: var(--container);
+}
+.storyKicker {
+  margin-bottom: clamp(22px, 3vw, 34px);
+}
+.storyHeading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(15px, 1.5vw, 18px);
+  letter-spacing: 0.02em;
+  text-transform: none;
   color: var(--muted);
-  margin: 0;
-  max-width: 68ch;
+  margin: 8px 0 0;
+}
+@media (min-width: 900px) {
+  .storyInner {
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) 1fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+  }
+  .storyKicker {
+    margin-bottom: 0;
+    position: sticky;
+    top: clamp(90px, 12vh, 130px);
+  }
 }
 
 /* ── [3+4] sensory notes: 3-icon row (Jack Daniels style) ── */

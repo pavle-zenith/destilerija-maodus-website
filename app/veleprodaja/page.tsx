@@ -256,69 +256,81 @@ export default async function VeleprodajaPage({
               </p>
             </div>
 
-            <div className={styles.whyBento}>
-              {/* 01 — featured: the consistency mechanism (spans 2 cols) */}
-              <div className={`${styles.whyBox} ${styles.whyFeatured}`}>
-                <span className={styles.whyTexture} aria-hidden="true" />
-                <span className={styles.whyNum} aria-hidden="true">01</span>
-                <h3 className={styles.whyFeaturedTitle}>Isti ukus u januaru i u julu</h3>
-                <p className={styles.whyFeaturedText}>
-                  Zrelo voće, kontrolisana fermentacija i dvostruka destilacija u
-                  bakarnom kazanu, zato svaka šarža ima isti ukus. Bez posrednika:
-                  količine, ritam isporuke i izbor dogovaramo direktno, prema vašem
-                  lokalu i sezoni.
-                </p>
+            <div className={styles.whyLayout}>
+              {/* image panel with a pill tag */}
+              <div className={styles.whyMedia}>
+                <Image
+                  src="/images/b2b-sank.png"
+                  alt="Rakija Maoduš na šanku restorana"
+                  fill
+                  sizes="(max-width: 960px) 100vw, 42vw"
+                  className={styles.whyMediaImg}
+                />
+                <span className={styles.whyMediaScrim} aria-hidden="true" />
+                <span className={styles.whyPill}>
+                  <Icon name="checkCircle" size={15} />
+                  Isti ukus u svakoj šarži
+                </span>
               </div>
 
-              {/* 02 — lab proof (gold = premium/proof accent) */}
-              {/* TODO (Pavle): potvrditi da lab analiza sme da se pokaže partnerima na zahtev;
-                  ako ne, ublažiti u "Svaku šaržu potvrđujemo laboratorijskom analizom." */}
-              <div className={`${styles.whyBox} ${styles.whyGold}`}>
-                <span className={styles.whyNum} aria-hidden="true">02</span>
-                <h3 className={styles.whyBoxTitle}>Laboratorija, ne obećanje</h3>
-                <p className={styles.whyBoxText}>
-                  Svaku šaržu potvrđujemo laboratorijskom analizom pre nego što
-                  izađe iz destilerije. Papir postoji, tražite ga uz uzorak.
-                </p>
-              </div>
+              {/* 2×2 card grid — one tight line each */}
+              <div className={styles.whyGrid}>
+                <div className={styles.whyCard}>
+                  <span className={styles.whyIcon} aria-hidden="true">
+                    <Icon name="barrel" size={22} />
+                  </span>
+                  <h3 className={styles.whyCardTitle}>Isti ukus, cele godine</h3>
+                  <p className={styles.whyCardText}>
+                    Dvostruka destilacija u bakru i kontrolisana fermentacija drže
+                    svaku šaržu istom.
+                  </p>
+                </div>
 
-              {/* 03 — story as margin */}
-              {/* TODO (Pavle): potvrditi "porodični voćnjak"; ako voće nije 100% sopstveno,
-                  zameniti sa "iz Vojvodine, od pažljivo odabranog voća" */}
-              <div className={`${styles.whyBox} ${styles.whyPlum}`}>
-                <span className={styles.whyNum} aria-hidden="true">03</span>
-                <h3 className={styles.whyBoxTitle}>
-                  Priča koju konobar prenese u jednoj rečenici
-                </h3>
-                <p className={styles.whyBoxText}>
-                  „Dunja iz porodičnog voćnjaka u Vojvodini, kraljica voćnih
-                  rakija." Gost pamti, druga runda se ne prodaje sama. Priča je
-                  marža.
-                </p>
-              </div>
+                {/* TODO (Pavle): potvrditi da lab analiza sme da se pokaže partnerima na zahtev */}
+                <div className={styles.whyCard}>
+                  <span className={styles.whyIcon} aria-hidden="true">
+                    <Icon name="flask" size={22} />
+                  </span>
+                  <h3 className={styles.whyCardTitle}>Laboratorija, ne obećanje</h3>
+                  <p className={styles.whyCardText}>
+                    Svaku šaržu potvrđuje laboratorijska analiza. Papir tražite uz
+                    uzorak.
+                  </p>
+                </div>
 
-              {/* 04 — personalised label */}
-              <div className={styles.whyBox}>
-                <span className={styles.whyNum} aria-hidden="true">04</span>
-                <h3 className={styles.whyBoxTitle}>Etiketa za lokal ili događaj</h3>
-                <p className={styles.whyBoxText}>
-                  Personalizovana etiketa za sale, svadbe i poslovne poklone: ime
-                  mladenaca, vaše firme ili vašeg lokala na boci koju pravimo mi.
-                </p>
-              </div>
+                {/* TODO (Pavle): potvrditi „porodični voćnjak" */}
+                <div className={styles.whyCard}>
+                  <span className={styles.whyIcon} aria-hidden="true">
+                    <Icon name="leaf" size={22} />
+                  </span>
+                  <h3 className={styles.whyCardTitle}>Priča koja prodaje drugu rundu</h3>
+                  <p className={styles.whyCardText}>
+                    Dunja iz porodičnog voćnjaka u Vojvodini, priču konobar prenese
+                    u jednoj rečenici.
+                  </p>
+                </div>
 
-              {/* action box: closing line + CTA */}
-              <div className={`${styles.whyBox} ${styles.whyCtaBox}`}>
-                <p className={styles.whyClosing}>
-                  Na upit odgovara isti čovek koji peče rakiju: dogovara isporuku
-                  i pamti šta vaši gosti piju.
-                </p>
-                <div className={styles.whyCta}>
-                  <Button href="#upit" variant="dark" track="Zatražite uzorak (Za ugostitelje)">
-                    Zatražite uzorak
-                  </Button>
+                <div className={styles.whyCard}>
+                  <span className={styles.whyIcon} aria-hidden="true">
+                    <Icon name="tag" size={22} />
+                  </span>
+                  <h3 className={styles.whyCardTitle}>Etiketa za lokal ili događaj</h3>
+                  <p className={styles.whyCardText}>
+                    Ime lokala, firme ili mladenaca na boci koju pravimo za vas.
+                  </p>
                 </div>
               </div>
+            </div>
+
+            {/* closing line + CTA, full width under the layout */}
+            <div className={styles.whyFooter}>
+              <p className={styles.whyClosing}>
+                Sa vama radimo direktno: dogovaramo isporuku, pratimo šta vaši gosti
+                najviše traže i držimo ukus istim iz porudžbine u porudžbinu.
+              </p>
+              <Button href="#upit" variant="red" track="Zatražite uzorak (Za ugostitelje)">
+                Zatražite uzorak
+              </Button>
             </div>
           </div>
         </section>
@@ -360,12 +372,17 @@ export default async function VeleprodajaPage({
           {/* TODO (Pavle stariji): definisati veleprodajne cenovne razrede — do tada su cene "na upit" */}
           <div className={styles.priceNote}>
             <div className={styles.priceNoteCard}>
-              <p className={styles.priceNoteTitle}>Veleprodajne cene</p>
-              <p className={styles.priceNoteText}>
-                Veleprodajne cene formiramo prema količini, tipu objekta i
-                učestalosti isporuke. Pošaljite upit, a mi odgovaramo konkretnom
-                ponudom u roku od 48h.
-              </p>
+              <div className={styles.priceNoteBody}>
+                <p className={styles.priceNoteTitle}>Veleprodajne cene</p>
+                <p className={styles.priceNoteText}>
+                  Veleprodajne cene formiramo prema količini, tipu objekta i
+                  učestalosti isporuke. Pošaljite upit, a mi odgovaramo konkretnom
+                  ponudom u roku od 48h.
+                </p>
+              </div>
+              <Button href="#upit" variant="red" track="Pošaljite upit (Veleprodajne cene)">
+                Pošaljite upit
+              </Button>
             </div>
           </div>
         </section>

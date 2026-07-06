@@ -57,8 +57,9 @@
 
 .sub {
   font-size: clamp(16px, 1.4vw, 17px);
+  font-weight: 500;
   line-height: 1.65;
-  color: var(--muted-2);
+  color: var(--body);
   max-width: 560px;
   text-wrap: pretty;
   margin: 0 0 32px;

@@ -12,27 +12,32 @@ export function About() {
         <Reveal>
           <Eyebrow color="gold" className={styles.eyebrow}>O nama</Eyebrow>
           <h2 className={styles.h2}>Tri generacije posvećene rakiji</h2>
-          <p className={styles.para}>
-            Destilerija Maoduš je porodična destilerija voćne rakije iz Velebita
-            kod Kanjiže (Vojvodina), koja od 2007. samostalno proizvodi rakiju
-            dvostrukom destilacijom u bakarnim kazanima, na temeljima porodičnog
-            voćarstva od 1960-ih. Bez žurbe i bez prečica: zrelo voće iz
-            sopstvenog voćnjaka, kontrolisana fermentacija i ukus koji ostaje čist
-            i prepoznatljiv.
-          </p>
+
+          <div className={styles.block}>
+            <h3 className={styles.subhead}>Od voćnjaka do destilerije</h3>
+            <p className={styles.para}>
+              Destilerija Maoduš je porodična destilerija voćne rakije iz
+              Velebita kod Kanjiže (Vojvodina). Kao samostalna radnja osnovana je
+              2007, ali priča počinje šezdesetih godina, sa prvim porodičnim
+              voćnjakom i rakijom prethodne generacije.
+            </p>
+          </div>
+
+          <div className={styles.block}>
+            <h3 className={styles.subhead}>Kako pravimo rakiju</h3>
+            <p className={styles.para}>
+              Rakiju od dunje, kajsije, viljamovke, šljive i jabuke pravimo od
+              zrelog voća iz sopstvenog voćnjaka, kontrolisanom fermentacijom i
+              dvostrukom destilacijom u bakarnim kazanima ručne izrade. Ukus
+              potvrđuju visoke ocene iskusnih degustatora i analize akreditovanih
+              laboratorija.
+            </p>
+          </div>
+
           <div className={styles.cta}>
             <Button href="/kontakt" variant="red" track="Poručite rakiju (O nama)">
               Poručite rakiju →
             </Button>
-          </div>
-
-          <div className={styles.stats}>
-            {stats.map((s, i) => (
-              <RevealItem key={s.label} className={styles.stat} index={i}>
-                <div className={styles.statValue}>{s.value}</div>
-                <div className={styles.statLabel}>{s.label}</div>
-              </RevealItem>
-            ))}
           </div>
         </Reveal>
 
@@ -42,6 +47,14 @@ export function About() {
             label="Porodica / voćnjak / destilerija"
             ratio="4 / 5"
           />
+          <div className={styles.stats}>
+            {stats.map((s, i) => (
+              <RevealItem key={s.label} className={styles.stat} index={i}>
+                <div className={styles.statValue}>{s.value}</div>
+                <div className={styles.statLabel}>{s.label}</div>
+              </RevealItem>
+            ))}
+          </div>
         </Reveal>
       </div>
     </section>

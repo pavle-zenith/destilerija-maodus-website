@@ -27,7 +27,7 @@ export function SensorySlider({
 }) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
-  const reducedRef = useRef(false);
+  const [reduced, setReduced] = useState(false);
 
   // deadline-based timer so hover pauses without losing progress
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -35,49 +35,44 @@ export function SensorySlider({
   const startedAtRef = useRef(0);
 
   useEffect(() => {
-    reducedRef.current = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const onChange = () => setReduced(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
   }, []);
-
-  const clear = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = null;
-  };
 
   const advance = useCallback(() => {
     setActive((i) => (i + 1) % panels.length);
   }, [panels.length]);
 
-  // (re)start the countdown from a fresh full interval — used when the active
-  // panel changes (auto-advance or click)
+  // reset the banked remainder whenever the active panel changes (auto-advance
+  // or click) so each panel gets a full window. kept separate from the timer
+  // effect and NOT keyed on `paused`, so pausing never touches this.
   useEffect(() => {
     remainingRef.current = AUTOPLAY_MS;
-    if (reducedRef.current || panels.length < 2) return;
-    if (paused) return; // don't run while hovered; resume effect handles it
-    startedAtRef.current = Date.now();
-    clear();
-    timeoutRef.current = setTimeout(advance, AUTOPLAY_MS);
-    return clear;
-    // intentionally keyed on `active` so each panel gets a full window
-  }, [active, advance, panels.length, paused]);
+  }, [active]);
 
-  // pause/resume WITHOUT resetting: bank elapsed on pause, resume the remainder
+  // single owner of the timer: runs the remaining time while playing, banks the
+  // elapsed portion on pause. keyed on `active` + `paused` so a resume continues
+  // the same panel's remainder instead of restarting a fresh full interval.
   useEffect(() => {
-    if (reducedRef.current || panels.length < 2) return;
-    if (paused) {
+    if (reduced || panels.length < 2 || paused) return;
+
+    startedAtRef.current = Date.now();
+    const id = setTimeout(advance, remainingRef.current);
+    timeoutRef.current = id;
+
+    return () => {
+      clearTimeout(id);
+      timeoutRef.current = null;
+      // bank how much of this run actually elapsed so a later resume continues
       const elapsed = Date.now() - startedAtRef.current;
       remainingRef.current = Math.max(0, remainingRef.current - elapsed);
-      clear();
-    } else if (timeoutRef.current === null && remainingRef.current < AUTOPLAY_MS) {
-      // resuming mid-interval
-      startedAtRef.current = Date.now();
-      timeoutRef.current = setTimeout(advance, remainingRef.current);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paused]);
+    };
+  }, [active, paused, reduced, advance, panels.length]);
 
-  const isRunning = !paused && !reducedRef.current && panels.length > 1;
+  const isRunning = !paused && !reduced && panels.length > 1;
 
   return (
     <div

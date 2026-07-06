@@ -258,115 +258,127 @@
   color: var(--taupe);
   margin: 0;
 }
-/* bento grid: 01 spans 2 cols, then lab / story / etiketa / action boxes */
-.whyBento {
+/* image panel + 2×2 card grid */
+.whyLayout {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(14px, 1.8vw, 20px);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  align-items: stretch;
 }
-.whyBox {
+/* left: image with pill tag */
+.whyMedia {
   position: relative;
   overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(247, 239, 224, 0.08);
+  min-height: clamp(320px, 40vw, 480px);
+  background: var(--card-dark);
+}
+.whyMediaImg {
+  object-fit: cover;
+  object-position: 60% 62%;
+}
+.whyMediaScrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 13, 9, 0.1) 0%,
+    rgba(18, 13, 9, 0.15) 55%,
+    rgba(18, 13, 9, 0.6) 100%
+  );
+}
+.whyPill {
+  position: absolute;
+  left: clamp(16px, 1.6vw, 22px);
+  bottom: clamp(16px, 1.6vw, 22px);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px 9px 12px;
+  border-radius: 999px;
+  background: rgba(18, 13, 9, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(201, 163, 78, 0.4);
+  color: var(--cream);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+.whyPill svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+/* right: 2×2 cards */
+.whyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(14px, 1.6vw, 18px);
+}
+.whyCard {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   background: var(--card-dark);
   border: 1px solid rgba(247, 239, 224, 0.08);
   border-radius: 12px;
-  padding: clamp(24px, 3vw, 40px);
+  padding: clamp(20px, 2.2vw, 30px);
 }
-.whyNum {
-  display: block;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 500;
-  line-height: 1;
-  font-size: clamp(26px, 3vw, 36px);
-  color: rgba(247, 239, 224, 0.42);
-  margin-bottom: 16px;
-}
-/* 01 — featured, carries the most weight */
-.whyFeatured {
-  grid-column: span 2;
-  justify-content: flex-end;
-  min-height: clamp(240px, 26vw, 330px);
-}
-.whyFeatured .whyNum {
-  font-size: clamp(40px, 5vw, 64px);
-}
-.whyTexture {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: url("/images/footer-orchard.png");
-  background-size: cover;
-  background-position: center 30%;
-  opacity: 0.08;
-  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 50%, transparent 100%);
-  mask-image: linear-gradient(to top, #000 0%, #000 50%, transparent 100%);
-}
-.whyFeatured > * {
-  position: relative;
-  z-index: 1;
-}
-.whyFeaturedTitle {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(24px, 3vw, 36px);
-  line-height: 1.12;
-  color: var(--off-white);
-  margin: 0 0 14px;
-}
-.whyFeaturedText {
-  font-size: clamp(15px, 1.7vw, 19px);
-  line-height: 1.65;
-  color: #cbbba3;
-  margin: 0;
-  max-width: 60ch;
-}
-.whyBoxTitle {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(19px, 2vw, 24px);
-  line-height: 1.2;
-  color: var(--off-white);
-  margin: 0 0 10px;
-}
-.whyBoxText {
-  font-size: 15px;
-  line-height: 1.65;
-  color: #cbbba3;
-  margin: 0;
-}
-/* lab box: the proof moment gets the gold accent */
-.whyGold {
-  border-left: 2px solid var(--gold);
-}
-.whyGold .whyNum {
+.whyIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: rgba(201, 163, 78, 0.12);
+  border: 1px solid rgba(201, 163, 78, 0.22);
   color: var(--gold);
+  margin-bottom: clamp(16px, 2vw, 22px);
 }
-/* story box: plum, echoes the O nama section */
-.whyPlum {
-  background: var(--plum);
+.whyCardTitle {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(18px, 1.9vw, 22px);
+  line-height: 1.18;
+  color: var(--off-white);
+  margin: 0 0 8px;
 }
-/* action box: red, closing line + CTA */
-.whyCtaBox {
-  background: linear-gradient(150deg, var(--red) 0%, var(--red-hover) 100%);
-  border-color: transparent;
+.whyCardText {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #cbbba3;
+  margin: 0;
+}
+/* closing line + CTA under the layout */
+.whyFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: clamp(18px, 3vw, 40px);
+  margin-top: clamp(20px, 2.4vw, 28px);
+  padding: clamp(24px, 3vw, 34px) clamp(26px, 3vw, 40px);
+  border-radius: 12px;
+  border: 1px solid rgba(201, 163, 78, 0.18);
+  background: linear-gradient(
+    120deg,
+    rgba(201, 163, 78, 0.08) 0%,
+    rgba(18, 13, 9, 0) 60%
+  );
 }
 .whyClosing {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: clamp(16px, 1.7vw, 19px);
-  line-height: 1.5;
+  font-size: clamp(16px, 1.7vw, 20px);
+  line-height: 1.45;
   color: var(--cream);
   margin: 0;
-}
-.whyCta {
-  margin: 0;
+  max-width: 62ch;
 }
 
 /* ── [6] asortiman (condensed) ── */
@@ -387,12 +399,24 @@
   margin: 0 auto;
   padding: 0 var(--gutter) clamp(44px, 6vw, 80px);
 }
+/* strip CTA — mirrors the "Za ugostitelje" footer, adapted for the light section */
 .priceNoteCard {
-  background: #fff;
-  border: 1px solid var(--border-light);
-  border-left: 3px solid var(--gold);
-  border-radius: 8px;
-  padding: clamp(22px, 3vw, 32px) clamp(22px, 3.5vw, 40px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(18px, 3vw, 40px);
+  border: 1px solid rgba(201, 163, 78, 0.4);
+  border-radius: 12px;
+  padding: clamp(24px, 3vw, 34px) clamp(26px, 3vw, 40px);
+  background: linear-gradient(
+    120deg,
+    rgba(201, 163, 78, 0.14) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
+}
+.priceNoteBody {
+  max-width: 62ch;
 }
 .priceNoteTitle {
   font-size: 12px;
@@ -407,7 +431,12 @@
   line-height: 1.65;
   color: var(--body);
   margin: 0;
-  max-width: 68ch;
+}
+@media (max-width: 560px) {
+  .priceNoteCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* ── [8] upit — contact intro + form card ── */
@@ -529,15 +558,20 @@
     align-items: start;
     gap: 16px;
   }
-  .whyBento {
+  .whyLayout {
     grid-template-columns: 1fr;
   }
-  .whyFeatured {
-    grid-column: auto;
-    min-height: 0;
+  .whyMedia {
+    min-height: clamp(260px, 60vw, 340px);
   }
-  .whyFeatured .whyNum {
-    font-size: clamp(32px, 9vw, 44px);
+  .whyFooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 520px) {
+  .whyGrid {
+    grid-template-columns: 1fr;
   }
 }
 @media (max-width: 760px) {

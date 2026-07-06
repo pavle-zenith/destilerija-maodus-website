@@ -14,6 +14,7 @@ import { HeroPrice } from "@/components/ui/HeroPrice";
 import { PriceTable } from "@/components/ui/PriceTable";
 import { HubProductCard } from "@/components/ui/HubProductCard";
 import { SensorySlider } from "@/components/ui/SensorySlider";
+import { StoryReveal } from "@/components/ui/StoryReveal";
 import { Faq } from "@/components/sections/Faq";
 import {
   allRakije,
@@ -177,10 +178,10 @@ export default async function RakijaDetailPage({
 
             <div className={styles.heroText}>
               <Breadcrumbs items={breadcrumbs} />
-              <p className={styles.eyebrowRow}>
+              <div className={styles.eyebrowRow}>
                 <Eyebrow className={styles.eyebrow}>{groupTitle(rakija.group)}</Eyebrow>
                 <span className={styles.abvTag}>{rakija.abv}</span>
-              </p>
+              </div>
               <h1 className={styles.h1}>{rakija.name}</h1>
               <p className={styles.tastingNote}>{rakija.tastingNote}</p>
 
@@ -262,12 +263,14 @@ export default async function RakijaDetailPage({
 
         {/* [6] Priča — poreklo, sorta, proces */}
         <section className={`${styles.section} ${styles.alt}`} aria-labelledby="prica">
-          <div className={styles.sectionInnerNarrow}>
-            <Eyebrow className={styles.sectionEyebrow}>Priča</Eyebrow>
-            <h2 id="prica" className={styles.h2}>
-              Kako nastaje {rakija.name}
-            </h2>
-            <p className={styles.storyBody}>{detail.story}</p>
+          <div className={`${styles.sectionInnerNarrow} ${styles.storyInner}`}>
+            <div className={styles.storyKicker}>
+              <Eyebrow className={styles.sectionEyebrow}>Priča</Eyebrow>
+              <h2 id="prica" className={styles.storyHeading}>
+                Kako nastaje {rakija.name}
+              </h2>
+            </div>
+            <StoryReveal text={detail.story} />
           </div>
         </section>
 
@@ -305,7 +308,7 @@ export default async function RakijaDetailPage({
             <div className={styles.ctaBody}>
               <h2 className={styles.ctaH2}>Poručite {rakija.name}</h2>
               <p className={styles.ctaSub}>
-                Bez webshopa: javite šta vam treba, a mi se vraćamo sa predlogom,
+                Pošaljite upit ili nas pozovite, a mi se vraćamo sa predlogom,
                 količinom i dogovorom oko isporuke.
               </p>
               <div className={styles.ctaBtns}>

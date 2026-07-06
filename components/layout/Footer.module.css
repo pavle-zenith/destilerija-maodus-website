@@ -54,6 +54,11 @@
   gap: 6px;
   font-size: 15px;
 }
+.address {
+  font-style: normal;
+  color: var(--taupe);
+  margin-bottom: 4px;
+}
 .contactLink {
   text-decoration: none;
   color: var(--taupe);
