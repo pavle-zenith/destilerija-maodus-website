@@ -69,13 +69,15 @@ export function B2BSection({
             <div className={styles.goldChip}>
               <Icon name="checkCircle" size={24} />
             </div>
-            <h3 className={styles.heroTitle}>Isti ukus u januaru i u julu</h3>
-            <p className={styles.heroPara}>
-              Zrelo voće, kontrolisana fermentacija i dvostruka destilacija u
-              bakarnom kazanu, zato svaka šarža ima isti ukus. Bez posrednika:
-              količine, ritam isporuke i izbor dogovaramo direktno, prema vašem
-              lokalu i sezoni.
-            </p>
+            <div className={styles.heroText}>
+              <h3 className={styles.heroTitle}>Isti ukus u januaru i u julu</h3>
+              <p className={styles.heroPara}>
+                Zrelo voće, kontrolisana fermentacija i dvostruka destilacija u
+                bakarnom kazanu, zato svaka šarža ima isti ukus. Bez posrednika:
+                količine, ritam isporuke i izbor dogovaramo direktno, prema vašem
+                lokalu i sezoni.
+              </p>
+            </div>
           </div>
         </Reveal>
 

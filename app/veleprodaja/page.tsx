@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import Image from "next/image";
-import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AgeGate } from "@/components/layout/AgeGate";
@@ -211,15 +210,6 @@ export default async function VeleprodajaPage({
                         </li>
                       ))}
                     </ul>
-                    {s.id === "sale" && (
-                      /* TODO: /veleprodaja/vas-brend (white-label podstranica) još ne postoji — izgraditi kasnije */
-                      <p className={styles.whiteLabel}>
-                        Želite rakiju pod sopstvenim brendom?{" "}
-                        <Link href="/veleprodaja/vas-brend" className={styles.whiteLabelLink}>
-                          Saznajte više
-                        </Link>
-                      </p>
-                    )}
                   </div>
                   <div className={styles.segmentAction}>
                     <Button

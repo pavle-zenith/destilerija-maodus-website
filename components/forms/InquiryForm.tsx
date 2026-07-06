@@ -5,7 +5,6 @@ import { submitInquiry } from "@/app/actions/leads";
 import { idleState } from "@/lib/leadSchemas";
 import { allSkuNames } from "@/lib/content";
 import { track } from "@/lib/analytics";
-import { site, whatsappHref } from "@/lib/site";
 import { Field } from "./Field";
 import { Turnstile } from "./Turnstile";
 import styles from "./fields.module.css";
@@ -109,23 +108,6 @@ export function InquiryForm({
         </button>
       </div>
 
-      <p className={styles.alt}>
-        Radije direktno?{" "}
-        <a
-          className={styles.altLink}
-          href={whatsappHref("Zdravo! Zainteresovan/na sam za porudžbinu rakije.")}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => track.whatsapp("inquiry")}
-        >
-          Pišite na WhatsApp
-        </a>{" "}
-        ili pozovite{" "}
-        <a className={styles.altLink} href={site.phoneHref}>
-          {site.phone}
-        </a>
-        .
-      </p>
       {isConsumer && (
         <p className={styles.alt}>
           Odgovaramo u roku od 24–48h. Rakiju prodajemo isključivo punoletnim

@@ -60,7 +60,7 @@
   border: 1px solid rgba(201, 163, 78, 0.16);
   min-height: clamp(340px, 34vw, 440px);
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   margin-bottom: clamp(16px, 1.8vw, 24px);
   background: var(--card-dark);
 }
@@ -97,6 +97,14 @@
   z-index: 2;
   padding: clamp(28px, 3vw, 46px);
   max-width: 680px;
+  /* icon pinned to the top, text block pushed to the bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(28px, 5vw, 60px);
+}
+.heroText {
+  display: block;
 }
 .heroTitle {
   font-family: var(--font-display);
@@ -104,7 +112,7 @@
   font-size: clamp(24px, 2.8vw, 32px);
   line-height: 1.08;
   color: var(--cream);
-  margin: 16px 0 10px;
+  margin: 0 0 10px;
 }
 .heroPara {
   font-size: clamp(15px, 1.3vw, 16.5px);
@@ -119,18 +127,16 @@
     max-width: 760px;
   }
 }
-/* mobile: taller card, icon stays top-left, smaller text */
+/* mobile: taller card (icon stays top-left, text bottom-left), smaller text */
 @media (max-width: 600px) {
   .heroCard {
     min-height: clamp(420px, 118vw, 520px);
-    align-items: flex-start;
   }
   .heroContent {
     padding: clamp(24px, 6vw, 32px);
   }
   .heroTitle {
     font-size: clamp(21px, 5.6vw, 26px);
-    margin-top: 18px;
   }
   .heroPara {
     font-size: 13.5px;
