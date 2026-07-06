@@ -34,8 +34,8 @@ Trenutna sekcija deluje generički („cookie-cutter") iz dva razloga:
 - Tekst: „Dunja iz porodičnog voćnjaka u Vojvodini — kraljica voćnih rakija." Gost pamti, druga runda se ne prodaje sama. Priča je marža.
 
 **Blok 4:**
-- Naslov: **Etiketa za lokal ili događaj**
-- Tekst: Personalizovana etiketa za sale, svadbe i poslovne poklone — ime mladenaca, vaše firme ili vašeg lokala na boci koju pravimo mi.
+- Naslov: **Rakija pod vašim brendom**
+- Tekst: Vi date etiketu, mi punimo naše boce našom rakijom — za sale, svadbe i poslovne poklone, sa imenom mladenaca, vaše firme ili vašeg lokala.
 
 **Završna linija (zamenjuje postojeću rečenicu o laboratoriji):** Na upit odgovara isti čovek koji peče rakiju — dogovara isporuku i pamti šta vaši gosti piju.
 
@@ -48,7 +48,7 @@ Trenutna sekcija deluje generički („cookie-cutter") iz dva razloga:
 | Stabilan kvalitet i direktna isporuka (featured) | Isti ukus u januaru i u julu (featured) |
 | Jasan izbor za meni | → uklonjeno (pokriva asortiman sekcija); zamenjuje ga „Priča koju konobar prenese…" |
 | Degustacija pre odluke | → uklonjeno (pokrivaju hero, korak 2 i CTA) |
-| Etiketa za lokal ili događaj | zadržano, konkretizovan tekst |
+| Rakija pod vašim brendom (bivše „Etiketa za lokal ili događaj") | zadržano, konkretizovan tekst (white-label) |
 | — (novo) | Laboratorija, ne obećanje — promovisano iz muted footer teksta u punopravan blok |
 | Muted rečenica o laboratoriji + porodici | → nova završna linija o direktnom kontaktu |
 

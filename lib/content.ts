@@ -86,9 +86,9 @@ export const allRakije: Rakija[] = [
   { slug: "sljiva-barrique", name: "Šljiva Barrique", category: "Barrique", group: "barrique", abv: "42% vol", volume: "0,70 l", image: "/images/sljiva-barrique.png", tastingNote: "Tradicionalna šljiva oplemenjena hrastom, topla i zaokružena. Odličan digestiv." },
   { slug: "jabuka-barrique", name: "Jabuka Barrique", category: "Barrique", group: "barrique", abv: "42% vol", volume: "0,70 l", image: "/images/jabuka-barrique.png", tastingNote: "Jabuka iz bureta. Blaga slatkoća i dug, prijatan završetak." },
   // ── Classic / koktel (bez fotografija — koriste barrique sliku kao privremeni placeholder) ──
-  // abv 40% vol je pretpostavka (potvrditi sa Pavlom, guide DEO III); fotografije još nema (koristi barrique sliku).
-  { slug: "sljiva-barrique-classic", name: "Šljiva Barrique Classic", category: "Classic", group: "classic", abv: "40% vol", volume: "0,70 l", image: "/images/sljiva-barrique.png", tastingNote: "Lakša šljiva za druženje i koktele." },
-  { slug: "jabuka-barrique-classic", name: "Jabuka Barrique Classic", category: "Classic", group: "classic", abv: "40% vol", volume: "0,70 l", image: "/images/jabuka-barrique.png", tastingNote: "Pristupačna jabuka iz hrasta, rađena za koktel program." },
+  // abv sa etikete (šarža 2019); potvrditi za tekuću šaržu, guide DEO III. Fotografije još nema (koristi barrique sliku).
+  { slug: "sljiva-barrique-classic", name: "Šljiva Barrique Classic", category: "Classic", group: "classic", abv: "43,0% vol", volume: "0,70 l", image: "/images/sljiva-barrique.png", tastingNote: "Lakša šljiva za druženje i koktele." },
+  { slug: "jabuka-barrique-classic", name: "Jabuka Barrique Classic", category: "Classic", group: "classic", abv: "43,5% vol", volume: "0,70 l", image: "/images/jabuka-barrique.png", tastingNote: "Pristupačna jabuka iz hrasta, rađena za koktel program." },
 ];
 
 /** The 6 photographed SKUs the homepage carousel renders. */
@@ -128,7 +128,7 @@ export const rakijeGroups: RakijaGroup[] = [
  * Per-slug detail content for /rakije/{slug}.
  * Finalna copy iz COPYWRITING-GUIDE DEO II-C (2026-07-03).
  * PRICES: real, client-supplied, RSD, VAT 20% included.
- * Preostali [TODO] iz guide-a: Classic % vol (pretpostavka 40%) i
+ * Preostali [TODO] iz guide-a: Classic % vol (43,0% / 43,5% sa etikete šarže 2019 — potvrditi tekuću šaržu) i
  * Jabuka Barrique temperatura (pretpostavka 15–18°C) — potvrditi sa Pavlom.
  */
 export const rakijaDetails: Record<string, RakijaDetail> = {
@@ -445,7 +445,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Da li nudite poklon pakovanja?",
-    a: "Da. Rakije se mogu poručiti za poklon, slavu, poslovni poklon ili proslavu. Za posebne prilike možemo dogovoriti i personalizovanu etiketu.",
+    a: "Da. Rakije se mogu poručiti za poklon, slavu, poslovni poklon ili proslavu. Za posebne prilike radimo i rakiju pod vašim brendom: vi date etiketu, mi punimo naše boce našom rakijom.",
   },
   {
     q: "Kolika je jačina vaših rakija?",
@@ -467,8 +467,8 @@ export const wholesaleFaqs: Faq[] = [
     a: "Da. Pošaljete upit, mi šaljemo uzorak, a vi probate sa svojim timom. Ako se ukusi ne poklope, ne dugujete nam ništa.",
   },
   {
-    q: "Da li pravite personalizovanu etiketu za naš lokal ili događaj?",
-    a: "Da. Radimo etikete za restorane, barove, sale, svadbe i poslovne poklone. Napišite u upitu šta vam treba i za koju priliku.",
+    q: "Da li pravite rakiju pod našim brendom (white-label)?",
+    a: "Da. Vi date etiketu i brendiranje, a mi punimo naše boce našom rakijom, za restorane, barove, sale, svadbe i poslovne poklone. Napišite u upitu šta vam treba i za koju priliku.",
   },
   {
     q: "Koji su rokovi isporuke?",
@@ -536,8 +536,8 @@ export const b2bSegments: B2BSegment[] = [
     title: "Sale, svadbe i event prostori",
     icon: "goblet",
     pitch:
-      "Welcome rakija za doček gostiju, poklon bočice od 0,1 l i personalizovana etiketa: za mladence, firmu ili vaš prostor.",
-    recommended: ["Dunja (welcome rakija)", "Poklon bočice 0,1 l, bilo koja rakija"],
+      "Welcome rakija za doček gostiju i rakija pod vašim brendom: vi date etiketu, mi punimo naše boce našom rakijom. Za mladence, firmu ili vaš prostor.",
+    recommended: ["Dunja (welcome rakija)", "Rakija sa vašom etiketom (0,5–1 l)"],
     image: "/images/bento-svadba.png",
     ctaLabel: "Uzorak za vaš događaj",
     venueType: "Sala za venčanja i proslave",
@@ -586,7 +586,7 @@ export const bento: BentoCard[] = [
     tag: "Proslave",
     href: "/veleprodaja",
     image: "/images/bento-svadba.png",
-    copy: "Welcome rakija, poklon bočice 0,1 l i etiketa sa imenima mladenaca.",
+    copy: "Welcome rakija i boca pod vašim brendom, sa imenima mladenaca na etiketi.",
     tint: [58, 18, 32],
     objectPosition: "center 72%",
   },
@@ -595,7 +595,7 @@ export const bento: BentoCard[] = [
     tag: "Pokloni",
     href: "/kontakt",
     image: "/images/bento-poklon.png",
-    copy: "Boca sa pričom, po želji sa logom vaše firme na etiketi.",
+    copy: "Naša rakija u našoj boci, sa logom vaše firme na etiketi.",
     tint: [52, 38, 12],
   },
   {

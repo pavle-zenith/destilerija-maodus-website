@@ -22,7 +22,7 @@ Pregledano uživo na destilerija-maodus-website.vercel.app: početna, /rakije, /
 
 - **Meta osnove:** title tagovi po guide-u na svim stranama, canonical pokazuje na produkcioni domen, lang="sr", jedan H1 po strani.
 - **robots.txt** dozvoljava sve AI botove, Host + Sitemap postavljeni na produkcioni domen.
-- **llms.txt je živ i tačan**, uključuje asortiman, cene modele i kako naručiti. (Napomena: navodi Classic 40% vol, čeka potvrdu od Pavla starijeg.)
+- **llms.txt je živ i tačan**, uključuje asortiman, cene modele i kako naručiti. (Classic jačina ispravljena sa etikete: Šljiva 43,0% vol, Jabuka 43,5% vol, šarža 2019 — potvrditi tekuću šaržu.)
 - **Schema pokrivenost:** Organization/Distillery/LocalBusiness + WebSite (početna), BreadcrumbList + ItemList (hub), Product + BreadcrumbList + FAQPage (dunja), FAQPage (veleprodaja), ContactPage (kontakt). FAQPage bez dupliranja među stranama, tačno po odluci iz guide-a.
 - **Entitet:** Velebit + Kanjiža prisutni u footeru na svakoj strani.
 - **CRO tok:** dupli CTA svuda, sample-first hero na veleprodaji sa radio poljem „Šta želite?", telefon dugme uz Poručite, plutajuće „Pozovite nas", forma sa 3 obavezna polja na kontaktu (nizak prag), WhatsApp na veleprodaji, mapa na kontaktu.

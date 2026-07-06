@@ -18,8 +18,8 @@ const usps: { icon: IconName; title: string; text: string }[] = [
   },
   {
     icon: "tag",
-    title: "Etiketa za lokal ili događaj",
-    text: "Personalizovana etiketa za sale, svadbe i poslovne poklone: ime mladenaca, vaše firme ili vašeg lokala.",
+    title: "Rakija pod vašim brendom",
+    text: "Vi date etiketu, mi punimo naše boce našom rakijom: za sale, svadbe i poslovne poklone, sa imenom mladenaca, vaše firme ili vašeg lokala.",
   },
 ];
 

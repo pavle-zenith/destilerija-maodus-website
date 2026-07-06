@@ -22,7 +22,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Veleprodaja rakije za ugostitelje",
   description:
-    "Rakija za restorane, barove, sale i vinoteke: besplatan degustacioni uzorak, direktna isporuka bez posrednika i personalizovana etiketa. Zatražite ponudu.",
+    "Rakija za restorane, barove, sale i vinoteke: besplatan degustacioni uzorak, direktna isporuka bez posrednika i rakija pod vašim brendom (white-label, personalizovana etiketa). Zatražite ponudu.",
   alternates: { canonical: "/veleprodaja" },
   openGraph: {
     type: "website",
@@ -39,7 +39,7 @@ const trustBullets = [
   "Bez posrednika",
   "Direktna isporuka po dogovoru",
   "Besplatan degustacioni uzorak",
-  "Etiketa za vaš lokal na zahtev",
+  "Rakija pod vašim brendom na zahtev",
 ];
 
 const cooperationSteps: OrderStep[] = [
@@ -56,7 +56,7 @@ const cooperationSteps: OrderStep[] = [
   {
     n: "3",
     title: "Dogovaramo uslove i isporuku",
-    text: "Količine, ritam isporuke i etiketa po želji za vaš lokal ili događaj.",
+    text: "Količine, ritam isporuke i rakija pod vašim brendom po želji za vaš lokal ili događaj.",
   },
 ];
 
@@ -304,9 +304,10 @@ export default async function VeleprodajaPage({
                   <span className={styles.whyIcon} aria-hidden="true">
                     <Icon name="tag" size={22} />
                   </span>
-                  <h3 className={styles.whyCardTitle}>Etiketa za lokal ili događaj</h3>
+                  <h3 className={styles.whyCardTitle}>Rakija pod vašim brendom</h3>
                   <p className={styles.whyCardText}>
-                    Ime lokala, firme ili mladenaca na boci koju pravimo za vas.
+                    Vi date etiketu, mi punimo naše boce našom rakijom, sa imenom
+                    lokala, firme ili mladenaca.
                   </p>
                 </div>
               </div>

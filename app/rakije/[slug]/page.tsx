@@ -298,7 +298,7 @@ export default async function RakijaDetailPage({
               <div className={styles.pricePhotoWrap}>
                 <Image
                   src={detail.groupImage ?? "/images/cenovnik-lineup.png"}
-                  alt={`${rakija.name}, sve zapremine od 1 l do 0,1 l`}
+                  alt={`${rakija.name}, sve zapremine od 0,5 l do 1 l`}
                   fill
                   sizes="(max-width: 900px) 100vw, 52vw"
                   className={styles.pricePhoto}
@@ -311,7 +311,7 @@ export default async function RakijaDetailPage({
                 Sve zapremine
               </h2>
               <p className={styles.body}>
-                Dostupno u više pakovanja, od poklon bočice do litarske flaše.
+                Dostupno u više zapremina, od 0,5 l do litarske flaše.
               </p>
               <PriceTable rows={detail.prices} />
             </div>

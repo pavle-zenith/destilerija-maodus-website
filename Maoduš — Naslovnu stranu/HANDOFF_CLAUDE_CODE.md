@@ -204,7 +204,7 @@ The page is one continuous scroll. Sections in order:
   2. **Da li radite veleprodaju za restorane i sale?** — "Da. Sarađujemo sa restoranima, barovima, salama, vinotekama i drugim ugostiteljima. Za veće količine šaljemo ponudu po meri."
   3. **Da li šaljete širom Srbije?** — "Isporuku dogovaramo prema količini i lokaciji. U upitu nam napišite grad i broj boca, pa ćemo potvrditi mogućnosti i rok."
   4. **Da li nudite poklon pakovanja?** — "Da. Rakije se mogu poručiti za poklon, slavu, poslovni poklon ili proslavu. Za posebne prilike možemo dogovoriti i personalizovanu etiketu."
-  5. **Kolika je jačina vaših rakija?** — "Voćne bele i classic rakije su 40% vol, dok su barrique izdanja 42% vol."
+  5. **Kolika je jačina vaših rakija?** — "Voćne bele rakije (dunja, kajsija, viljamovka) su 40% vol, barrique izdanja 42% vol, a Classic linija 43,0–43,5% vol (sa etikete)."
 
 ### 12. Final CTA (dark)
 - **Section bg:** `#1C1815` with full-bleed `cta-bar.png` (Maoduš bottles on a bar) + a top→bottom dark gradient that **fades to the footer color `#141110`** at the bottom (the footer has `margin-top:-1px` and no top border, so the two visually merge). `id="kontakt"`.
