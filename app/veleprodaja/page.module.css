@@ -132,6 +132,9 @@
 }
 .segmentPhoto {
   object-fit: cover;
+  /* bottle sits right-of-centre in every segment photo; bias the crop toward it
+     so it stays framed instead of being trimmed off the right edge */
+  object-position: 62% center;
   z-index: 0;
 }
 .segmentTint {
@@ -266,7 +269,8 @@
 }
 .whyMediaImg {
   object-fit: cover;
-  object-position: 60% 62%;
+  /* keep the bar bottle (right-of-centre, ~66%) framed on narrow crops */
+  object-position: 66% 58%;
 }
 .whyMediaScrim {
   position: absolute;
@@ -567,6 +571,11 @@
 @media (max-width: 760px) {
   .rakijeGrid {
     grid-template-columns: 1fr;
+  }
+  /* narrow crop trims the sides; bias toward the bottle on the right so it
+     stays visible under the lighter part of the scrim */
+  .heroBg {
+    object-position: 68% 42%;
   }
   .heroCtas {
     flex-direction: column;

@@ -194,6 +194,7 @@ export default async function VeleprodajaPage({
                     fill
                     sizes="(max-width: 1280px) 100vw, 1280px"
                     className={styles.segmentPhoto}
+                    style={s.objectPosition ? { objectPosition: s.objectPosition } : undefined}
                   />
                   <span className={styles.segmentTint} aria-hidden="true" />
                   <div className={styles.segmentBody}>

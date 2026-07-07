@@ -544,6 +544,8 @@ export type B2BSegment = {
   image: string;
   icon: string;
   ctaLabel: string;
+  /** object-position for the card photo so the bottle stays framed on mobile crops */
+  objectPosition?: string;
   /** value fed into the form's "Tip objekta" select via ?tip= */
   venueType: (typeof venueTypes)[number];
 };
@@ -557,6 +559,7 @@ export const b2bSegments: B2BSegment[] = [
       "Domaća premium rakija sa pričom podiže doživljaj i maržu. Barrique linija radi kao aperitiv i digestiv na meniju, uz preporuku osoblja uz jelo.",
     recommended: ["Dunja Barrique", "Šljiva Barrique", "Jabuka Barrique", "Dunja (aperitiv)"],
     image: "/images/bento-restoran.png",
+    objectPosition: "62% center",
     ctaLabel: "Uzorak za vaš meni",
     venueType: "Restoran",
   },
@@ -569,6 +572,7 @@ export const b2bSegments: B2BSegment[] = [
     // TODO: dodati 1-2 konkretna predloga koktela sa rakijom (copy + kasnije blog tema)
     recommended: ["Šljiva Barrique Classic", "Jabuka Barrique Classic", "Viljamovka"],
     image: "/images/b2b-sank.png",
+    objectPosition: "66% center",
     ctaLabel: "Uzorak za vaš bar",
     venueType: "Bar / kafić",
   },
@@ -580,6 +584,7 @@ export const b2bSegments: B2BSegment[] = [
       "Welcome rakija za doček gostiju: topao aperitiv koji razbije led i podigne raspoloženje pre prve zdravice. Po želji i sa etiketom za vaš događaj.",
     recommended: ["Dunja (welcome rakija)", "Kajsija (welcome rakija)"],
     image: "/images/bento-svadba.png",
+    objectPosition: "70% center",
     ctaLabel: "Uzorak za vaš događaj",
     venueType: "Sala za venčanja i proslave",
   },
@@ -621,6 +626,7 @@ export const bento: BentoCard[] = [
     copy: "Rakija za meni, preporuku osoblja i goste koji traže domaće.",
     tint: [58, 26, 6],
     wide: true,
+    objectPosition: "62% center",
   },
   {
     title: "Za sale i svadbe",
@@ -629,7 +635,7 @@ export const bento: BentoCard[] = [
     image: "/images/bento-svadba.png",
     copy: "Welcome rakija za doček gostiju: aperitiv koji razbije led i podigne raspoloženje.",
     tint: [58, 18, 32],
-    objectPosition: "center 72%",
+    objectPosition: "68% 60%",
   },
   {
     title: "Za poslovne poklone",
