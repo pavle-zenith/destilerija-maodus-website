@@ -12,8 +12,8 @@ export const site = {
   phoneDigits: "381646159033", // for wa.me / viber
   email: "destilerijamaodus@gmail.com",
   emailHref: "mailto:destilerijamaodus@gmail.com",
-  instagram: "@destilerija.maodus",
-  instagramHref: "https://instagram.com/destilerija.maodus",
+  instagram: "@destilerijamaodus",
+  instagramHref: "https://www.instagram.com/destilerijamaodus/",
   region: "Vojvodina, Srbija",
   address: "25 Stevana Novkovića, 24207, Velebit 24426, Srbija",
   addressShort: "25 Stevana Novkovića, 24207, Velebit 24426",

@@ -116,7 +116,7 @@ export default async function VeleprodajaPage({
         {/* [1] Hero — sample-first */}
         <section className={styles.hero} aria-labelledby="veleprodaja-h1">
           <Image
-            src="/images/b2b-sank.png"
+            src="/images/b2b-hero.png"
             alt=""
             fill
             priority

@@ -183,7 +183,7 @@ Naslov teksta je doslovno pretraga koju cilja (klasteri iz STRATEGIJA-03 §6): �
 - **Uvod:** Recite nam priliku, predložićemo rakiju i količinu.
 - **Kartice:**
   - **Za restorane i barove.** Rakija za meni, preporuku osoblja i goste koji traže domaće. → /veleprodaja
-  - **Za sale i svadbe.** Welcome rakija i boca pod vašim brendom, sa imenima mladenaca na etiketi. → /veleprodaja
+  - **Za sale i svadbe.** Welcome rakija za doček gostiju: aperitiv koji razbije led i podigne raspoloženje. → /veleprodaja
   - **Za poslovne poklone.** Naša rakija u našoj boci, sa logom vaše firme na etiketi. → /kontakt
   - **Za privatne kupce.** Za slavu, poklon, odlazak u goste ili kućnu kolekciju. → /kontakt
 
@@ -237,7 +237,7 @@ Naslov teksta je doslovno pretraga koju cilja (klasteri iz STRATEGIJA-03 §6): �
 *(Svaki odgovor samostalan, 40–60 reči, entitet u prvoj rečenici, FAQPage schema. Ovo su glavne ekstrakcije za AI odgovore.)*
 
 - **Kako mogu da poručim rakiju?**
-  Rakiju Destilerije Maoduš poručujete upitom: preko forme na sajtu, telefonom na +381 64 61 59 033, mejlom ili porukom na Instagram @destilerija.maodus. Potvrdimo dostupnost, cenu i isporuku u roku od 24–48h. Webshop ne postoji, svaka porudžbina se dogovara direktno sa porodicom.
+  Rakiju Destilerije Maoduš poručujete upitom: preko forme na sajtu, telefonom na +381 64 61 59 033, mejlom ili porukom na Instagram @destilerijamaodus. Potvrdimo dostupnost, cenu i isporuku u roku od 24–48h. Webshop ne postoji, svaka porudžbina se dogovara direktno sa porodicom.
 
 - **Da li radite veleprodaju za restorane i sale?**
   Da. Destilerija Maoduš direktno snabdeva restorane, barove, vinoteke i sale za proslave u Srbiji, bez posrednika. Pre prve porudžbine šaljemo besplatan degustacioni uzorak, a cene formiramo prema količini i ritmu isporuke. Detalji na stranici Veleprodaja.
@@ -257,7 +257,7 @@ Naslov teksta je doslovno pretraga koju cilja (klasteri iz STRATEGIJA-03 §6): �
 - **H2:** Za poklon, proslavu, meni ili ličnu porudžbinu
 - **Potpis:** „Dobra do poslednje kapi."
 - **Dugmad:** Veleprodajni upit → /veleprodaja, Porudžbina za sebe → /kontakt
-- **Kontakt linija:** Pozovite +381 64 61 59 033, pišite na destilerijamaodus@gmail.com ili na Instagram @destilerija.maodus
+- **Kontakt linija:** Pozovite +381 64 61 59 033, pišite na destilerijamaodus@gmail.com ili na Instagram @destilerijamaodus
 
 ### [13] Footer
 
@@ -487,8 +487,8 @@ Naslov teksta je doslovno pretraga koju cilja (klasteri iz STRATEGIJA-03 §6): �
 - CTA: Uzorak za vaš bar
 
 **C. Sale, svadbe i event prostori**
-- Tekst: Welcome rakija za doček gostiju i rakija pod vašim brendom (vi date etiketu, mi punimo naše boce našom rakijom): za mladence, firmu ili vaš prostor.
-- Preporučujemo: Dunja (welcome rakija), rakija sa vašom etiketom (0,5–1 l)
+- Tekst: Welcome rakija za doček gostiju: topao aperitiv koji razbije led i podigne raspoloženje pre prve zdravice. Po želji i sa etiketom za vaš događaj.
+- Preporučujemo: Dunja (welcome rakija), Kajsija (welcome rakija)
 - White-label linija: Želite rakiju pod sopstvenim brendom? Saznajte više → /veleprodaja/vas-brend
 - Napomena (2026-07-06): 0,1 l poklon bočice se više NE nude za svadbe/događaje — fokus na 0,5 l, 0,7 l i 1 l. 0,1 l ostaje samo kao „na upit" red u cenovniku, nikad kao selling point.
 - CTA: Uzorak za vaš događaj
@@ -567,7 +567,7 @@ Copy doslovno iz **BRIEF-03-ZaUgostitelje-Redizajn.md §2**: H2 „Rakija za men
 - **Label:** Za ugostitelje
 - **H2:** Spremni da rakiju stavite na svoj meni?
 - **CTA:** Zatražite uzorak → #upit
-- **Kontakt linija:** +381 64 61 59 033, destilerijamaodus@gmail.com, @destilerija.maodus
+- **Kontakt linija:** +381 64 61 59 033, destilerijamaodus@gmail.com, @destilerijamaodus
 
 ---
 
@@ -591,7 +591,7 @@ Copy doslovno iz **BRIEF-03-ZaUgostitelje-Redizajn.md §2**: H2 „Rakija za men
 **Kontakt blok:**
 - Telefon: +381 64 61 59 033 (click-to-call)
 - Email: destilerijamaodus@gmail.com (mailto)
-- Instagram: @destilerija.maodus
+- Instagram: @destilerijamaodus
 - Adresa: Stevana Novkovića 25, 24426 Velebit, Srbija
 - Radno vreme: **[TODO: pitati Pavla]**
 - Mapa (embed, 46.008, 19.940)

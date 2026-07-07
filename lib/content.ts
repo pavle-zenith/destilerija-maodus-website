@@ -10,6 +10,12 @@ export type RakijaGroupId = "vocne-bele" | "barrique" | "classic";
 export type Rakija = {
   slug: string;
   name: string;
+  /**
+   * Accusative form of the name for CTA copy: "Poručite {accusative}"
+   * ("Poručite Dunju", not "Poručite Dunja"). Barrique/Classic are
+   * indeclinable, so only the leading fruit word changes.
+   */
+  accusative: string;
   category: string; // gold italic subtitle
   group: RakijaGroupId;
   abv: string;
@@ -21,6 +27,19 @@ export type Rakija = {
    */
   tastingNote: string;
 };
+
+/**
+ * Derive the accusative of a rakija name for CTA copy when it isn't given
+ * explicitly (e.g. CMS-sourced rakije that don't store the field). Serbian
+ * feminine `-a` fruit names take `-u` on the leading word; the indeclinable
+ * "Barrique"/"Classic" suffix is preserved. Falls back to the name unchanged
+ * for anything that doesn't match the `-a` pattern.
+ */
+export function accusativeFromName(name: string): string {
+  const [head, ...rest] = name.split(" ");
+  const acc = head.endsWith("a") ? `${head.slice(0, -1)}u` : head;
+  return [acc, ...rest].join(" ");
+}
 
 /** A single price row. `price` in RSD, or "na upit" when not fixed. */
 export type PriceRow = { volume: string; price: number | "na upit" };
@@ -53,6 +72,12 @@ export type RakijaDetail = {
   servingTemp: string;
   /** 3–5 sentence variety/process story specific to this rakija */
   story: string;
+  /**
+   * The key "how it's made" sentence within `story`, emphasized in the red
+   * accent color in the Kako nastaje section. Must be an exact substring of
+   * `story` (StoryReveal matches on it word-for-word).
+   */
+  storyEmphasis?: string;
   /** food-pairing line — only set for true barrique products */
   pairing?: string;
   /** cocktail line — only for the Classic line (replaces pairing) */
@@ -78,17 +103,17 @@ export type RakijaDetail = {
  */
 export const allRakije: Rakija[] = [
   // ── Voćne bele ──
-  { slug: "dunja", name: "Dunja", category: "Voćna bela", group: "vocne-bele", abv: "40% vol", volume: "0,70 l", image: "/images/dunja.png", tastingNote: "Kraljica voćnih rakija. Pun miris zrele dunje i baršunast završetak." },
-  { slug: "kajsija", name: "Kajsija", category: "Voćna bela", group: "vocne-bele", abv: "40% vol", volume: "0,70 l", image: "/images/kajsija.png", tastingNote: "Sočna aroma zrele kajsije, mekana i cvetna. Klasičan aperitiv." },
-  { slug: "viljamovka", name: "Viljamovka", category: "Voćna bela", group: "vocne-bele", abv: "40% vol", volume: "0,70 l", image: "/images/viljamovka.png", tastingNote: "Intenzivan miris viljamovke kruške, svež i elegantan." },
+  { slug: "dunja", name: "Dunja", accusative: "Dunju", category: "Voćna bela", group: "vocne-bele", abv: "40% vol", volume: "0,70 l", image: "/images/dunja.png", tastingNote: "Kraljica voćnih rakija. Pun miris zrele dunje i baršunast završetak." },
+  { slug: "kajsija", name: "Kajsija", accusative: "Kajsiju", category: "Voćna bela", group: "vocne-bele", abv: "40% vol", volume: "0,70 l", image: "/images/kajsija.png", tastingNote: "Sočna aroma zrele kajsije, mekana i cvetna. Klasičan aperitiv." },
+  { slug: "viljamovka", name: "Viljamovka", accusative: "Viljamovku", category: "Voćna bela", group: "vocne-bele", abv: "40% vol", volume: "0,70 l", image: "/images/viljamovka.png", tastingNote: "Intenzivan miris viljamovke kruške, svež i elegantan." },
   // ── Barrique ──
-  { slug: "dunja-barrique", name: "Dunja Barrique", category: "Barrique", group: "barrique", abv: "42% vol", volume: "0,70 l", image: "/images/dunja-barrique.png", tastingNote: "Dunja odležana u hrastu. Note karamele, ćilibarno zlatna boja, dublji ukus." },
-  { slug: "sljiva-barrique", name: "Šljiva Barrique", category: "Barrique", group: "barrique", abv: "42% vol", volume: "0,70 l", image: "/images/sljiva-barrique.png", tastingNote: "Tradicionalna šljiva oplemenjena hrastom, topla i zaokružena. Odličan digestiv." },
-  { slug: "jabuka-barrique", name: "Jabuka Barrique", category: "Barrique", group: "barrique", abv: "42% vol", volume: "0,70 l", image: "/images/jabuka-barrique.png", tastingNote: "Jabuka iz bureta. Blaga slatkoća i dug, prijatan završetak." },
+  { slug: "dunja-barrique", name: "Dunja Barrique", accusative: "Dunju Barrique", category: "Barrique", group: "barrique", abv: "42% vol", volume: "0,70 l", image: "/images/dunja-barrique.png", tastingNote: "Dunja odležana u hrastu. Note karamele, ćilibarno zlatna boja, dublji ukus." },
+  { slug: "sljiva-barrique", name: "Šljiva Barrique", accusative: "Šljivu Barrique", category: "Barrique", group: "barrique", abv: "42% vol", volume: "0,70 l", image: "/images/sljiva-barrique.png", tastingNote: "Tradicionalna šljiva oplemenjena hrastom, topla i zaokružena. Odličan digestiv." },
+  { slug: "jabuka-barrique", name: "Jabuka Barrique", accusative: "Jabuku Barrique", category: "Barrique", group: "barrique", abv: "42% vol", volume: "0,70 l", image: "/images/jabuka-barrique.png", tastingNote: "Jabuka iz bureta. Blaga slatkoća i dug, prijatan završetak." },
   // ── Classic / koktel (bez fotografija — koriste barrique sliku kao privremeni placeholder) ──
   // abv sa etikete (šarža 2019); potvrditi za tekuću šaržu, guide DEO III. Fotografije još nema (koristi barrique sliku).
-  { slug: "sljiva-barrique-classic", name: "Šljiva Barrique Classic", category: "Classic", group: "classic", abv: "43,0% vol", volume: "0,70 l", image: "/images/sljiva-barrique.png", tastingNote: "Lakša šljiva za druženje i koktele." },
-  { slug: "jabuka-barrique-classic", name: "Jabuka Barrique Classic", category: "Classic", group: "classic", abv: "43,5% vol", volume: "0,70 l", image: "/images/jabuka-barrique.png", tastingNote: "Pristupačna jabuka iz hrasta, rađena za koktel program." },
+  { slug: "sljiva-barrique-classic", name: "Šljiva Barrique Classic", accusative: "Šljivu Barrique Classic", category: "Classic", group: "classic", abv: "43,0% vol", volume: "0,70 l", image: "/images/sljiva-barrique.png", tastingNote: "Lakša šljiva za druženje i koktele." },
+  { slug: "jabuka-barrique-classic", name: "Jabuka Barrique Classic", accusative: "Jabuku Barrique Classic", category: "Classic", group: "classic", abv: "43,5% vol", volume: "0,70 l", image: "/images/jabuka-barrique.png", tastingNote: "Pristupačna jabuka iz hrasta, rađena za koktel program." },
 ];
 
 /** The 6 photographed SKUs the homepage carousel renders. */
@@ -148,6 +173,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
     servingTemp: "10–12°C, rashlađena",
     story:
       "Dunju pečemo od sorte Leskovačka, koju struka smatra najboljom sortom za dunjevaču. Plodove beremo ručno i puštamo ih da nakon berbe dozru do potpune zrelosti, jer dunja tek tada da pun miris. Rakija ne ide u hrast nego odležava u prohromskim i staklenim sudovima, da miris dunje ostane čist i prepoznatljiv. Zato dunjevaču zovu kraljicom voćnih rakija.",
+    storyEmphasis:
+      "Rakija ne ide u hrast nego odležava u prohromskim i staklenim sudovima, da miris dunje ostane čist i prepoznatljiv.",
     relatedSlugs: ["kajsija", "viljamovka", "dunja-barrique"],
     faq: [
       {
@@ -182,6 +209,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
     servingTemp: "12–15°C",
     story:
       "Kajsiju pečemo od više sorti, a dominira Mađarska najbolja, neprikosnovena rakijska sorta izrazite arome. Beremo je potpuno zrelu, jer kajsija oprašta manje nego ijedno voće: šta uđe u kazan, to se pije. Bez hrasta, da aroma ostane sveža.",
+    storyEmphasis:
+      "Beremo je potpuno zrelu, jer kajsija oprašta manje nego ijedno voće: šta uđe u kazan, to se pije.",
     relatedSlugs: ["dunja", "viljamovka", "dunja-barrique"],
     prices: [
       { volume: "1 l", price: 2950 },
@@ -206,6 +235,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
     servingTemp: "12–15°C",
     story:
       "Viljamovku pečemo od kruške Williams, svetski najcenjenije sorte za rakiju od kruške. Williams nosi visok sadržaj eteričnih ulja, i baš ona daju rakiji prefinjenu aromu i mirisnu notu sveže kruške. Kruška se bere u tačno određenom trenutku zrelosti, a dvostruka destilacija u bakru čuva tu aromu do čaše.",
+    storyEmphasis:
+      "Kruška se bere u tačno određenom trenutku zrelosti, a dvostruka destilacija u bakru čuva tu aromu do čaše.",
     relatedSlugs: ["dunja", "kajsija", "sljiva-barrique"],
     prices: [
       { volume: "1 l", price: 2950 },
@@ -230,6 +261,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
     servingTemp: "15–18°C",
     story:
       "Ista Leskovačka dunja kao u beloj rakiji, ali sa strpljenjem: najmanje tri godine u buretu od hrasta kitnjaka. Bure daje ćilibarno zlatnu boju, karamelu i dubinu, a dunja ostaje glavna. Ovo je boca koju otvarate kad želite da se razgovor produži.",
+    storyEmphasis:
+      "Ista Leskovačka dunja kao u beloj rakiji, ali sa strpljenjem: najmanje tri godine u buretu od hrasta kitnjaka.",
     pairing: "Zreli tvrdi sirevi, orasi i suvo voće, tamna čokolada.",
     relatedSlugs: ["dunja", "sljiva-barrique", "jabuka-barrique"],
     prices: [
@@ -255,6 +288,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
     servingTemp: "15–18°C",
     story:
       "Naša šljiva nije jedna sorta nego kupaža destilata šest sorti: Čačanska Rodna, Čačanska Lepotica, Trnovača, Crvena Ranka, Crnošljiva i Požegača. Svaka daje svoje, od mirisa do punoće, a višegodišnje bure ih sastavi u celinu boje starog zlata. Ovako se šljivovica pekla i pre nas, mi smo samo dodali strpljenje.",
+    storyEmphasis:
+      "Naša šljiva nije jedna sorta nego kupaža destilata šest sorti: Čačanska Rodna, Čačanska Lepotica, Trnovača, Crvena Ranka, Crnošljiva i Požegača.",
     pairing: "Pršuta i dimljeno meso, kulen, tamna čokolada.",
     relatedSlugs: ["sljiva-barrique-classic", "dunja-barrique", "jabuka-barrique"],
     prices: [
@@ -281,6 +316,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
     servingTemp: "15–18°C",
     story:
       "Ova rakija ne nastaje od kljuka nego od fermentisanog soka jabuke, pa je destilat od starta čist i mekan. Godine u hrastovom buretu daju boju ćilibara i blagu aromu hrasta. Retka boca: rakija od jabuke se malo gde peče ovako.",
+    storyEmphasis:
+      "Ova rakija ne nastaje od kljuka nego od fermentisanog soka jabuke, pa je destilat od starta čist i mekan.",
     pairing: "Štrudla i kolači sa jabukom, blagi sirevi, dezerti sa cimetom.",
     relatedSlugs: ["jabuka-barrique-classic", "sljiva-barrique", "dunja-barrique"],
     prices: [
@@ -303,6 +340,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
     servingTemp: "10–12°C, rashlađena",
     story:
       "Šljivu sorte Stenlej oslobodimo koštice i pokožice pre fermentacije, pa u destilat ne ulazi ništa gorko ni teško. Ostane čista, pitka šljiva koju je bure zaoblilo. Pravili smo je namerno ovako: za šank, za koktele i za goste koji tek ulaze u rakiju.",
+    storyEmphasis:
+      "Šljivu sorte Stenlej oslobodimo koštice i pokožice pre fermentacije, pa u destilat ne ulazi ništa gorko ni teško.",
     cocktail: "Osnova za rakija old fashioned ili jednostavno sa ledom i koricom pomorandže.",
     relatedSlugs: ["jabuka-barrique-classic", "sljiva-barrique", "viljamovka"],
     prices: [{ volume: "0,7 l", price: 1590 }],
@@ -321,6 +360,8 @@ export const rakijaDetails: Record<string, RakijaDetail> = {
     servingTemp: "10–12°C, rashlađena",
     story:
       "Četiri sorte jabuke, Ajdared, Zlatni Delišes, Melroza i Crveni Delišes, svaka dodaje svoju stranu ukusa. Bure ih smiri i zaokruži. Namerno pristupačna: boca koja na šanku radi svaki dan, a u koktelu ne gubi karakter.",
+    storyEmphasis:
+      "Četiri sorte jabuke, Ajdared, Zlatni Delišes, Melroza i Crveni Delišes, svaka dodaje svoju stranu ukusa.",
     cocktail: "Sa jabukovim sokom i cimetom, ili kao highball sa tonikom i limunom.",
     relatedSlugs: ["sljiva-barrique-classic", "jabuka-barrique", "kajsija"],
     prices: [{ volume: "0,7 l", price: 1590 }],
@@ -433,7 +474,7 @@ export type Faq = { q: string; a: string };
 export const faqs: Faq[] = [
   {
     q: "Kako mogu da poručim rakiju?",
-    a: "Rakiju Destilerije Maoduš poručujete upitom: preko forme na sajtu, telefonom na +381 64 61 59 033, mejlom ili porukom na Instagram @destilerija.maodus. Potvrdimo dostupnost, cenu i isporuku u roku od 24–48h. Svaku porudžbinu dogovarate direktno sa porodicom.",
+    a: "Rakiju Destilerije Maoduš poručujete upitom: preko forme na sajtu, telefonom na +381 64 61 59 033, mejlom ili porukom na Instagram @destilerijamaodus. Potvrdimo dostupnost, cenu i isporuku u roku od 24–48h. Svaku porudžbinu dogovarate direktno sa porodicom.",
   },
   {
     q: "Da li radite veleprodaju za restorane i sale?",
@@ -536,8 +577,8 @@ export const b2bSegments: B2BSegment[] = [
     title: "Sale, svadbe i event prostori",
     icon: "goblet",
     pitch:
-      "Welcome rakija za doček gostiju i rakija pod vašim brendom: vi date etiketu, mi punimo naše boce našom rakijom. Za mladence, firmu ili vaš prostor.",
-    recommended: ["Dunja (welcome rakija)", "Rakija sa vašom etiketom (0,5–1 l)"],
+      "Welcome rakija za doček gostiju: topao aperitiv koji razbije led i podigne raspoloženje pre prve zdravice. Po želji i sa etiketom za vaš događaj.",
+    recommended: ["Dunja (welcome rakija)", "Kajsija (welcome rakija)"],
     image: "/images/bento-svadba.png",
     ctaLabel: "Uzorak za vaš događaj",
     venueType: "Sala za venčanja i proslave",
@@ -586,7 +627,7 @@ export const bento: BentoCard[] = [
     tag: "Proslave",
     href: "/veleprodaja",
     image: "/images/bento-svadba.png",
-    copy: "Welcome rakija i boca pod vašim brendom, sa imenima mladenaca na etiketi.",
+    copy: "Welcome rakija za doček gostiju: aperitiv koji razbije led i podigne raspoloženje.",
     tint: [58, 18, 32],
     objectPosition: "center 72%",
   },

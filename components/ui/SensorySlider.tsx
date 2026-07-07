@@ -18,10 +18,10 @@ const AUTOPLAY_MS = 8000;
 
 /**
  * iskraclub-style featured slider: the active sense fills a wide panel while the
- * other two collapse to narrow slivers on the side. Auto-advances, clicking a
- * sliver jumps to it, hover pauses *without resetting* the timer, and
- * reduced-motion disables autoplay. Each panel shows its own texture (falling
- * back to the shared `image` prop) with a per-sense colour tint.
+ * other two collapse to narrow slivers on the side. Auto-advances continuously
+ * (hover does NOT pause it), clicking a sliver jumps to it, and reduced-motion
+ * disables autoplay. Each panel shows its own texture (falling back to the
+ * shared `image` prop) with a per-sense colour tint.
  */
 export function SensorySlider({
   image,
@@ -33,13 +33,7 @@ export function SensorySlider({
   panels: Panel[];
 }) {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [reduced, setReduced] = useState(false);
-
-  // deadline-based timer so hover pauses without losing progress
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const remainingRef = useRef(AUTOPLAY_MS);
-  const startedAtRef = useRef(0);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -53,39 +47,21 @@ export function SensorySlider({
     setActive((i) => (i + 1) % panels.length);
   }, [panels.length]);
 
-  // reset the banked remainder whenever the active panel changes (auto-advance
-  // or click) so each panel gets a full window. kept separate from the timer
-  // effect and NOT keyed on `paused`, so pausing never touches this.
+  // single owner of the timer: each active panel gets a full window, then
+  // auto-advances. keyed on `active` so a click restarts the window cleanly.
+  // no pause path — the slider runs continuously (except reduced-motion).
   useEffect(() => {
-    remainingRef.current = AUTOPLAY_MS;
-  }, [active]);
+    if (reduced || panels.length < 2) return;
 
-  // single owner of the timer: runs the remaining time while playing, banks the
-  // elapsed portion on pause. keyed on `active` + `paused` so a resume continues
-  // the same panel's remainder instead of restarting a fresh full interval.
-  useEffect(() => {
-    if (reduced || panels.length < 2 || paused) return;
+    const id = setTimeout(advance, AUTOPLAY_MS);
+    return () => clearTimeout(id);
+  }, [active, reduced, advance, panels.length]);
 
-    startedAtRef.current = Date.now();
-    const id = setTimeout(advance, remainingRef.current);
-    timeoutRef.current = id;
-
-    return () => {
-      clearTimeout(id);
-      timeoutRef.current = null;
-      // bank how much of this run actually elapsed so a later resume continues
-      const elapsed = Date.now() - startedAtRef.current;
-      remainingRef.current = Math.max(0, remainingRef.current - elapsed);
-    };
-  }, [active, paused, reduced, advance, panels.length]);
-
-  const isRunning = !paused && !reduced && panels.length > 1;
+  const isRunning = !reduced && panels.length > 1;
 
   return (
     <div
       className={styles.track}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
       role="tablist"
       aria-label="Senzorni opis"
     >
@@ -129,8 +105,8 @@ export function SensorySlider({
               {p.text && <span className={styles.text}>{p.text}</span>}
               {panels.length > 1 && (
                 <span className={styles.progress} aria-hidden="true">
-                  {/* keyed on `active` so the bar restarts per panel; paused
-                      freezes it via animation-play-state (no reset) */}
+                  {/* keyed on `active` so the bar restarts per panel; when not
+                      running (reduced-motion) it's frozen via progressPaused */}
                   <span
                     key={active}
                     className={`${styles.progressBar} ${

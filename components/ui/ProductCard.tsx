@@ -3,6 +3,8 @@ import styles from "./ProductCard.module.css";
 
 export type ProductCardProps = {
   name: string;
+  /** accusative form for the "Poručite {…}" aria-label; falls back to `name` */
+  accusative?: string;
   category: string;
   abv: string;
   volume: string;
@@ -20,6 +22,7 @@ export type ProductCardProps = {
 
 export function ProductCard({
   name,
+  accusative,
   category,
   abv,
   volume,
@@ -62,7 +65,9 @@ export function ProductCard({
         <a
           href={href}
           aria-label={
-            href.startsWith("/rakije") ? `Pogledajte ${name}` : `Poručite ${name}`
+            href.startsWith("/rakije")
+              ? `Pogledajte ${name}`
+              : `Poručite ${accusative ?? name}`
           }
           className={styles.plus}
         >

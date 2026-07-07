@@ -179,6 +179,10 @@ export default async function RakijaDetailPage({
         {/* [1] Breadcrumb + [2] Hero */}
         <section className={styles.hero}>
           <div className={styles.heroInner}>
+            <div className={styles.crumbs}>
+              <Breadcrumbs items={breadcrumbs} />
+            </div>
+
             <div className={styles.gallery}>
               <div className={styles.photoWrap}>
                 <Image
@@ -189,14 +193,13 @@ export default async function RakijaDetailPage({
                   className={styles.photo}
                   priority
                 />
+                <span className={styles.abvTag}>{rakija.abv}</span>
               </div>
             </div>
 
             <div className={styles.heroText}>
-              <Breadcrumbs items={breadcrumbs} />
               <div className={styles.eyebrowRow}>
                 <Eyebrow className={styles.eyebrow}>{groupTitle(rakija.group)}</Eyebrow>
-                <span className={styles.abvTag}>{rakija.abv}</span>
               </div>
               <h1 className={styles.h1}>{rakija.name}</h1>
               <p className={styles.tastingNote}>{rakija.tastingNote}</p>
@@ -287,7 +290,7 @@ export default async function RakijaDetailPage({
                 Kako nastaje {rakija.name}
               </h2>
             </div>
-            <StoryReveal text={detail.story} />
+            <StoryReveal text={detail.story} emphasis={detail.storyEmphasis} />
           </div>
         </section>
 
@@ -323,7 +326,7 @@ export default async function RakijaDetailPage({
           <div className={styles.ctaCard}>
             <span className={styles.ctaOrchard} aria-hidden="true" />
             <div className={styles.ctaBody}>
-              <h2 className={styles.ctaH2}>Poručite {rakija.name}</h2>
+              <h2 className={styles.ctaH2}>Poručite {rakija.accusative}</h2>
               <p className={styles.ctaSub}>
                 Pošaljite upit ili nas pozovite, a mi se vraćamo sa predlogom,
                 količinom i dogovorom oko isporuke.

@@ -132,6 +132,10 @@
   .heroCard {
     min-height: clamp(420px, 118vw, 520px);
   }
+  /* keep the bottle in frame when the tall mobile crop trims the sides */
+  .heroImg {
+    object-position: 66% 52%;
+  }
   .heroContent {
     padding: clamp(24px, 6vw, 32px);
   }

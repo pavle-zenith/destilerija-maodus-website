@@ -35,11 +35,24 @@
   padding: clamp(28px, 4vw, 48px) var(--gutter) clamp(40px, 5vw, 64px);
   display: grid;
   grid-template-columns: minmax(0, 46%) 1fr;
-  gap: clamp(28px, 5vw, 64px);
+  column-gap: clamp(28px, 5vw, 64px);
+  row-gap: clamp(16px, 2vw, 24px);
   align-items: center;
+  /* breadcrumbs span the full width above both columns */
+  grid-template-areas:
+    "crumbs crumbs"
+    "gallery text";
+}
+.crumbs {
+  grid-area: crumbs;
+  align-self: start;
 }
 .gallery {
+  grid-area: gallery;
   min-width: 0;
+}
+.heroText {
+  grid-area: text;
 }
 .photoWrap {
   position: relative;
@@ -52,9 +65,6 @@
 .photo {
   object-fit: cover;
 }
-.heroText {
-  min-width: 0;
-}
 .eyebrowRow {
   display: flex;
   align-items: center;
@@ -65,16 +75,22 @@
 .eyebrow {
   margin: 0;
 }
+/* ABV as a pill pinned to the bottom-left of the product photo */
 .abvTag {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 2;
   font-size: 11.5px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--muted);
-  background: rgba(34, 27, 20, 0.06);
-  border: 1px solid rgba(34, 27, 20, 0.12);
-  border-radius: 3px;
-  padding: 3px 9px;
+  color: var(--cream);
+  background: rgba(20, 15, 10, 0.62);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(244, 236, 221, 0.18);
+  border-radius: 999px;
+  padding: 5px 12px;
 }
 .h1 {
   font-family: var(--font-display);
@@ -365,6 +381,11 @@
 @media (max-width: 900px) {
   .heroInner {
     grid-template-columns: 1fr;
+    /* breadcrumbs first, then the image, then the text */
+    grid-template-areas:
+      "crumbs"
+      "gallery"
+      "text";
   }
   /* keep the portrait product framing — a landscape crop beheads the bottle */
   .photoWrap {
@@ -391,7 +412,7 @@
     text-align: center;
     /* reserve exactly the bottle's in-card extent (width × 5/4 aspect − 32px
        overhang) + breathing room, so it never overlaps the buttons */
-    padding-bottom: calc(clamp(180px, 44vw, 240px) * 1.25 - 4px);
+    padding-bottom: calc(clamp(240px, 62vw, 320px) * 1.25 - 12px);
   }
   .ctaSub {
     margin-left: auto;
@@ -410,7 +431,7 @@
     top: auto;
     bottom: clamp(-32px, -6vw, -56px);
     transform: translateX(-50%);
-    width: clamp(180px, 44vw, 240px);
+    width: clamp(240px, 62vw, 320px);
   }
 }
 @media (max-width: 760px) {

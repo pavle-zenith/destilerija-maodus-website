@@ -4,6 +4,7 @@ import {
   rakije as fallbackRakije,
   faqs as fallbackFaqs,
   partners as fallbackPartners,
+  accusativeFromName,
   type Rakija,
   type RakijaGroupId,
   type Faq,
@@ -38,6 +39,7 @@ export async function getRakije(): Promise<Rakija[]> {
     return docs.map((d) => ({
       slug: d.slug,
       name: d.name,
+      accusative: accusativeFromName(d.name),
       category: d.category,
       // `group`/`tastingNote` aren't in the lean homepage schema yet — fall back
       // until the schema is extended when we mirror the hub model into Sanity.

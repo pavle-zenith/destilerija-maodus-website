@@ -208,7 +208,7 @@ The page is one continuous scroll. Sections in order:
 
 ### 12. Final CTA (dark)
 - **Section bg:** `#1C1815` with full-bleed `cta-bar.png` (Maoduš bottles on a bar) + a top→bottom dark gradient that **fades to the footer color `#141110`** at the bottom (the footer has `margin-top:-1px` and no top border, so the two visually merge). `id="kontakt"`.
-- **Centered content** (max-900): eyebrow between two red rules "Javite nam šta vam treba", H2 **"Za poklon, proslavu, meni ili ličnu porudžbinu"**, gold italic slogan **„Dobra do poslednje kapi."**, two CTAs — red **"Veleprodajni upit"** (→ `#veleprodaja`) + outline **"Porudžbina za sebe"** — and a contact line: phone **+381 64 61 59 033**, email **info@destilerijamaodus.rs**, Instagram **@destilerija.maodus**.
+- **Centered content** (max-900): eyebrow between two red rules "Javite nam šta vam treba", H2 **"Za poklon, proslavu, meni ili ličnu porudžbinu"**, gold italic slogan **„Dobra do poslednje kapi."**, two CTAs — red **"Veleprodajni upit"** (→ `#veleprodaja`) + outline **"Porudžbina za sebe"** — and a contact line: phone **+381 64 61 59 033**, email **info@destilerijamaodus.rs**, Instagram **@destilerijamaodus**.
 
 ### 13. Footer
 - **Bg:** `#141110`, with the orchard photo (`footer-orchard.png`) faintly bleeding along the bottom (`opacity:.17`, masked to fade upward).

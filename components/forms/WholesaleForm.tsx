@@ -5,7 +5,6 @@ import { submitWholesale } from "@/app/actions/leads";
 import { idleState, type WholesaleWant } from "@/lib/leadSchemas";
 import { allSkuNames, venueTypes } from "@/lib/content";
 import { track } from "@/lib/analytics";
-import { site, whatsappHref } from "@/lib/site";
 import { Field } from "./Field";
 import { Turnstile } from "./Turnstile";
 import styles from "./fields.module.css";
@@ -55,24 +54,19 @@ export function WholesaleForm({
       </div>
 
       <Field label="Šta želite?" name="want" error={fe.want} required>
-        <div className={styles.radioRow} role="radiogroup" aria-label="Šta želite?">
+        <select
+          name="want"
+          className={styles.select}
+          value={want}
+          onChange={(e) => setWant(e.target.value as WholesaleWant)}
+          required
+        >
           {WANTS.map((w) => (
-            <label
-              key={w.value}
-              className={`${styles.radio} ${want === w.value ? styles.radioActive : ""}`}
-            >
-              <input
-                type="radio"
-                name="want"
-                value={w.value}
-                checked={want === w.value}
-                onChange={() => setWant(w.value)}
-                className={styles.radioInput}
-              />
+            <option key={w.value} value={w.value}>
               {w.label}
-            </label>
+            </option>
           ))}
-        </div>
+        </select>
       </Field>
 
       <div className={styles.row}>
@@ -162,19 +156,7 @@ export function WholesaleForm({
         </button>
       </div>
 
-      <p className={styles.alt}>
-        Odgovaramo u roku od 24–48h. Radije direktno?{" "}
-        <a
-          className={styles.altLink}
-          href={whatsappHref("Zdravo! Zainteresovani smo za veleprodaju rakije.")}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => track.whatsapp("wholesale")}
-        >
-          Pišite na WhatsApp
-        </a>{" "}
-        ili pozovite {site.phone}.
-      </p>
+      <p className={styles.alt}>Odgovaramo u roku od 24–48h.</p>
     </form>
   );
 }

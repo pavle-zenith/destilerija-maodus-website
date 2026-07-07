@@ -38,6 +38,20 @@
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+/* native selects: give a firm height, keep the label on one line, and leave
+   room for the chevron so long option text never wraps or clips the box */
+.select {
+  min-height: 48px;
+  line-height: 1.3;
+  padding-right: 40px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%236e5d48' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' d='M1 1.5 6 6.5l5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
 .textarea {
   min-height: 96px;
   resize: vertical;
@@ -52,44 +66,6 @@
 .error {
   font-size: 12.5px;
   color: var(--red);
-}
-
-/* segmented radio row — "Šta želite?" */
-.radioRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.radio {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--body);
-  background: #fff;
-  border: 1px solid var(--border-light);
-  border-radius: 3px;
-  padding: 10px 14px;
-  cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
-}
-.radio:hover {
-  border-color: var(--red);
-}
-.radioActive {
-  background: var(--charcoal);
-  border-color: var(--charcoal);
-  color: var(--off-white);
-}
-.radioInput {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-.radioActive:focus-within,
-.radio:focus-within {
-  box-shadow: 0 0 0 3px rgba(181, 50, 50, 0.12);
 }
 
 /* SKU interest checkboxes */

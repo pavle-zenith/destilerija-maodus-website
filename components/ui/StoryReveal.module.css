@@ -30,3 +30,8 @@
 .static {
   color: var(--body);
 }
+
+/* the key "how it's made" sentence, in the red accent */
+.accent {
+  color: var(--red);
+}
