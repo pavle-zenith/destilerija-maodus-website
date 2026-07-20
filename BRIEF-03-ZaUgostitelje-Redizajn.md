@@ -22,7 +22,7 @@ Trenutna sekcija deluje generički („cookie-cutter") iz dva razloga:
 **Intro (uz H2):** Radimo sa restoranima, barovima, salama i vinotekama — i stojimo iza svake flaše koju vaš konobar otvori pred gostom.
 
 **Blok 1 — ISTAKNUTI (featured):**
-- Naslov: **Isti ukus u januaru i u julu**
+- Naslov: **Dosledan kvalitet u svakoj flaši**
 - Tekst: Zrelo voće, kontrolisana fermentacija i dvostruka destilacija u bakarnom kazanu — zato svaka šarža ima isti ukus. Bez posrednika: količine, ritam isporuke i izbor dogovaramo direktno, prema vašem lokalu i sezoni.
 
 **Blok 2:**
@@ -34,8 +34,8 @@ Trenutna sekcija deluje generički („cookie-cutter") iz dva razloga:
 - Tekst: „Dunja iz porodičnog voćnjaka u Vojvodini — kraljica voćnih rakija." Gost pamti, druga runda se ne prodaje sama. Priča je marža.
 
 **Blok 4:**
-- Naslov: **Rakija pod vašim brendom**
-- Tekst: Vi date etiketu, mi punimo naše boce našom rakijom — za sale, svadbe i poslovne poklone, sa imenom mladenaca, vaše firme ili vašeg lokala.
+- Naslov: **Dogovor direktno sa porodicom**
+- Tekst: Bez posrednika: količine, ritam isporuke i izbor rakija za vaš lokal. Etiketa za lokal ili događaj na upit.
 
 **Završna linija (zamenjuje postojeću rečenicu o laboratoriji):** Na upit odgovara isti čovek koji peče rakiju — dogovara isporuku i pamti šta vaši gosti piju.
 
@@ -45,10 +45,10 @@ Trenutna sekcija deluje generički („cookie-cutter") iz dva razloga:
 
 | Staro | Novo |
 |---|---|
-| Stabilan kvalitet i direktna isporuka (featured) | Isti ukus u januaru i u julu (featured) |
+| Stabilan kvalitet i direktna isporuka (featured) | Dosledan kvalitet u svakoj flaši (featured) |
 | Jasan izbor za meni | → uklonjeno (pokriva asortiman sekcija); zamenjuje ga „Priča koju konobar prenese…" |
 | Degustacija pre odluke | → uklonjeno (pokrivaju hero, korak 2 i CTA) |
-| Rakija pod vašim brendom (bivše „Etiketa za lokal ili događaj") | zadržano, konkretizovan tekst (white-label) |
+| Dogovor direktno sa porodicom (bivše „Etiketa za lokal ili događaj") | zamenjeno: etiketa se ne promoviše unapred, samo „na upit" |
 | — (novo) | Laboratorija, ne obećanje — promovisano iz muted footer teksta u punopravan blok |
 | Muted rečenica o laboratoriji + porodici | → nova završna linija o direktnom kontaktu |
 

@@ -486,7 +486,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "Da li nudite poklon pakovanja?",
-    a: "Da. Rakije se mogu poručiti za poklon, slavu, poslovni poklon ili proslavu. Za posebne prilike radimo i rakiju pod vašim brendom: vi date etiketu, mi punimo naše boce našom rakijom.",
+    a: "Da. Rakije Destilerije Maoduš se mogu poručiti za poklon, slavu, poslovni poklon ili proslavu, u zapreminama od 0,5 l do 1 l. Za posebne prilike, personalizovana etiketa je moguća na upit.",
   },
   {
     q: "Kolika je jačina vaših rakija?",
@@ -508,8 +508,8 @@ export const wholesaleFaqs: Faq[] = [
     a: "Da. Pošaljete upit, mi šaljemo uzorak, a vi probate sa svojim timom. Ako se ukusi ne poklope, ne dugujete nam ništa.",
   },
   {
-    q: "Da li pravite rakiju pod našim brendom (white-label)?",
-    a: "Da. Vi date etiketu i brendiranje, a mi punimo naše boce našom rakijom, za restorane, barove, sale, svadbe i poslovne poklone. Napišite u upitu šta vam treba i za koju priliku.",
+    q: "Da li je moguća etiketa za naš lokal ili događaj?",
+    a: "Da, na upit. Destilerija Maoduš prvo preporučuje svoje rakije za vaš meni ili događaj, a za veće porudžbine dogovaramo i personalizovanu etiketu za restorane, barove, sale, svadbe i poslovne poklone. Napišite u upitu šta vam treba i za koju priliku.",
   },
   {
     q: "Koji su rokovi isporuke?",
@@ -642,7 +642,7 @@ export const bento: BentoCard[] = [
     tag: "Pokloni",
     href: "/kontakt",
     image: "/images/bento-poklon.png",
-    copy: "Naša rakija u našoj boci, sa logom vaše firme na etiketi.",
+    copy: "Boca sa pričom iz porodičnog voćnjaka, spremna za poklon.",
     tint: [52, 38, 12],
   },
   {

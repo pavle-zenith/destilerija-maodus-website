@@ -170,7 +170,7 @@ Naslov teksta je doslovno pretraga koju cilja (klasteri iz STRATEGIJA-03 §6): �
 - **Eyebrow:** Za ugostitelje
 - **H2:** Rakija za meni koji ima šta da preporuči.
 - **Uvod:** Radimo sa restoranima, barovima, salama i vinotekama. Stojimo iza svake flaše koju vaš konobar otvori pred gostom.
-- **4 bloka:** koristiti copy iz **BRIEF-03-ZaUgostitelje-Redizajn.md §2** (Isti ukus u januaru i u julu, Laboratorija ne obećanje, Priča koju konobar prenese u jednoj rečenici, Rakija pod vašim brendom). Na početnoj mogu skraćene verzije: naslov + prva rečenica.
+- **4 bloka:** koristiti copy iz **BRIEF-03-ZaUgostitelje-Redizajn.md §2** (Dosledan kvalitet u svakoj flaši, Laboratorija ne obećanje, Priča koju konobar prenese u jednoj rečenici, Dogovor direktno sa porodicom). Na početnoj mogu skraćene verzije: naslov + prva rečenica.
 - **CTA primarni:** Zatražite besplatan uzorak → /veleprodaja
 - **CTA sekundarni (link):** Sve o veleprodaji → /veleprodaja
 
@@ -184,7 +184,7 @@ Naslov teksta je doslovno pretraga koju cilja (klasteri iz STRATEGIJA-03 §6): �
 - **Kartice:**
   - **Za restorane i barove.** Rakija za meni, preporuku osoblja i goste koji traže domaće. → /veleprodaja
   - **Za sale i svadbe.** Welcome rakija za doček gostiju: aperitiv koji razbije led i podigne raspoloženje. → /veleprodaja
-  - **Za poslovne poklone.** Naša rakija u našoj boci, sa logom vaše firme na etiketi. → /kontakt
+  - **Za poslovne poklone.** Boca sa pričom iz porodičnog voćnjaka, spremna za poklon. → /kontakt
   - **Za privatne kupce.** Za slavu, poklon, odlazak u goste ili kućnu kolekciju. → /kontakt
 
 *(JTBD navigacija. Kartice konkretizovane: „etiketa sa imenima mladenaca" i „logo firme" su slike, ne kategorije. Fraze „rakija za svadbu" i „poslovni pokloni" pokrivene prirodno.)*
@@ -246,7 +246,7 @@ Naslov teksta je doslovno pretraga koju cilja (klasteri iz STRATEGIJA-03 §6): �
   Da, isporučujemo širom Srbije. Način i rok isporuke dogovaramo uz svaku porudžbinu, prema količini i mestu. Za Kanjižu, Suboticu i okolinu moguća je i lična isporuka po dogovoru. **[TODO: potvrditi sa Pavlom tačne uslove i kurirsku praksu pre objave]**
 
 - **Da li nudite poklon pakovanja?**
-  Da. Za posebne prilike radimo i rakiju pod vašim brendom: vi date etiketu (ime slavljenika, mladenaca ili logo firme), a mi punimo naše boce našom rakijom. Poklon boce radimo u zapreminama od 0,5 l do 1 l. Javite priliku i budžet, predložićemo konkretnu bocu. **[TODO: potvrditi šta tačno postoji od ambalaže]**
+  Da. Rakije Destilerije Maoduš se mogu poručiti za poklon, slavu, poslovni poklon ili proslavu, u zapreminama od 0,5 l do 1 l. Za posebne prilike, personalizovana etiketa je moguća na upit. Javite priliku i budžet, predložićemo konkretnu bocu. **[TODO: potvrditi šta tačno postoji od ambalaže]**
 
 - **Kolika je jačina vaših rakija?**
   Voćne bele rakije Maoduš (dunja, kajsija, viljamovka) imaju 40% vol, a barrique izdanja odležana u hrastu 42% vol. Sve rakije nastaju dvostrukom destilacijom u bakarnim kazanima i prolaze laboratorijsku analizu pre punjenja.
@@ -453,7 +453,7 @@ Naslov teksta je doslovno pretraga koju cilja (klasteri iz STRATEGIJA-03 §6): �
 ### Meta
 
 - **Title:** `Veleprodaja rakije za ugostitelje | Destilerija Maoduš`
-- **Description:** `Rakija za restorane, barove, sale i vinoteke: besplatan degustacioni uzorak pre odluke, direktna isporuka bez posrednika i rakija pod vašim brendom (white-label, personalizovana etiketa). Destilerija Maoduš, Kanjiža, Vojvodina.`
+- **Description:** `Rakija za restorane, barove, sale i vinoteke: besplatan degustacioni uzorak pre odluke i direktna isporuka bez posrednika. Personalizovana etiketa na upit. Destilerija Maoduš, Kanjiža, Vojvodina.`
 
 ### [1] Hero
 
@@ -463,7 +463,7 @@ Naslov teksta je doslovno pretraga koju cilja (klasteri iz STRATEGIJA-03 §6): �
 - **CTA primarni:** Zatražite besplatan degustacioni uzorak → #upit (zelja=uzorak)
 - **CTA sekundarni:** Pošaljite veleprodajni upit → #upit (zelja=ponuda)
 - **Loss aversion linija:** Vaši gosti već traže pravu domaću rakiju.
-- **Trust bullets:** Bez posrednika. Direktna isporuka po dogovoru. Besplatan degustacioni uzorak. Rakija pod vašim brendom na zahtev.
+- **Trust bullets:** Bez posrednika. Direktna isporuka po dogovoru. Besplatan degustacioni uzorak. Etiketa za vaš lokal na upit.
 
 ### [2] PartnerWall
 
@@ -495,7 +495,7 @@ Naslov teksta je doslovno pretraga koju cilja (klasteri iz STRATEGIJA-03 §6): �
 
 ### [4] Za ugostitelje (zašto Maoduš)
 
-Copy doslovno iz **BRIEF-03-ZaUgostitelje-Redizajn.md §2**: H2 „Rakija za meni koji ima šta da preporuči.", četiri bloka (Isti ukus u januaru i u julu, Laboratorija ne obećanje, Priča koju konobar prenese u jednoj rečenici, Rakija pod vašim brendom), završna linija o direktnom kontaktu, CTA „Zatražite uzorak".
+Copy doslovno iz **BRIEF-03-ZaUgostitelje-Redizajn.md §2**: H2 „Rakija za meni koji ima šta da preporuči.", četiri bloka (Dosledan kvalitet u svakoj flaši, Laboratorija ne obećanje, Priča koju konobar prenese u jednoj rečenici, Dogovor direktno sa porodicom), završna linija o direktnom kontaktu, CTA „Zatražite uzorak".
 
 ### [5] Kako izgleda saradnja
 
@@ -505,7 +505,7 @@ Copy doslovno iz **BRIEF-03-ZaUgostitelje-Redizajn.md §2**: H2 „Rakija za men
 - **Koraci:**
   1. **Pošaljete upit.** Kažete nam tip lokala i šta vas zanima, preko forme, telefona ili mejla.
   2. **Stiže degustacioni uzorak.** Probate sa svojim timom, na miru i bez ikakve obaveze.
-  3. **Dogovaramo uslove i isporuku.** Količine, ritam isporuke i rakija pod vašim brendom po želji za vaš lokal ili događaj.
+  3. **Dogovaramo uslove i isporuku.** Količine, ritam isporuke i izbor rakija za vaš lokal. Etiketa za lokal ili događaj na upit.
 - **Linija:** Odgovaramo u roku od 24–48h.
 
 ### [6] Asortiman (kondenzovano)
@@ -550,8 +550,8 @@ Copy doslovno iz **BRIEF-03-ZaUgostitelje-Redizajn.md §2**: H2 „Rakija za men
 - **Da li je degustacioni uzorak zaista besplatan i bez obaveze?**
   Da. Pre prve porudžbine šaljemo besplatan degustacioni uzorak da rakiju probate sa svojim timom, na miru. Nema obaveze kupovine i nema uslovljavanja: ako se ukus ne uklopi u vaš meni, ostajemo u dobrim odnosima.
 
-- **Da li pravite rakiju pod našim brendom (white-label)?**
-  Da. Destilerija Maoduš radi rakiju pod vašim brendom za lokale, sale, svadbe i poslovne poklone: vi date etiketu i brendiranje (ime lokala, mladenaca ili logo firme), a mi punimo naše boce našom rakijom. Rade se standardne boce od 0,5 l, 0,7 l i 1 l. Javite priliku, predložićemo format.
+- **Da li je moguća etiketa za naš lokal ili događaj?**
+  Da, na upit. Destilerija Maoduš prvo preporučuje svoje rakije za vaš meni ili događaj, a za veće porudžbine dogovaramo i personalizovanu etiketu za restorane, barove, sale, svadbe i poslovne poklone. Rade se standardne boce od 0,5 l, 0,7 l i 1 l. Javite priliku, predložićemo format.
 
 - **Koji su rokovi isporuke?**
   **[TODO: potvrditi sa Pavlom]** Predlog odgovora: Rok zavisi od količine i mesta isporuke, a dogovara se uz svaku porudžbinu. Na upit odgovaramo u roku od 24–48h, a isporuku organizujemo direktno, bez posrednika.

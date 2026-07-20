@@ -22,7 +22,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Veleprodaja rakije za ugostitelje",
   description:
-    "Rakija za restorane, barove, sale i vinoteke: besplatan degustacioni uzorak, direktna isporuka bez posrednika i rakija pod vašim brendom (white-label, personalizovana etiketa). Zatražite ponudu.",
+    "Rakija za restorane, barove, sale i vinoteke: besplatan degustacioni uzorak i direktna isporuka bez posrednika. Personalizovana etiketa na upit. Zatražite ponudu.",
   alternates: { canonical: "/veleprodaja" },
   openGraph: {
     type: "website",
@@ -39,7 +39,7 @@ const trustBullets = [
   "Bez posrednika",
   "Direktna isporuka po dogovoru",
   "Besplatan degustacioni uzorak",
-  "Rakija pod vašim brendom na zahtev",
+  "Etiketa za vaš lokal na upit",
 ];
 
 const cooperationSteps: OrderStep[] = [
@@ -56,7 +56,7 @@ const cooperationSteps: OrderStep[] = [
   {
     n: "3",
     title: "Dogovaramo uslove i isporuku",
-    text: "Količine, ritam isporuke i rakija pod vašim brendom po želji za vaš lokal ili događaj.",
+    text: "Količine, ritam isporuke i izbor rakija za vaš lokal. Etiketa za lokal ili događaj na upit.",
   },
 ];
 
@@ -270,7 +270,7 @@ export default async function VeleprodajaPage({
                   <span className={styles.whyIcon} aria-hidden="true">
                     <Icon name="barrel" size={22} />
                   </span>
-                  <h3 className={styles.whyCardTitle}>Isti ukus, cele godine</h3>
+                  <h3 className={styles.whyCardTitle}>Dosledan kvalitet u svakoj flaši</h3>
                   <p className={styles.whyCardText}>
                     Dvostruka destilacija u bakru i kontrolisana fermentacija drže
                     svaku šaržu istom.
@@ -305,10 +305,10 @@ export default async function VeleprodajaPage({
                   <span className={styles.whyIcon} aria-hidden="true">
                     <Icon name="tag" size={22} />
                   </span>
-                  <h3 className={styles.whyCardTitle}>Rakija pod vašim brendom</h3>
+                  <h3 className={styles.whyCardTitle}>Dogovor direktno sa porodicom</h3>
                   <p className={styles.whyCardText}>
-                    Vi date etiketu, mi punimo naše boce našom rakijom, sa imenom
-                    lokala, firme ili mladenaca.
+                    Bez posrednika: količine, ritam isporuke i izbor rakija za vaš
+                    lokal. Etiketa za lokal ili događaj na upit.
                   </p>
                 </div>
               </div>

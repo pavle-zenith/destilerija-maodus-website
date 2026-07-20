@@ -18,8 +18,8 @@ const usps: { icon: IconName; title: string; text: string }[] = [
   },
   {
     icon: "tag",
-    title: "Rakija pod vašim brendom",
-    text: "Vi date etiketu, mi punimo naše boce našom rakijom: za sale, svadbe i poslovne poklone, sa imenom mladenaca, vaše firme ili vašeg lokala.",
+    title: "Bez posrednika, dogovor direktno sa porodicom",
+    text: "Količine, ritam isporuke i izbor dogovaramo direktno sa vama, prema vašem lokalu i sezoni. Etiketa za vaš lokal ili događaj moguća je na upit.",
   },
 ];
 
@@ -70,7 +70,7 @@ export function B2BSection({
               <Icon name="checkCircle" size={24} />
             </div>
             <div className={styles.heroText}>
-              <h3 className={styles.heroTitle}>Isti ukus u januaru i u julu</h3>
+              <h3 className={styles.heroTitle}>Dosledan kvalitet u svakoj flaši</h3>
               <p className={styles.heroPara}>
                 Zrelo voće, kontrolisana fermentacija i dvostruka destilacija u
                 bakarnom kazanu, zato svaka šarža ima isti ukus. Bez posrednika:
